@@ -1,0 +1,5 @@
+       
+#(#! 
+(lisp::in-package 'user::si)
+#(system::monitor2 system::set-up-combined system::write_outsyms lisp::nil (system::%init . #((lisp::setq compiler::*cc* (lisp::concatenate 'lisp::string compiler::*cc* " -pg ")) (lisp::format lisp::t "~% Adding -pg to the *cc* command") (system::mf 'system::write-gmon+syms 0) (system::mf 'system::monstartup 1) (system::mf 'system::monitor2 2) (system::mf 'system::moncontrol 3) (system::mf 'system::write_outsyms 4))))
+)

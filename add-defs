@@ -1,0 +1,66 @@
+#!/bin/sh
+
+if [ $# -le 0 ]  ; then echo usage: Provide a machine name as arg ; exit 1 ; fi
+
+if [ -f h/$1.defs ] ; then echo using $1.defs ;
+  else echo h/$1.defs does not exist
+  echo Build one or use one of `ls h/*.defs`
+  exit 1
+fi
+
+echo $1 > machine
+
+
+if [ $# -ge 2 ] ; then
+   if [ -f $2/c/sfasl.c ] ; then true ; else echo $2 is not the main akcl direct\
+ory  ; exit 1; fi ;fi
+
+
+  rm -f makedefs
+  echo > makedefs
+  echo "# begin makedefs" >> makedefs
+  if [ -d ${PWD}/unixport ] ; 
+   then  echo "GCLDIR=${PWD}" >> makedefs ;
+   else echo "GCLDIR=`pwd`" >> makedefs ;
+  fi
+  echo "SHELL=/bin/sh" >> makedefs
+  echo "MACHINE=$1"  >> makedefs
+  cat h/$1.defs >> makedefs 
+  echo "# end makedefs" >> makedefs
+
+  echo inserting h/$1.defs in ..
+  for v in  mp/makefile makefile o/makefile lsp/makefile unixport/makefile  cmpnew/makefile  unixport/make_kcn  bin/makefile;
+  do
+  echo " $v,"
+  xbin/file-sub makedefs $v "# begin makedefs" "# end makedefs"
+  mv tmpx $v
+  done
+
+
+echo ""
+
+# Copy the config.h over.
+
+if [ -f h/config.h ]; then
+./xbin/move-if-changed h/$1.h h/config.h
+else
+ln h/$1.h h/config.h
+fi
+
+# fix the cmpinclude.h
+
+if fgrep "Begin for cmpinclud" h/$1.h > /dev/null ;
+then
+./xbin/file-sub h/$1.h h/cmpinclude.h "Begin for cmpinclud" "End for cmpinclud"
+else
+echo "/* Begin for cmpinclude */" >tmp.h
+echo "/* End for cmpinclude */" >>tmp.h
+./xbin/file-sub tmp.h h/cmpinclude.h "Begin for cmpinclud" "End for cmpinclud"
+rm -f tmp.h
+fi
+./xbin/move-if-changed tmpx h/cmpinclude.h
+rm -f tmpx
+
+if [ -f xbin/$1-fix ] ; then xbin/$1-fix ; fi
+
+

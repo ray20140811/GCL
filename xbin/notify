@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Send in a notification about successful compilation, which may
+# help others, and help in determining on which machines and
+# levels of the OS compilation has been successful.
+
+if [ -f /bin/mail ] ; then
+
+ echo AKCL `cat minvers` Machine: `cat machine`   > tmpx
+ ls -l h/config.h >> tmpx
+ echo $@ >> tmpx
+
+ if [ -f /etc/motd ] ; then
+  cat /etc/motd | sed -e "2,10000d" >> tmpx ;
+ fi
+
+ cat tmpx | /bin/mail akcl@nicolas.ma.utexas.edu
+fi
+

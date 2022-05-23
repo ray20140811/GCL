@@ -1,0 +1,5891 @@
+
+
+FALLOCATE-CONTIGUOUS-PAGES
+Function in SI package:
+Args: (number &optional (really-allocate nil))
+GCL specific: Sets the maximum number of pages for contiguous blocks to
+NUMBER.  If REALLY-ALLOCATE is non-NIL, then the specified
+number of pages will be allocated immediately.
+
+FSIGNUM
+Function in LISP package:
+Args: (number)
+If NUMBER is zero, returns NUMBER; else returns (/ NUMBER (ABS NUMBER)).
+
+FLOGNOT
+Function in LISP package:
+Args: (integer)
+Returns the bit-wise logical NOT of INTEGER.
+
+FGENSYM
+Function in LISP package:
+Args: (&optional (x nil))
+Creates and returns a new uninterned symbol whose name is a prefix string
+(defaults to "G"), followed by a decimal number.  The number is incremented
+by each call to GENSYM.  X, if an integer, resets the counter.  If X is a
+string, it becomes the new prefix.
+
+FSUBSEQ
+Function in LISP package:
+Args: (sequence start &optional (end (length sequence)))
+Returns a copy of a subsequence of SEQUENCE between START (inclusive) and
+END (exclusive).
+
+FVECTOR
+Function in LISP package:
+Args: (&rest objects)
+Constructs a Simple-Vector from the given objects.
+
+FMINUSP
+Function in LISP package:
+Args: (number)
+Returns T if NUMBER < 0; NIL otherwise.
+
+FSYSTEM
+Function in LISP package:
+Args: (string)
+GCL specific: Executes a Shell command as if STRING is an input to the Shell.
+Not all versions of GCL support this function.
+
+FDO-EXTERNAL-SYMBOLS
+Macro in LISP package:
+Syntax: (do-external-symbols (var [package [result-form]])
+          {decl}* {tag | statement}*)
+Executes STATEMENTs once for each external symbol in the PACKAGE (which
+defaults to the current package), with VAR bound to the current symbol.
+Then evaluates RESULT-FORM (which defaults to NIL) and returns the value(s).
+
+VMOST-POSITIVE-SHORT-FLOAT
+Variable in LISP package:
+The short-float closest in value to positive infinity.
+
+FLOGORC1
+Function in LISP package:
+Args: (integer1 integer2)
+Returns the logical OR of (LOGNOT INTEGER1) and INTEGER2.
+
+FINTEGER-DECODE-FLOAT
+Function in LISP package:
+Args: (float)
+Returns, as three values, the integer interpretation of significand F,
+the exponent E, and the sign S of the given float, so that
+			 E
+	FLOAT = S * F * B	where B = (FLOAT-RADIX FLOAT)
+
+F is a non-negative integer, E is an integer, and S is either 1 or -1.
+
+F-
+Function in LISP package:
+Args: (number &rest more-numbers)
+Subtracts the second and all subsequent NUMBERs from the first NUMBER.
+With one arg, negates it.
+
+V-
+Variable in LISP package:
+Holds the top-level form that GCL is currently evaluating.
+
+VMOST-NEGATIVE-SINGLE-FLOAT
+Variable in LISP package:
+Same as MOST-NEGATIVE-LONG-FLOAT.
+
+FCOMPILE
+Function in LISP package:
+Args: (name &optional (definition nil))
+If DEFINITION is NIL, NAME must be the name of a not-yet-compiled
+function.  In this case, COMPILE compiles the function, installs the compiled
+function as the global function definition of NAME, and returns NAME.
+If DEFINITION is non-NIL, it must be a lambda expression and NAME must be
+a symbol.  COMPILE compiles the lambda expression, installs the compiled
+function as the function definition of NAME, and returns NAME.
+There is only one exception for this:  If NAME is NIL, then the compiled
+function is not installed but is simply returned as the value of COMPILE.
+     In any case, COMPILE creates temporary files whose filenames are
+"gazonk***".  By default, i.e. if :LEAVE-GAZONK is not supplied or is
+NIL, these files are automatically deleted after compilation.
+
+FUNTRACE
+Macro in LISP package:
+Syntax: (untrace {function-name}*)
+Removes tracing from the specified functions.  With no FUNCTION-NAMEs,
+untraces all functions.
+
+FNINTERSECTION
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns the intersection of LIST1 and LIST2.  LIST1 may be destroyed.
+
+VBOOLE-C1
+Variable in LISP package:
+Makes BOOLE return the complement of INTEGER1.
+
+FAPROPOS
+Function in LISP package:
+Args: (string &optional (package nil))
+Prints those symbols whose print-names contain STRING as substring.
+If PACKAGE is non-NIL, then only the specified package is searched.
+
+VLAMBDA-LIST-KEYWORDS
+Variable in LISP package:
+List of all the lambda-list keywords used in GCL.
+
+VLEAST-POSITIVE-SHORT-FLOAT
+Variable in LISP package:
+The positive short-float closest in value to zero.
+
+FBIT-NAND
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical NAND  on the elements of BIT-ARRAY1 and
+BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FINT-CHAR
+Function in LISP package:
+Args: (integer)
+Performs the inverse of CHAR-INT.  Equivalent to CODE-CHAR in GCL.
+
+FCHAR-INT
+Function in LISP package:
+Args: (char)
+Returns the font, bits, and code attributes as a single non-negative integer.
+Equivalent to CHAR-CODE in GCL.
+
+VLEAST-NEGATIVE-SINGLE-FLOAT
+Variable in LISP package:
+Same as LEAST-NEGATIVE-LONG-FLOAT.
+
+F/=
+Function in LISP package:
+Args: (number &rest more-numbers)
+Returns T if no two of its arguments are numerically equal; NIL otherwise.
+
+FLDB-TEST
+Function in LISP package:
+Args: (bytespec integer)
+Returns T if at least one of the bits in the specified bytes of INTEGER is 1;
+NIL otherwise.
+
+V***
+Variable in LISP package:
+Gets the previous value of ** when GCL evaluates a top-level form.
+
+FCOPY-SEQ
+Function in LISP package:
+Args: (sequence)
+Returns a copy of SEQUENCE.
+
+VCHAR-CODE-LIMIT
+Variable in LISP package:
+The upper exclusive bound on values produced by CHAR-CODE.
+
+FRATIONAL
+Function in LISP package:
+Args: (number)
+Converts NUMBER into rational accurately and returns it.
+
+VPI
+Variable in LISP package:
+The floating-point number that is appropriately equal to the ratio of the
+circumference of the circle to the diameter.
+
+FGET-SETF-METHOD
+Function in LISP package:
+Args: (form)
+Returns the five values (or five 'gangs') constituting the SETF method for
+FORM.  See the doc of DEFINE-SETF-METHOD for the meanings of the gangs.  It
+is an error if the third value (i.e., the list of store variables) is not a
+one-element list.  See the doc of GET-SETF-METHOD-MULTIPLE-VALUE for
+comparison.
+
+FPOSITION
+Function in LISP package:
+Args: (item sequence
+       &key (from-end nil) (test #'eql) test-not (start 0)
+            (end (length sequence)) (key #'identity))
+Returns the index of the first element in SEQUENCE that satisfies TEST with
+ITEM; NIL if no such element exists.
+
+FKEYWORDP
+Function in LISP package:
+Args: (x)
+Returns T if X is a symbol and it belongs to the KEYWORD package; NIL
+otherwise.
+
+FNAME-CHAR
+Function in LISP package:
+Args: (name)
+Given an argument acceptable to string,
+Returns a character object whose name is NAME if one exists.  Returns NIL
+otherwise.  NAME must be an object that can be coerced to a string.
+
+FCHAR-NAME
+Function in LISP package:
+Args: (char)
+Returns the name for CHAR as a string; NIL if CHAR has no name.
+Only #\Backspace, #\Tab, #\Newline (or #\Linefeed), #\Page, #\Return,
+and #\Rubout have names.
+
+V*IGNORE-MAXIMUM-PAGES*
+Variable in LISP package:
+GCL specific: Tells the GCL memory manager whether (non-NIL) or not (NIL) it
+should expand memory whenever the maximum allocatable pages have been used
+up.
+
+FMACHINE-VERSION
+Function in LISP package:
+Args: ()
+Returns a string that identifies the machine version of the machine
+on which GCL is currently running.
+
+FEVAL-WHEN
+Special Form in LISP package:
+Syntax: (eval-when ({situation}*) {form}*)
+A situation must be either COMPILE, LOAD, or EVAL.  The interpreter evaluates
+only when EVAL is specified.  If COMPILE is specified, FORMs are evaluated
+at compile time.  If LOAD is specified, the compiler arranges so that FORMs
+be evaluated when the compiled code is loaded.
+
+FDO*
+Special Form in LISP package:
+Syntax: (do* ({(var [init [step]])}*) (endtest {result}*)
+          {decl}* {tag | statement}*)
+Just like DO, but performs variable bindings and assignments in serial, just
+like LET* and SETQ do.
+
+FRASSOC-IF
+Function in LISP package:
+Args: (predicate alist)
+Returns the first cons in ALIST whose cdr satisfies PREDICATE.
+
+FMAKE-LIST
+Function in LISP package:
+Args: (size &key (initial-element nil))
+Creates and returns a list containing SIZE elements, each of which is
+initialized to INITIAL-ELEMENT.
+
+FGET-DECODED-TIME
+Function in LISP package:
+Args: ()
+Returns the current time in decoded time format.  Returns nine values: second,
+minute, hour, date, month, year, day-of-week, daylight-saving-time-p, and
+time-zone.
+
+FHOST-NAMESTRING
+Function in LISP package:
+Args: (pathname)
+Returns the host part of PATHNAME as a string.
+
+FMAKE-ECHO-STREAM
+Function in LISP package:
+Args: (input-stream output-stream)
+Returns a bidirectional stream which gets its input from INPUT-STREAM and
+sends its output to OUTPUT-STREAM.  In addition, all input is echoed to
+OUTPUT-STREAM.
+
+FTHE
+Special Form in LISP package:
+Syntax: (the value-type form)
+Declares that the value of FORM must be of VALUE-TYPE.  Signals an error if
+this is not the case.
+
+FFREEZE-DEFSTRUCT
+Function in SI package:
+Args: (name)
+The inline defstruct type checker will be made more efficient, in that
+it will only check for types which currently include NAME.   After
+calling this the defstruct should not be altered.
+
+FDEFSTRUCT
+Macro in LISP package:
+Syntax: (defstruct
+         {name | (name {:conc-name | (:conc-name prefix-string) |
+                        :constructor | (:constructor symbol [lambda-list]) |
+                        :copier | (:copier symbol) |
+                        :predicate | (:predicate symbol) | 
+                        (:include symbol) |
+                        (:print-function function) |
+                        (:type {vector | (vector type) | list}) |
+                        :named | (:static { nil | t})
+                        (:initial-offset number)}*)}
+         [doc]
+         {slot-name |
+          (slot-name [default-value-form] {:type type | :read-only flag}*) }*
+         )
+Defines a structure.  The doc-string DOC, if supplied, is saved as a STRUCTURE
+doc and can be retrieved by (documentation 'NAME 'structure).
+STATIC is gcl specific and makes the body non relocatable.
+
+See the files misc/rusage.lsp misc/cstruct.lsp, for examples of making
+a lisp structure correspond to a C structure.
+
+
+FNTH
+Function in LISP package:
+Args: (n list)
+Returns the N-th element of LIST, where the car of LIST is the zeroth
+element.
+
+FSIN
+Function in LISP package:
+Args: (radians)
+Returns the sine of RADIANS.
+
+VBOOLE-ORC2
+Variable in LISP package:
+Makes BOOLE return LOGORC2 of INTEGER1 and INTEGER2.
+
+FNUMERATOR
+Function in LISP package:
+Args: (rational)
+Returns as an integer the numerator of the given rational number.
+
+FMASK-FIELD
+Function in LISP package:
+Args: (bytespec integer)
+Extracts the specified byte from INTEGER.
+
+FARRAY-RANK
+Function in LISP package:
+Args: (array)
+Returns the number of dimensions of ARRAY.
+
+FCAAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CAR X)).
+
+V*READTABLE*
+Variable in LISP package:
+The current readtable.
+
+FINCF
+Special Form in LISP package:
+Syntax: (incf place [delta])
+Adds the number produced by DELTA (which defaults to 1) to the number
+in PLACE.
+
+FLOAD
+Function in LISP package:
+Args: (filename
+       &key (verbose *load-verbose*) (print nil) (if-does-not-exist :error))
+Loads the file named by FILENAME into GCL.
+
+FHELP
+Function in LISP package:
+Args: (&optional symbol)
+GCL specific: Prints the documentation associated with SYMBOL.  With no
+argument, this function prints the greeting message to GCL beginners.
+
+FSINH
+Function in LISP package:
+Args: (number)
+Returns the hyperbolic sine of NUMBER.
+
+FSBIT
+Function in LISP package:
+Args: (simple-bit-array &rest subscripts)
+Returns the bit from SIMPLE-BIT-ARRAY at SUBSCRIPTS.
+
+FSETF
+Special Form in LISP package:
+Syntax: (setf {place newvalue}*)
+Replaces the value in PLACE with the value of NEWVALUE, from left to right.
+Returns the value of the last NEWVALUE.  Each PLACE may be any one of the
+following:
+  * A symbol that names a variable.
+  * A function call form whose first element is the name of the following
+    functions:
+	nth	elt	subseq	rest	first ... tenth
+	c?r	c??r	c???r	c????r
+	aref	svref	char	schar	bit	sbit	fill-poiter
+	get	getf	documentation	symbol-value	symbol-function
+	symbol-plist	macro-function	gethash
+	char-bit	ldb	mask-field
+	apply
+    where '?' stands for either 'a' or 'd'.
+  * the form (THE type place) with PLACE being a place recognized by SETF.
+  * a macro call which expands to a place recognized by SETF.
+  * any form for which a DEFSETF or DEFINE-SETF-METHOD declaration has been
+    made.
+
+FWHEN
+Special Form in LISP package:
+Syntax: (when test {form}*)
+If TEST evaluates to non-NIL, then evaluates FORMs as a PROGN.  If not,
+simply returns NIL.
+
+FOPEN
+Function in LISP package:
+Args: (filename &key (direction :input) (element-type 'string-char)
+                     (if-exists :error) (if-does-not-exist :error))
+Opens the file specified by FILENAME, which may be a string, a pathname,
+or a stream.  Returns a stream for the open file.
+DIRECTION is  :INPUT, :OUTPUT, :IO or :PROBE.
+ELEMENT-TYPE is  STRING-CHAR, (UNSIGNED-BYTE n),
+UNSIGNED-BYTE, (SIGNED-BYTE n), SIGNED-BYTE, CHARACTER, BIT, (MOD n), or
+:DEFAULT.
+IF-EXISTS is :ERROR, :NEW-VERSION, :RENAME,
+:RENAME-AND-DELETE, :OVERWRITE, :APPEND, :SUPERSEDE, or NIL.
+IF-DOES-NOT-EXIST is  :ERROR, :CREATE, or NIL.
+
+FBOTH-CASE-P
+Function in LISP package:
+Args: (char)
+Returns T if CHAR is an alphabetic character; NIL otherwise.  Equivalent to
+ALPHA-CHAR-P.
+
+FNULL
+Function in LISP package:
+Args: (x)
+Returns T if X is NIL; NIL otherwise.
+
+FRENAME-FILE
+Function in LISP package:
+Args: (file new-name)
+Renames the file FILE to NEW-NAME.  FILE may be a string, a pathname, or
+a stream.
+
+FFILE-AUTHOR
+Function in LISP package:
+Args: (file)
+Returns the author name of the specified file, as a string.
+FILE may be a string or a stream
+
+FSTRING-CAPITALIZE
+Function in LISP package:
+Args: (string &key (start 0) (end (length string)))
+Returns a copy of STRING with the first character of each word converted to
+upper-case, and remaining characters in the word converted to lower case.
+
+FCCASE
+Macro in LISP package:
+Syntax: (ccase keyplace {({key | ({key}*)} {form}*)}*)
+Evaluates KEYPLACE and tries to find the KEY that is EQL to the value of
+KEYPLACE.  If one is found, then evaluates FORMs that follow the KEY and
+returns the value(s) of the last FORM.  If not, signals a correctable error.
+
+FMACROEXPAND
+Function in LISP package:
+Args: (form &optional (env nil))
+If FORM is a macro form, then expands it repeatedly until it is not a macro
+any more.  Returns two values: the expanded form and a T-or-NIL flag
+indicating whether the original form was a macro.
+
+V*PRINT-BASE*
+Variable in LISP package:
+The radix in which the GCL printer prints integers and rationals.
+The value must be an integer from 2 to 36, inclusive.
+
+FPHASE
+Function in LISP package:
+Args: (number)
+Returns the angle part of the polar representation of a complex number.
+For non-complex numbers, this is 0.
+
+FSCHAR
+Function in LISP package:
+Args: (simple-string index)
+Returns the character object representing the INDEX-th character in STRING.
+This is faster than CHAR.
+
+FFIFTH
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDDDDR X)).
+
+FNCONC
+Function in LISP package:
+Args: (&rest lists)
+Concatenates LISTs by destructively modifying them.
+
+FBOOLE
+Function in LISP package:
+Args: (op integer1 integer2)
+Returns an integer produced by performing the logical operation specified by
+OP on the two integers.  OP must be the value of one of the following
+constants:
+	BOOLE-CLR	BOOLE-C1	BOOLE-XOR	BOOLE-ANDC1
+	BOOLE-SET	BOOLE-C2	BOOLE-EQV	BOOLE-ANDC2
+	BOOLE-1		BOOLE-AND	BOOLE-NAND	BOOLE-ORC1
+	BOOLE-2		BOOLE-IOR	BOOLE-NOR	BOOLE-ORC2
+See the variable docs of these constants for their operations.
+
+FTAILP
+Function in LISP package:
+Args: (sublist list)
+Returns T if SUBLIST is one of the conses in LIST; NIL otherwise.
+
+FCONSP
+Function in LISP package:
+Args: (x)
+Returns T if X is a cons; NIL otherwise.
+
+FTENTH
+Function in LISP package:
+Args: (x)
+Equivalent to (CADR (CDDDDR (CDDDDR X))).
+
+FMAKE-STRING-INPUT-STREAM
+Function in LISP package:
+Args: (string &optional (start 0) (end (length string)))
+Returns an input stream which will supply the characters of String between
+Start and End in order.
+
+FLISTP
+Function in LISP package:
+Args: (x)
+Returns T if X is either a cons or NIL; NIL otherwise.
+
+FCOMPILE-FILE
+Function in LISP package:
+Args: (input-pathname
+       &key output-file (load nil) (message-file nil) 
+       ;GCL specific keywords:
+       system-p c-debug c-file h-file data-file)
+
+Compiles the file specified by INPUT-PATHNAME and generates a fasl file
+specified by OUTPUT-FILE.  If the filetype is not specified in INPUT-PATHNAME,
+then ".lsp" is used as the default file type for the source file.  :LOAD
+specifies whether to load the generated fasl file after compilation.
+:MESSAGE-FILE specifies the log file for the compiler messages.  It defaults to
+the value of the variable COMPILER:*DEFAULT-MESSAGE-FILE*.  A non-NIL value of
+COMPILER::*COMPILE-PRINT* forces the compiler to indicate the form currently
+being compiled.  More keyword parameters are accepted, depending on the
+version.  Most versions of GCL can receive :O-FILE, :C-FILE, :H-FILE, and
+:DATA-FILE keyword parameters, with which you can control the intermediate
+files generated by the GCL compiler.  Also :C-DEBUG will pass the -g flag to
+the C compiler.
+
+
+By top level forms in a file, we mean the value of *top-level-forms* after
+doing (TF form) for each form read from a file.  We define TF as follows:
+
+(defun TF (x)
+ (when (consp x)
+  (setq x (macroexpand x))
+  (when (consp x)
+     (cond ((member (car x) '(progn  eval-when))
+            (mapcar 'tf (cdr x)))
+           (t  (push x *top-level-forms*))))))
+
+Among the common lisp special forms only DEFUN and DEFMACRO will cause actual
+native machine code to be generated.  The rest will be specially treated in an
+init section of the .data file.  This is done so that things like putprop,setq,
+and many other forms would use up space which could not be usefully freed, if
+we were to compile to native machine code.  If you have other `ordinary' top
+level forms which you need to have compiled fully to machine code you may
+either set compiler::*COMPILE-ORDINARIES* to t, or put them inside a
+
+(PROGN 'COMPILE ...forms-which-need-to-be-compiled)
+
+The compiler will take each of them and make a temporary function which will be
+compiled and invoked once.  It is permissible to wrap a (PROGN 'COMPILE ..)
+around the whole file.  Currently this construction binds the
+compiler::*COMPILE-ORDINARIES* flag to t.  Setting this flag globally to a non
+nil value to cause all top level forms to generate machine code.  This might be
+useful in a system such as PCL, where a number of top level lambda expressions
+are given.  Note that most common lisps will simply ignore the top level atom
+'compile, since it has no side effects.
+
+Defentry, clines, and defcfun also result in machine code being generated.
+
+Evaluation at Compile time:
+--------------------------
+  In GCL the eval-when behaviour was changed in order to allow
+more efficient init code, and also to bring it into line with the resolution
+passed by the X3j13 committee.  Evaluation at compile time is controlled by
+placing eval-when special forms in the code, or by the value of the variable
+compiler::*eval-when-defaults* [default value :defaults].  If that variable
+has value :defaults, then the following hold:
+
+Eval at Compile       Type of Top Level Form
+
+Partial: 	  defstructs, defvar, defparameter
+Full:	          defmacro, defconstant, defsetf, define-setf-method,
+			deftype, package ops, proclaim
+None:             defun, others
+
+
+By `partial' we mean (see the X3J13 Common Lisp document
+(doc/compile-file-handling-of-top-level-forms) for more detail), that functions
+will not be defined, values will not be set, but other miscellaneous compiler
+properties will be set: eg properties to inline expand defstruct accessors and
+testers, defstruct properties allowing subsequent defstructs to include this
+one, any type hierarch information, special variable information will be set up.
+
+Example:
+(defun foo () 3)
+(defstruct jo a b)
+
+As a side effect of compiling these two forms, foo would not have its function
+cell changed.  Neither would jo-a, although it would gain a property which
+allows it to expand inline to a structure access.  Thus if it had a previous
+definition (as commonly happens from previously loading the file), this previous
+definition would not be touched, and could well be inconsistent with the
+compiler properties.  Unfortunately this is what the CL standard says to do,
+and I am just trying to follow it.
+
+If you prefer a more intuitive scheme, of evaling all forms in the file, so
+that there are no inconsistencies, (previous behaviour of AKCL) you may set
+compiler::*eval-when-defaults* to '(compile eval load).
+
+The variable compiler::*FASD-DATA* [default t] controls whether an ascii output
+is used for the data section of the object file.  The data section will be in
+ascii if *fasd-data* is nil or if the system-p keyword is supplied to
+compile-file and *fasd-data* is not eq to :system-p.
+
+The old GCL variable *compile-time-too* has disappeared.
+
+See OPTIMIZE on how to enable warnings of slow constructs.
+
+
+FMAXIMUM-ALLOCATABLE-PAGES
+Function in SI package
+Args: (type)
+KCL specific: Returns the current maximum number of pages for the type class
+of the KCL implementation type TYPE.
+
+FNSUBSTITUTE-IF-NOT
+Function in LISP package:
+Args: (new test sequence
+       &key (from-end nil) (start 0) (end (length sequence))
+            (count most-positive-fixnum) (key #'identity))
+Returns a sequence of the same kind as SEQUENCE with the same elements
+except that all elements not satisfying TEST are replaced with NEWITEM.
+SEQUENCE may be destroyed.
+
+FMAPCAN
+Function in LISP package:
+Args: (fun list &rest more-lists)
+Applies FUN to successive cars of LISTs, NCONCs the results, and returns it.
+
+FEIGHTH
+Function in LISP package:
+Args: (x)
+Equivalent to (CADDDR (CDDDDR X)).
+
+FLENGTH
+Function in LISP package:
+Args: (sequence)
+Returns the length of SEQUENCE.
+
+FRASSOC
+Function in LISP package:
+Args: (item alist &key (test #'eql) test-not (key #'identity))
+Returns the first cons in ALIST whose cdr is equal to ITEM.
+
+FMULTIPLE-VALUE-CALL
+Special Form in LISP package:
+Syntax: (multiple-value-call function {form}*)
+Calls FUNCTION with all the values of FORMs as arguments.
+
+FPPRINT
+Function in LISP package:
+Args: (object &optional (stream *standard-output*))
+Pretty-prints OBJECT.  Returns OBJECT.  Equivalent to
+	(WRITE :STREAM STREAM :PRETTY T)
+The SI:PRETTY-PRINT-FORMAT property N (which must be a non-negative integer)
+of a symbol SYMBOL controls the pretty-printing of form
+	(SYMBOL f1 ... fN fN+1 ... fM)
+in such a way that the subforms fN+1, ..., fM are regarded as the 'body' of
+the entire form.  For instance, the property value of 2 is initially given
+to the symbol DO.
+
+FFIND-IF
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence)) (key #'identity))
+Returns the index of the first element in SEQUENCE that satisfies TEST; NIL if
+no such element exists.
+
+VSHORT-FLOAT-EPSILON
+Variable in LISP package:
+The smallest positive short-float that satisfies
+	(not (= (float 1 e) (+ (float 1 e) e))).
+
+FPATHNAME-HOST
+Function in LISP package:
+Args: (pathname)
+Returns the host slot of PATHNAME.
+
+FNSUBST-IF-NOT
+Function in LISP package:
+Args: (new test tree &key (key #'identity))
+Substitutes NEW for subtrees of TREE that do not satisfy TEST.
+
+V*READ-DEFAULT-FLOAT-FORMAT*
+Variable in LISP package:
+The floating-point format the KCL reader uses when reading floating-point
+numbers that have no exponent marker or have e or E for an exponent marker.
+Must be one of SHORT-FLOAT, SINGLE-FLOAT, DOUBLE-FLOAT, and LONG-FLOAT.
+
+FLOGORC2
+Function in LISP package:
+Args: (integer1 integer2)
+Returns the logical OR of INTEGER1 and (LOGNOT INTEGER2).
+
+FBIT-EQV
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical EQV  on the elements of BIT-ARRAY1 and BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FFILE-POSITION
+Function in LISP package:
+Args: (file-stream &optional position)
+Sets the file pointer of the specified file to POSITION, if POSITION is given.
+Otherwise, returns the current file position of the specified file.
+
+FDEFSETF
+Macro in LISP package:
+Syntax: (defsetf access-fun {update-fun [doc] |
+                             lambda-list (store-var) {decl | doc}* {form}*)
+Defines how to SETF a generalized-variable reference of the form
+(ACCESS-FUN ...).  The doc-string DOC, if supplied, is saved as a SETF doc and
+can be retrieved by (documentation 'NAME 'setf).
+
+(defsetf access-fun update-fun) defines an expansion from
+(setf (ACCESS-FUN arg1 ... argn) value) to (UPDATE-FUN arg1 ... argn value).
+
+(defsetf access-fun lambda-list (store-var) . body) defines a macro which
+expands (setf (ACCESS-FUN arg1 ... argn) value) into the form
+	(let* ((temp1 ARG1) ... (tempn ARGn) (temp0 value)) rest)
+where REST is the value of BODY with parameters in LAMBDA-LIST bound to the
+symbols TEMP1 ... TEMPn and with STORE-VAR bound to the symbol TEMP0.
+
+FTAGBODY
+Special Form in LISP package:
+Syntax: (tagbody {tag | statement}*)
+Executes STATEMENTs and returns NIL if it falls off the end.
+
+FSTRING<
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+If STRING1 is lexicographically less than STRING2, then returns the longest
+common prefix of the strings.  Otherwise, returns NIL.
+
+FREAD-PRESERVING-WHITESPACE
+Function in LISP package:
+Args: (&optional (stream *standard-input*) (eof-error-p t) (eof-value nil)
+                 (recursive-p nil))
+Reads an object from STREAM, preserving the whitespace that followed the
+object.
+
+FREVERSE
+Function in LISP package:
+Args: (sequence)
+Returns a new sequence containing the same elements as SEQUENCE but in
+reverse order.
+
+FSTREAMP
+Function in LISP package:
+Args: (x)
+Returns T if X is a stream object; NIL otherwise.
+
+VBOOLE-C2
+Variable in LISP package:
+Makes BOOLE return the complement of INTEGER2.
+
+FALLOCATED-RELOCATABLE-PAGES
+Function in SI package:
+Args: ()
+KCL specific: Returns the number of pages currently allocated for relocatable
+blocks.
+
+FPUTPROP
+Function in SI package:
+Args: (symbol value indicator)
+Give SYMBOL the VALUE on INDICATOR property.
+
+FREMPROP
+Function in LISP package:
+Args: (symbol indicator)
+Look on property list of SYMBOL for property with specified
+INDICATOR.  If found, splice this indicator and its value out of
+the plist, and return T. If not found, returns NIL with no side effects.
+VCHAR-SUPER-BIT
+Variable in LISP package:
+The bit that indicates a super character.
+
+FDO-ALL-SYMBOLS
+Macro in LISP package:
+Syntax: (do-all-symbols (var [result-form]) {decl}* {tag | statement}*)
+Executes STATEMENTs once for each symbol in each package, with VAR bound to
+the current symbol.  Then evaluates RESULT-FORM (which defaults to NIL) and
+returns the value(s).
+
+FSYMBOL-PACKAGE
+Function in LISP package:
+Args: (symbol)
+Returns the contents of the package cell of the symbol SYMBOL.
+
+FNSTRING-UPCASE
+Function in LISP package:
+Args: (string &key (start 0) (end (length string)))
+Returns STRING with all lower case characters converted to uppercase.
+
+V*PACKAGE*
+Variable in LISP package:
+The current package.
+
+FSTRING>=
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+If STRING1 is lexicographically greater than or equal to STRING2, then returns
+the longest common prefix of the strings.  Otherwise, returns NIL.
+
+FDECODE-UNIVERSAL-TIME
+Function in LISP package:
+Args: (universal-time &optional (timezone -9))
+Converts UNIVERSAL-TIME into a decoded time at the TIMEZONE.
+Returns nine values: second, minute, hour, date, month (1 - 12), year,
+day-of-week (0 - 6), daylight-saving-time-p, and time-zone.
+TIMEZONE in KCL defaults to -9, the time zone of Japan.
+
+FREALPART
+Function in LISP package:
+Args: (number)
+Extracts the real part of NUMBER.
+
+FARRAY-ROW-MAJOR-INDEX
+Function in LISP package:
+Args: (array &rest subscripts)
+Returns the index into the data vector of ARRAY for the element of ARRAY
+specified by SUBSCRIPTS.
+
+FUSER-HOMEDIR-PATHNAME
+Function in LISP package:
+Args: (&optional host)
+Returns the home directory of the logged in user as a pathname.  HOST
+is ignored.
+
+FNBUTLAST
+Function in LISP package:
+Args: (list &optional (n 1))
+Changes the cdr of the N+1 th cons from the end of the list LIST to NIL.
+Returns the whole list.
+
+VCHAR-FONT-LIMIT
+Variable in LISP package:
+The upper exclusive bound on values produced by CHAR-FONT.
+
+V*MODULES*
+Variable in LISP package:
+A list of names of the modules that have been loaded into KCL.
+
+FSET-DISPATCH-MACRO-CHARACTER
+Function in LISP package:
+Args: (disp-char sub-char function &optional (readtable *readtable*))
+Causes FUNCTION to be called when the DISP-CHAR followed by SUB-CHAR is
+read.
+
+FSHORT-SITE-NAME
+Function in LISP package:
+Args: ()
+Returns a string that identifies the physical location of the current KCL.
+
+VBOOLE-CLR
+Variable in LISP package:
+Makes BOOLE return 0.
+
+FARRAY-DIMENSION
+Function in LISP package:
+Args: (array axis-number)
+Returns the length of AXIS-NUMBER of ARRAY.
+
+VBOOLE-IOR
+Variable in LISP package:
+Makes BOOLE return LOGIOR of INTEGER1 and INTEGER2.
+
+FWITH-OUTPUT-TO-STRING
+Macro in LISP package:
+Syntax: (with-output-to-string (var [string]) {decl}* {form}*)
+Binds VAR to a string output stream that puts characters into STRING, which
+defaults to a new string.  The stream is automatically closed on exit and
+the string is returned.
+
+FETYPECASE
+Macro in LISP package:
+Syntax: (etypecase keyform {(type {form}*)}*)
+Evaluates KEYFORM and tries to find the TYPE in which the value of KEYFORM
+belongs.  If one is found, then evaluates FORMs that follow the KEY and
+returns the value(s) of the last FORM.  If not, signals an error.
+
+FCDR
+Function in LISP package:
+Args: (list)
+Returns the cdr of LIST.  Returns NIL if LIST is NIL.
+
+FFTRUNCATE
+Function in LISP package:
+Args: (number &optional (divisor 1))
+Values: (quotient remainder)
+Same as TRUNCATE, but returns first value as a float.
+
+FEQL
+Function in LISP package:
+Args: (x y)
+Returns T if X and Y are EQ, or if they are numbers of the same type with
+the same value, or if they are character objects that represent the same
+character.  Returns NIL otherwise.
+
+FLOG
+Function in LISP package:
+Args: (number &optional base)
+Returns the logarithm of NUMBER in the base BASE.  BASE defaults to the base
+of natural logarithms.
+
+FDIRECTORY
+Function in LISP package:
+Args: (name)
+Returns a list of files that match NAME.  NAME may be a string, a pathname,
+or a file stream.
+
+FSTRING-NOT-EQUAL
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+Similar to STRING=, but ignores cases.
+
+VDOUBLE-FLOAT-NEGATIVE-EPSILON
+Variable in LISP package:
+Same as LONG-FLOAT-NEGATIVE-EPSILON.
+
+FLET*
+Special Form in LISP package:
+Syntax: (let* ({var | (var [value])}*) {decl}* {form}*)
+Initializes VARs, binding them to the values of VALUEs (which defaults to NIL)
+from left to right, then evaluates FORMs as a PROGN.
+
+FSHADOWING-IMPORT
+Function in LISP package:
+Args: (symbols &optional (package *package*))
+Imports SYMBOLS into PACKAGE, disregarding any name conflict.  If a symbol
+of the same name is already present, then it is uninterned.  SYMBOLS must
+be a list of symbols or a symbol.
+
+FFIND
+Function in LISP package:
+Args: (item sequence
+       &key (from-end nil) (test #'eql) test-not (start 0)
+            (end (length sequence)) (key #'identity))
+Returns the first element in SEQUENCE satisfying TEST with ITEM; NIL if no
+such element exists.
+
+FMAPC
+Function in LISP package:
+Args: (fun list &rest more-lists)
+Applies FUN to successive cars of LISTs.  Returns the first LIST.
+
+FSOFTWARE-VERSION
+Function in LISP package:
+Args: ()
+Returns a string that identifies the software version of the software
+under which KCL is currently running.
+
+FREMF
+Macro in LISP package:
+Syntax: (remf place indicator)
+PLACE may be any place expression acceptable to SETF, and is expected
+to hold a property list or NIL.  This list is destructively altered to
+remove the property specified by INDICATOR.  Returns T if such a
+property was present; NIL otherwise.
+
+FMAPL
+Function in LISP package:
+Args: (fun list &rest more-lists)
+Applies FUN to successive cdrs of LISTs.  Returns the first LIST.
+
+FMAKUNBOUND
+Function in LISP package:
+Args: (symbol)
+Makes empty the value slot of SYMBOL.  Returns SYMBOL.
+
+FCONS
+Function in LISP package:
+Args: (x y)
+Returns a new cons whose car and cdr are X and Y, respectively.
+
+FSTEP
+Macro in LISP package:
+Syntax: (step form)
+Evaluates FORM in the single-step mode and returns the value.
+
+FLIST
+Function in LISP package:
+Args: (&rest args)
+Returns a list of its arguments
+
+FYES-OR-NO-P
+Function in LISP package:
+Args: (&optional (format-string nil) &rest args)
+Asks the user a question whose answer is either 'YES' or 'NO'.  If FORMAT-
+STRING is non-NIL, then FRESH-LINE operation is performed, a message is
+printed as if FORMAT-STRING and ARGs were given to FORMAT, and then a prompt
+"(Yes or No)" is printed.  Otherwise, no prompt will appear.
+
+FUSE-PACKAGE
+Function in LISP package:
+Args: (packages-to-use &optional (package *package*))
+Adds all packages in PACKAGE-TO-USE list to the use list for PACKAGE so that
+the external symbols of the used packages are available as internal symbols
+in PACKAGE.
+
+FFILE-LENGTH
+Function in LISP package:
+Args: (file-stream)
+Returns the length of the specified file stream.
+
+VINTERNAL-TIME-UNITS-PER-SECOND
+Variable in LISP package:
+The number of internal time units that fit into a second.
+
+FMAKE-SYMBOL
+Function in LISP package:
+Args: (string)
+Creates and returns a new uninterned symbol whose print name is STRING.
+
+FSTRING-RIGHT-TRIM
+Function in LISP package:
+Args: (char-bag string)
+Returns a copy of STRING with the characters in CHAR-BAG removed from the
+right end.
+
+FENOUGH-NAMESTRING
+Function in LISP package:
+Args: (pathname &optional (defaults *default-pathname-defaults*))
+Returns a string which uniquely identifies PATHNAME with respect to
+DEFAULTS.
+
+FPROG1
+Special Form in LISP package:
+Syntax: (prog1 first {form}*)
+Evaluates FIRST and FORMs in order, and returns the (single) value of FIRST.
+
+V*PRINT-CASE*
+Variable in LISP package:
+The case in which the KCL printer should print ordinary symbols.
+The value must be one of the keywords :UPCASE, :DOWNCASE, and :CAPITALIZE.
+
+FDEFUN
+Special Form in LISP package:
+Syntax: (defun name lambda-list {decl | doc}* {form}*)
+Defines a function as the global function definition of the symbol NAME.
+The complete syntax of a lambda-list is:
+	({var}*
+	 [&optional {var | (var [initform [svar]])}*]
+	 [&rest var]
+	 [&key {var | ({var | (keyword var)} [initform [svar]])}*
+	       [&allow-other-keys]]
+	 [&aux {var | (var [initform])}*])
+The doc-string DOC, if supplied, is saved as a FUNCTION doc and can be
+retrieved by (documentation 'NAME 'function).
+
+FTHIRD
+Function in LISP package:
+Args: (x)
+Equivalent to (CADDR X).
+
+FPSETQ
+Special Form in LISP package:
+Syntax: (psetq {var form}*)
+Similar to SETQ, but evaluates all FORMs first, and then assigns each value to
+the corresponding VAR.  Returns NIL always.
+
+FPRINT
+Function in LISP package:
+Args: (object &optional (stream *standard-output*))
+Outputs a newline character, and then prints OBJECT in the mostly readable
+representation.  Returns OBJECT.  Equivalent to
+	(PROGN (TERPRI STREAM) (WRITE OBJECT :STREAM STREAM :ESCAPE T)).
+
+FCDDAAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CDR (CAR (CAR X)))).
+
+FCDADAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CAR (CDR (CAR X)))).
+
+FCDAADR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CAR (CAR (CDR X)))).
+
+FCADDAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDR (CDR (CAR X)))).
+
+FCADADR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDR (CAR (CDR X)))).
+
+FCAADDR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CAR (CDR (CDR X)))).
+
+FCOERCE
+Function in LISP package:
+Args: (x type)
+Coerces X to an object of the type TYPE.
+
+FSET-MACRO-CHARACTER
+Function in LISP package:
+Args: (char function
+       &optional (non-terminating-p nil) (readtable *readtable*))
+Causes CHAR to be a macro character that, when seen by READ, causes FUNCTION
+to be called.
+
+FAPROPOS-LIST
+Function in LISP package:
+Args: (string &optional (package nil))
+Returns, as a list, all symbols whose print-names contain STRING as substring.
+If PACKAGE is non-NIL, then only the specified package is searched.
+
+FFORCE-OUTPUT
+Function in LISP package:
+Args: (&optional (stream *standard-output*))
+Attempts to force any buffered output to be sent.
+
+FNTHCDR
+Function in LISP package:
+Args: (n list)
+Returns the result of performing the CDR operation N times on LIST.
+
+FDELETE-IF-NOT
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence))
+            (count most-positive-fixnum) (key #'identity))
+Returns a sequence formed by destructively removing the elements not
+satisfying TEST from SEQUENCE.
+
+V*PRINT-ARRAY*
+Variable in LISP package:
+Whether the KCL printer should print array elements.
+
+FLOGIOR
+Function in LISP package:
+Args: (&rest integers)
+Returns the bit-wise INCLUSIVE OR of its arguments.
+
+V*BREAK-ENABLE*
+Variable in LISP package:
+KCL specific:  When an error occurrs, control enters to the break loop only
+if the value of this variable is non-NIL.
+
+FMULTIPLE-VALUE-BIND
+Special Form in LISP package:
+Syntax: (multiple-value-bind ({var}*) values-form {decl}* {form}*)
+Binds the VARiables to the results of VALUES-FORM, in order (defaulting to
+NIL) and evaluates FORMs in order.
+
+FCHAR-DOWNCASE
+Function in LISP package:
+Args: (char)
+Returns the lower-case equivalent of CHAR, if any.
+If not, simply returns CHAR.
+
+FSTRING-CHAR-P
+Function in LISP package:
+Args: (char)
+Returns T if CHAR can be stored in a string.  In KCL, this function always
+returns T since any character in KCL can be stored in a string.
+
+FREMOVE-IF-NOT
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence))
+            (count most-positive-fixnum) (key #'identity))
+Returns a copy of SEQUENCE with elements not satisfying TEST removed.
+
+FSTREAM-ELEMENT-TYPE
+Function in LISP package:
+Args: (stream)
+Returns a type specifier for the kind of object returned by STREAM.
+
+FDECLARE
+Special Form in LISP package:
+Syntax: (declare {decl-spec}*)
+Gives a declaration.  Possible DECL-SPECs are:
+  (SPECIAL {var}*)
+  (TYPE type {var}*)
+     where 'TYPE' is one of the following symbols
+	array		fixnum		package		simple-bit-vector
+	atom		float		pathname	simple-string
+	bignum		function	random-state	simple-vector
+	bit		hash-table	ratio		single-float
+	bit-vector	integer		rational	standard-char
+	character	keyword		readtable	stream
+	common		list		sequence	string
+	compiled-function  long-float	short-float	string-char
+	complex		nil		signed-byte	symbol
+	cons		null		unsigned-byte	t
+	double-float	number		simple-array	vector
+    'TYPE' may also be a list containing one of the above symbols as
+   its first element and more specific information later in the list.
+   eg:  (vector long-float 80) ; vector of 80 long-floats.
+        (array long-float *)   ; array of long-floats
+        (array fixnum)         ; array of fixnums
+        (array * 30)           ; an array of length 30 but unspecified type
+     A list of 1 element may be replaced by the symbol alone, and a list ending
+     in '*' may drop the the final  '*'.
+  (OBJECT {var}*)
+  (FTYPE type {function-name}*)
+      eg: ;; function of two required args and optional args and one value:
+       (ftype (function (t t *) t) sort reduce)
+          ;; function with 1 arg of general type returning 1 fixnum as value.
+       (ftype (function (t) fixnum) length)
+  (FUNCTION function-name ({arg-type}*) {return-type}*)
+  (INLINE {function-name}*)
+  (NOTINLINE {function-name}*)
+  (IGNORE {var}*)
+  (OPTIMIZE {({SPEED | SPACE | SAFETY | COMPILATION-SPEED} {0 | 1 | 2 | 3})}*)
+  (DECLARATION {non-standard-decl-name}*)
+  (:DYNAMIC-EXTENT {var}*) ;kcl-specific.
+
+
+
+.
+
+TOPTIMIZE
+If the file misc/warn-slow.lisp is loaded then the compiler emits
+warnings about some slow constructs.   Additional constructs can 
+easily be added or deleted by editing the beginning of this file.
+
+
+FPACKAGE-USED-BY-LIST
+Function in LISP package:
+Args: (package)
+Returns the list of packages that use PACKAGE.
+
+VMOST-NEGATIVE-DOUBLE-FLOAT
+Variable in LISP package:
+Same as MOST-NEGATIVE-LONG-FLOAT.
+
+F/
+Function in LISP package:
+Args: (number &rest more-numbers)
+Divides the first NUMBER by each of the subsequent NUMBERS.
+With one arg, returns the reciprocal of the number.
+
+V/
+Variable in LISP package:
+Holds a list of the values of the last top-level form.
+
+FMAPHASH
+Function in LISP package:
+Args: #'hash-table
+For each entry in HASH-TABLE, calls FUNCTION on the key and value of the
+entry; returns NIL.
+
+V*RANDOM-STATE*
+Variable in LISP package:
+The default random-state object used by RAMDOM.
+
+FSTRING=
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+Returns T if the two strings are character-wise CHAR=; NIL otherwise.
+
+FPAIRLIS
+Function in LISP package:
+Args: (keys data &optional (alist nil))
+Constructs an association list from KEYS and DATA adding to ALIST.
+
+FREQUIRE
+Function in LISP package:
+Args: (module-name &optional (pathname))
+If the specified module is not present, then loads the appropriate file(s).
+PATHNAME may be a single pathname or it may be a list of pathnames.
+
+FSEVENTH
+Function in LISP package:
+Args: (x)
+Equivalent to (CADDR (CDDDDR X)).
+
+FSUBSETP
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns T if every element of LIST1 appears in LIST2; NIL otherwise.
+
+FSYMBOLP
+Function in LISP package:
+Args: (x)
+Returns T if X is a symbol; NIL otherwise.
+
+FCHAR-NOT-LESSP
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if the codes of CHARs are in strictly non-increasing order; NIL
+otherwise.  For a lower-case character, the code of its upper-case equivalent
+is used.
+
+F1+
+Function in LISP package:
+Args: (number)
+Returns NUMBER + 1.
+
+VLEAST-NEGATIVE-DOUBLE-FLOAT
+Variable in LISP package:
+Same as LEAST-NEGATIVE-LONG-FLOAT.
+
+FFCEILING
+Function in LISP package:
+Args: (number &optional (divisor 1))
+Same as CEILING, but returns a float as the first value.
+
+FDESCRIBE
+Function in LISP package:
+Args: (x)
+Prints a description of the object X.
+
+FDEFMACRO
+Special Form in LISP package:
+Syntax: (defmacro name defmacro-lambda-list {decl | doc}* {form}*)
+Defines a macro as the global macro definition of the symbol NAME.
+The complete syntax of a defmacro-lambda-list is:
+
+( [&whole var]
+  [&environment var]
+  {pseudo-var}*
+  [&optional {var | (pseudo-var [initform [pseudo-var]])}*]
+  {[{&rest | &body} pseudo-var]
+   [&key {var | ({var | (keyword pseudo-var)} [initform [pseudo-var]])}*
+         [&allow-other-keys]]
+   [&aux {var | (pseudo-var [initform])}*]
+  |  . var})
+
+where pseudo-var is either a symbol or a list of the following form:
+
+( {pseudo-var}*
+  [&optional {var | (pseudo-var [initform [pseudo-var]])}*]
+  {[{&rest | &body} pseudo-var]
+   [&key {var | ({var | (keyword pseudo-var)} [initform [pseudo-var]])}*
+         [ &allow-other-keys ] ]
+   [&aux {var | (pseudo-var [initform])}*]
+  |  . var})
+
+As a special case, a non-NIL symbol is accepcted as a defmacro-lambda-list:
+(DEFMACRO <name> <symbol> ...) is equivalent to
+(DEFMACRO <name> (&REST <symbol>) ...).
+     The doc-string DOC, if supplied, is saved as a FUNCTION doc and can be
+retrieved by (documentation 'NAME 'function).
+See the type doc of LIST for the backquote macro useful for defining macros.
+Also, see the function doc of PPRINT for the output-formatting.
+
+FED
+Function in LISP package:
+Args: (&optional x)
+Invokes the editor.  The action depends on the version of KCL.  See the
+KCL Report for details.
+
+VMOST-POSITIVE-FIXNUM
+Variable in LISP package:
+The fixnum closest in value to positive infinity.
+
+FNSUBSTITUTE-IF
+Function in LISP package:
+Args: (new test sequence
+       &key (from-end nil) (start 0) (end (length sequence))
+            (count most-positive-fixnum) (key #'identity))
+Returns a sequence of the same kind as SEQUENCE with the same elements
+except that all elements satisfying TEST are replaced with NEWITEM.  SEQUENCE
+may be destroyed.
+
+FBIT-ANDC1
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical ANDC1 on the elements of BIT-ARRAY1 and
+BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FALLOCATED-PAGES
+Function in SI package:
+Args: (type)
+KCL specific: Returns the number of pages currently allocated for the type
+class of the KCL implementation type TYPE.
+
+FENCODE-UNIVERSAL-TIME
+Function in LISP package:
+Args: (second minute hour date month year &optional (timezone -9))
+Does the inverse operation of DECODE-UNIVERSAL-TIME.
+
+FBY
+Function in LISP package:
+Args: ()
+KCL specific: Exits from KCL.
+
+FLISP-IMPLEMENTATION-VERSION
+Function in LISP package:
+Args: ()
+Returns a string that tells you when the current KCL implementation is
+brought up.
+
+V*DEBUG-IO*
+Variable in LISP package:
+Holds the I/O stream used by the KCL debugger.
+
+FNSUBST-IF
+Function in LISP package:
+Args: (new test tree &key (key #'identity))
+Substitutes NEW for subtrees of TREE that satisfy TEST.
+
+FCOPY-LIST
+Function in LISP package:
+Args: (list)
+Returns a new copy of LIST.
+
+FTAN
+Function in LISP package:
+Args: (radians)
+Returns the tangent of RADIANS.
+
+VNIL
+Variable in LISP package:
+Holds NIL.
+
+FMACHINE-INSTANCE
+Function in LISP package:
+Args: ()
+Returns a string that identifies the machine instance of the machine
+on which KCL is currently running.
+
+FSET
+Function in LISP package:
+Args: (symbol value)
+Assigns the value of VALUE to the dynamic variable named by SYMBOL, and
+returns the value assigned.
+
+V*EVALHOOK*
+Variable in LISP package:
+If *EVALHOOK* is not NIL, its value must be a function that can receive
+two arguments: a form to evaluate and an environment.  This function does
+the evaluation instead of EVAL.
+
+FFUNCTIONP
+Function in LISP package:
+Args: (x)
+Returns T if X is a function, suitable for use by FUNCALL or APPLY.  Returns
+NIL otherwise.
+
+VBOOLE-NAND
+Variable in LISP package:
+Makes BOOLE return LOGNAND of INTEGER1 and INTEGER2.
+
+VLAMBDA-PARAMETERS-LIMIT
+Variable in LISP package:
+The exclusive upper bound on the number of distinct parameter names that may
+appear in a single lambda-list.  Actually, however, there is no such upper
+bound in KCL.
+
+FWRITE-BYTE
+Function in LISP package:
+Args: (integer stream)
+Outputs INTEGER to the binary stream STREAM.  Returns INTEGER.
+
+FTANH
+Function in LISP package:
+Args: (number)
+Returns the hyperbolic tangent of NUMBER.
+
+FASIN
+Function in LISP package:
+Args: (number)
+Returns the arc sine of NUMBER.
+
+FFLET
+Special Form in LISP package:
+Syntax: (flet ({(name lambda-list {decl | doc}* {form}*)}*) . body)
+Evaluates BODY as a PROGN, with local function definitions in effect.  BODY is
+the scope of each local function definition.  Since the scope does not include
+the function definitions themselves, the local function can reference
+externally defined functions of the same name.  See the doc of DEFUN for the
+complete syntax of a lambda-list.  Doc-strings for local functions are simply
+ignored.
+
+FSOME
+Function in LISP package:
+Args: (predicate sequence &rest more-sequences)
+Returns T if at least one of the elements in SEQUENCEs satisfies PREDICATE;
+NIL otherwise.
+
+FBYTE
+Function in LISP package:
+Args: (size position)
+Returns a byte specifier.  In KCL, a byte specifier is represented by
+a dotted pair (<size> . <position>).
+
+FLAST
+Function in LISP package:
+Args: (list)
+Returns the last cons in LIST
+
+FROOM
+Function in LISP package:
+Args: (&optional (x t))
+Displays information about storage allocation in the following format.
+
+* for each type class
+	* the number of pages so-far allocated for the type class
+	* the maximum number of pages for the type class
+	* the percentage of used cells to cells so-far allocated
+	* the number of times the garbage collector has been called to
+	  collect cells of the type class
+	* the implementation types that belongs to the type class
+* the number of pages actually allocated for contiguous blocks
+* the maximum number of pages for contiguous blocks
+* the number of times the garbage collector has been called to collect
+  contiguous blocks
+* the number of pages in the hole
+* the maximum number of pages for relocatable blocks
+* the number of times the garbage collector has been called to collect
+  relocatable blocks
+* the total number of pages allocated for cells
+* the total number of pages allocated
+* the number of available pages
+* the number of pages KCL can use.
+
+The number of times the garbage collector has been called is not shown,
+if the number is zero.  The optional X is ignored.
+
+FSETQ
+Special Form in LISP package:
+Syntax: (setq {var form}*)
+VARs are not evaluated and must be symbols.  Assigns the value of the first
+FORM to the first VAR, then assigns the value of the second FORM to the second
+VAR, and so on.  Returns the last value assigned.
+
+FMAKE-STRING
+Function in LISP package:
+Args: (size &key (initial-element #\Space))
+Creates and returns a new string of SIZE length whose elements are all
+INITIAL-ELEMENT.
+
+FCAAAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CAR (CAR X))).
+
+FMAKE-CONCATENATED-STREAM
+Function in LISP package:
+Args: (&rest streams)
+Returns a stream which takes its input from each of the STREAMs in turn,
+going on to the next at end of stream.
+
+FECASE
+Macro in LISP package:
+Syntax: (ecase keyform {({key | ({key}*)} {form}*)}*)
+Evaluates KEYFORM and tries to find the KEY that is EQL to the value of
+KEYFORM.  If one is found, then evaluates FORMs that follow the KEY and
+returns the value(s) of the last FORM.  If not, signals an error.
+
+FLIST-LENGTH
+Function in LISP package:
+Args: (list)
+Returns the length of LIST, or NIL if LIST is circular.
+
+FCDDDR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CDR (CDR X))).
+
+FPROG2
+Special Form in LISP package:
+Syntax: (prog2 first second {forms}*)
+Evaluates FIRST, SECOND, and FORMs in order, and returns the (single) value
+of SECOND.
+
+FPRIN1
+Function in LISP package:
+Args: (object &optional (stream *standard-output*))
+Prints OBJECT in the mostly readable representation.  Returns OBJECT.
+Equivalent to (WRITE OBJECT :STREAM STREAM :ESCAPE T).
+
+FASINH
+Function in LISP package:
+Args: (number)
+Returns the hyperbolic arc sine of NUMBER.
+
+FPRINC
+Function in LISP package:
+Args: (object &optional (stream *standard-output*))
+Prints OBJECT without escape characters.  Returns OBJECT.  Equivalent to
+	(WRITE OBJECT :STREAM STREAM :ESCAPE NIL).
+
+FPROGV
+Special Form in LISP package:
+Syntax: (progv symbols values {form}*)
+SYMBOLS must evaluate to a list of variables.  VALUES must evaluate to a list
+of initial values.  Evaluates FORMs as a PROGN, with each variable bound (as
+special) to the corresponding value.
+
+FLOWER-CASE-P
+Function in LISP package:
+Args: (char)
+Returns T if CHAR is a lower-case character; NIL otherwise.
+
+VMOST-POSITIVE-LONG-FLOAT
+Variable in LISP package:
+The long-float closest in value to positive infinity.
+
+FQUOTE
+Special Form in LISP package:
+Syntax: (quote x) or 'x
+Simply returns X without evaluating it.
+
+V*BREAK-ON-WARNINGS*
+Variable in LISP package:
+When the function WARN is called, control enters to the break loop only
+if the value of this varialbe is non-NIL.
+
+FGET-UNIVERSAL-TIME
+Function in LISP package:
+Args: ()
+Returns the current time as a single integer in universal time format.
+
+FNSUBSTITUTE
+Function in LISP package:
+Args: (newitem olditem sequence
+       &key (from-end nil) (test #'eql) test-not (start 0)
+            (end (length sequence)) (count most-positive-fixnum)
+            (key #'identity))
+Returns a sequence of the same kind as SEQUENCE with the same elements
+except that OLDITEMs are replaced with NEWITEM.  SEQUENCE may be destroyed.
+
+FCHAR<=
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if the codes of CHARs are in strictly non-decreasing order; NIL
+otherwise.
+
+FSTRING-EQUAL
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+Given two strings (string1 and string2), and optional integers start1,
+start2, end1 and end2, compares characters in string1 to characters in
+string2 (using char-equal).
+
+FCLEAR-OUTPUT
+Function in LISP package:
+Args: (&optional (stream *standard-output*))
+Clears the output stream STREAM.
+
+FSHIFTF
+Macro in LISP package:
+Syntax: (shiftf {place}+ newvalue)
+Evaluates all PLACEs and NEWVALUE in turn, then assigns the value of each
+form to the PLACE on its left.  Returns the original value of the leftmost
+form.
+
+VLEAST-POSITIVE-LONG-FLOAT
+Variable in LISP package:
+The positive long-float closest in value to zero.
+
+FINTERSECTION
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns the intersection of List1 and List2.
+
+FCERROR
+Function in LISP package:
+Args: (continue-format-string error-format-string &rest args)
+Signals a correctable error.
+
+FTERPRI
+Function in LISP package:
+Args: (&optional (stream *standard-output*))
+Outputs a newline character.
+
+FNSUBST
+Function in LISP package:
+Args: (new old tree &key (test #'eql) test-not (key #'identity))
+Substitutes NEW for subtrees in TREE that match OLD.
+
+FDEPOSIT-FIELD
+Function in LISP package:
+Args: (newbyte bytespec integer)
+Returns an integer computed by replacing the specified byte of INTEGER with
+the specified byte of NEWBYTE.
+
+FBIT-AND
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical AND on the elements of BIT-ARRAY1 and BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FUNUSE-PACKAGE
+Function in LISP package:
+Args: (packages-to-unuse &optional (package *package*))
+Removes PACKAGES-TO-UNUSE from the use list for PACKAGE.
+
+FSTRING-NOT-GREATERP
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+Similar to STRING<=, but ignores cases.
+
+FLOGNAND
+Function in LISP package:
+Args: (integer1 integer2)
+Returns the complement of the logical AND of INTEGER1 and INTEGER2.
+
+FBYTE-POSITION
+Function in LISP package:
+Args: (bytespec)
+Returns the position part (in KCL, the cdr part) of the byte specifier.
+
+FROTATEF
+Macro in LISP package:
+Syntax: (rotatef {place}*)
+Evaluates PLACEs in turn, then assigns to each PLACE the value of the form to
+its right.  The rightmost PLACE gets the value of the leftmost PLACE.
+Returns NIL always.
+
+FDOTIMES
+Special Form in LISP package:
+Syntax: (dotimes (var countform [result]) {decl}* {tag | statement}*)
+Executes STATEMENTs, with VAR bound to each number between 0 (inclusive) and
+the value of COUNTFORM (exclusive).  Then returns the value(s) of RESULT
+(which defaults to NIL).
+
+FSTRING>
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+If STRING1 is lexicographically greater than STRING2, then returns the
+longest common prefix of the strings.  Otherwise, returns NIL.
+
+FFINISH-OUTPUT
+Function in LISP package:
+Args: (&optional (stream *standard-output*))
+Attempts to ensure that all output sent to STREAM has reached its destination,
+and only then returns.
+
+FSPECIAL-FORM-P
+Function in LISP package:
+Args: (symbol)
+Returns T if SYMBOL globally names a special form; NIL otherwise.
+The special forms defined in Steele's manual are:
+
+	block		if			progv
+	catch		labels			quote
+	compiler-let	let			return-from
+	declare		let*			setq
+	eval-when	macrolet		tagbody
+	flet		multiple-value-call	the
+	function	multiple-value-prog1	throw
+	go		progn			unwind-protect
+
+In addition, KCL implements the following macros as special forms, though
+of course macro-expanding functions such as MACROEXPAND work correctly for
+these macros.
+
+	and		incf			prog1
+	case		locally			prog2
+	cond		loop			psetq
+	decf		multiple-value-bind	push
+	defmacro	multiple-value-list	return
+	defun		multiple-value-set	setf
+	do		or			unless
+	do*		pop			when
+	dolist		prog
+	dotimes		prog* 
+
+VCHAR-HYPER-BIT
+Variable in LISP package:
+The bit that indicates a hyper character.
+
+VT
+Variable in LISP package:
+Holds T.
+
+FWITH-OPEN-FILE
+Macro in LISP package:
+Syntax: (with-open-file (stream filename {options}*) {decl}* {form}*)
+Opens the file whose name is FILENAME, using OPTIONs, and binds the variable
+STREAM to a stream to/from the file.  Then evaluates FORMs as a PROGN.
+The file is automatically closed on exit.
+
+V**
+Variable in LISP package:
+Gets the previous value of * when KCL evaluates a top-level form.
+
+FSTRINGP
+Function in LISP package:
+Args: (x)
+Returns T if X is a string; NIL otherwise.
+
+V+++
+Variable in LISP package:
+Gets the previous value of ++ when KCL evaluates a top-level form.
+
+FBIT-ANDC2
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical ANDC2 on the elements of BIT-ARRAY1 and
+BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FDO
+Special Form in LISP package:
+Syntax: (do ({(var [init [step]])}*) (endtest {result}*)
+          {decl}* {tag | statement}*)
+Creates a NIL block, binds each VAR to the value of the corresponding INIT,
+and then executes STATEMENTs repeatedly until ENDTEST is satisfied.  After
+each iteration, assigns to each VAR the value of the corresponding STEP.  When
+ENDTEST is satisfied, evaluates RESULTs as a PROGN and returns the value(s) of
+the last RESULT (or NIL if no RESULTs are supplied).  Performs variable
+bindings and assignments all at once, just like LET and PSETQ do.
+
+FGET-INTERNAL-RUN-TIME
+Function in LISP package:
+Args: ()
+Returns the run time in the internal time format.  This is useful for
+finding CPU usage.  If the operating system allows, a second value
+containing CPU usage of child processes is returned.
+
+FTRUNCATE
+Function in LISP package:
+Args: (number &optional (divisor 1))
+Values: (quotient remainder)
+Returns NUMBER/DIVISOR as an integer, rounded toward 0.  The second returned
+value is the remainder.
+
+FFUNCTION
+Special Form in LISP package:
+Syntax: (function x) or #'x
+If X is a lambda expression, creates and returns a lexical closure of X in
+the current lexical environment.  If X is a symbol that names a function,
+returns that function.
+
+FCODE-CHAR
+Function in LISP package:
+Args: (code &optional (bits 0) (font 0))
+Returns a character object with the specified code, if any.
+If not, returns NIL.
+
+FCHAR-CODE
+Function in LISP package:
+Args: (char)
+Returns the code attribute of CHAR.
+
+FDELETE-IF
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence))
+            (count most-positive-fixnum) (key #'identity))
+Returns a sequence formed by removing the elements satisfying TEST
+destructively from SEQUENCE.
+
+VMULTIPLE-VALUES-LIMIT
+Variable in LISP package:
+The exclusive upper bound on the number of values that may be returned from
+a function.  Actually, however, there is no such upper bound in KCL.
+
+FSIMPLE-STRING-P
+Function in LISP package:
+Args: (x)
+Returns T if X is a simple string; NIL otherwise.
+
+FREMOVE-IF
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence))
+            (count most-positive-fixnum) (key #'identity))
+Returns a copy of SEQUENCE with elements satisfying TEST removed.
+
+VBOOLE-EQV
+Variable in LISP package:
+Makes BOOLE return LOGEQV of INTEGER1 and INTEGER2.
+
+VBOOLE-SET
+Variable in LISP package:
+Makes BOOLE return -1.
+
+FLDB
+Function in LISP package:
+Args: (bytespec integer)
+Extracts and right-justifies the specified byte of INTEGER, and returns the
+result.
+
+FBYTE-SIZE
+Function in LISP package:
+Args: (bytespec)
+Returns the size part (in KCL, the car part) of the byte specifier.
+
+FREVAPPEND
+Function in LISP package:
+Args: (x y)
+Equivalent to (APPEND (REVERSE X) Y)
+
+VSHORT-FLOAT-NEGATIVE-EPSILON
+Variable in LISP package:
+The smallest positive short-float that satisfies
+	(not (= (float 1 e) (- (float 1 e) e))).
+
+FHASH-TABLE-COUNT
+Function in LISP package:
+Args: (hash-table)
+Returns the number of entries in the given Hash-Table.
+
+FPACKAGE-USE-LIST
+Function in LISP package:
+Args: (package)
+Returns the list of packages used by PACKAGE.
+
+FREM
+Function in LISP package:
+Args: (number divisor)
+Returns the second value of (TRUNCATE NUMBER DIVISOR).
+
+FMIN
+Function in LISP package:
+Args: (number &rest more-numbers)
+Returns the least of its arguments.
+
+FAPPLYHOOK
+Function in LISP package:
+Args: (function args evalhookfn applyhookfn &optional (env nil))
+Applies FUNCTION to ARGS, with *EVALHOOK* bound to EVALHOOKFN and with
+*APPLYHOOK* bound to APPLYHOOKFN.  Ignores the hook function once, for the
+top-level application of FUNCTION to ARGS.
+
+VCHAR-CONTROL-BIT
+Variable in LISP package:
+The bit that indicates a control character.
+
+FEXP
+Function in LISP package:
+Args: (number)
+Calculates e raised to the power NUMBER, where e is the base of natural
+logarithms.
+
+FREAD-FROM-STRING
+Function in LISP package:
+Args: (string &optional (eof-error-p t) (eof-value nil)
+              &key (start 0) (end (length string)) (preserve-whitespace nil))
+Reads an object from STRING.
+
+FCHAR-LESSP
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if the codes of CHARs are in strictly increasing order; NIL
+otherwise.  For a lower-case character, the code of its upper-case equivalent
+is used.
+
+FARRAY-DIMENSIONS
+Function in LISP package:
+Args: (array)
+Returns a list whose elements are the dimensions of ARRAY
+
+FCDAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CAR X)).
+
+FCADR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDR X)).
+
+FLIST-ALL-PACKAGES
+Function in LISP package:
+Args: ()
+Returns a list of all existing packages.
+
+FREST
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR X).
+
+FNSET-EXCLUSIVE-OR
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns a list with elements which appear but once in LIST1 and LIST2.
+
+V*MACROEXPAND-HOOK*
+Variable in LISP package:
+Holds a function that can take two arguments (a macro expansion function
+and the macro form to be expanded) and returns the expanded form.  This
+function is whenever a macro-expansion takes place.  Initially this is set to
+#'FUNCALL.
+
+FSUBSTITUTE-IF-NOT
+Function in LISP package:
+Args: (new test sequence
+       &key (from-end nil) (start 0) (end (length sequence))
+            (count most-positive-fixnum) (key #'identity))
+Returns a sequence of the same kind as SEQUENCE with the same elements
+except that all elements not satisfying TEST are replaced with NEWITEM.
+
+FDISASSEMBLE
+Function in LISP package:
+Args: (thing)
+Compiles the form specified by THING and prints the intermediate C language
+code for that form.  But does NOT install the result of compilation.
+If THING is a symbol that names a not-yet-compiled function, the function
+definition is disassembled.
+If THING is a lambda expression, it is disassembled as a function definition.
+Otherwise, THING itself is disassembled as a top-level form.
+
+FPROG*
+Special Form in LISP package:
+Syntax: (prog* ({var | (var [init])}*) {decl}* {tag | statement}*)
+Creates a NIL block, binds VARs sequentially, and then executes STATEMENTs.
+
+FBLOCK
+Special Form in LISP package:
+Syntax: (block name {form}*)
+The FORMs are evaluated in order, but it is possible to exit the block
+using (RETURN-FROM name value).  The RETURN-FROM must be lexically contained
+within the block.
+
+FCOPY-SYMBOL
+Function in LISP package:
+Args: (symbol &optional (copy-props nil))
+Returns a new uninterned symbol with the same print name as SYMBOL.
+If COPY-PROPS is NIL, the function, the variable, and the property slots
+of the new symbol have no value.  Otherwise, these slots are given the
+values of the corresponding slots of SYMBOL.
+
+FACONS
+Function in LISP package:
+Args: (key datum alist)
+Constructs a new alist by adding the pair (KEY . DATUM) to ALIST.
+
+FADJUSTABLE-ARRAY-P
+Function in LISP package:
+Args: (array)
+Returns T if ARRAY is adjustable; NIL otherwise.
+
+FPROGN
+Special Form in LISP package:
+Syntax: (progn {form}*)
+Evaluates FORMs in order, and returns whatever the last FORM returns.
+
+FSVREF
+Function in LISP package:
+Args: (simple-vector index)
+Returns the INDEX-th element of SIMPLE-VECTOR.
+
+FAPPLY
+Function in LISP package:
+Args: (function arg &rest more-args)
+Applies FUNCTION.  The arguments to the function consist of all ARGs
+except for the last, and all elements of the last ARG.
+
+FDECODE-FLOAT
+Function in LISP package:
+Args: (float)
+Returns, as three values, the significand F, the exponent E, and the sign S
+of the given float, so that
+			 E
+	FLOAT = S * F * B	where B = (FLOAT-RADIX FLOAT)
+
+S and F are floating-point numbers of the same float format as FLOAT, and E
+is an integer.
+
+V*EVAL-WHEN-COMPILE*
+Variable in LISP package:
+KCL specific: Tells the KCL compiler whether (non-NIL) or not (NIL) the
+compiler should process top-level forms in compile-time-too mode.
+
+VLONG-FLOAT-EPSILON
+Variable in LISP package:
+The smallest positive long-float that satisfies
+	(not (= (float 1 e) (+ (float 1 e) e))).
+
+FVECTOR-PUSH-EXTEND
+Function in LISP package:
+Args: (new-element vector &optional (extension (length vector)))
+Similar to VECTOR-PUSH except that, if the fill pointer gets too large,
+extends VECTOR rather then simply returns NIL.
+
+FSUBST-IF-NOT
+Function in LISP package:
+Args: (new test tree &key (key #'identity))
+Substitutes NEW for subtrees of TREE that do not satisfy TEST.
+
+FDELETE
+Function in LISP package:
+Args: (item sequence
+       &key (from-end nil) (test #'eql) test-not (start 0)
+            (end (length sequence)) (count most-positive-fixnum)
+            (key #'identity))
+Returns a sequence formed by removing the specified ITEM destructively from
+SEQUENCE.
+
+FLABELS
+Special Form in LISP package:
+Syntax: (labels ({(name lambda-list {decl | doc}* {form}*)}*) . body)
+Evaluates BODY as a PROGN, with the local function definitions in effect.  The
+scope of the locally defined functions include the function definitions
+themselves, so their definitions may include recursive references.  See the doc
+of DEFUN for the complete syntax of a lambda-list.  Doc-strings for local
+functions are simply ignored.
+
+FRPLACA
+Function in LISP package:
+Args: (x y)
+Replaces the car of X with Y, and returns the modified X.
+
+FSECOND
+Function in LISP package:
+Args: (x)
+Equivalent to (CADR X).
+
+FSYMBOL-PLIST
+Function in LISP package:
+Args: (symbol)
+Returns the property list of SYMBOL.
+
+FWRITE-STRING
+Function in LISP package:
+Args: (string &optional (stream *standard-output*)
+              &key (start 0) (end (length string)))
+Outputs STRING and returns it.
+
+V*PRINT-LEVEL*
+Variable in LISP package:
+How many levels deep the KCL printer should print.  Unlimited if NIL.
+
+V*PRINT-RADIX*
+Variable in LISP package:
+Whether the KCL printer should print the radix indicator when printing
+integers and rationals.
+
+FREMOVE
+Function in LISP package:
+Args: (item sequence
+       &key (from-end nil) (test #'eql) test-not (start 0)
+            (end (length sequence)) (count most-positive-fixnum)
+            (key #'identity))
+Returns a copy of SEQUENCE with ITEM removed.
+
+FFROUND
+Function in LISP package:
+Args: (number &optional (divisor 1))
+Same as ROUND, but returns first value as a float.
+
+FLOGEQV
+Function in LISP package:
+Args: (&rest integers)
+Returns the bit-wise EQUIVALENCE of its arguments.
+
+VMOST-NEGATIVE-SHORT-FLOAT
+Variable in LISP package:
+The short-float closest in value to negative infinity.
+
+FNUNION
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns the union of LIST1 and LIST2.  LIST1 and/or LIST2 may be destroyed.
+
+FSTRING
+Function in LISP package:
+Args: (x)
+Coerces X into a string.  If X is a string, then returns X itself.  If X is a
+symbol, then returns X's print name.  If X is a character, then returns a one
+element string containing that character.  Signals an error if X cannot be
+coerced into a string.
+
+FRETURN
+Special Form in LISP package:
+Syntax: (return [result])
+Returns from the lexically surrounding NIL block.  The value of RESULT,
+which defaults to NIL, is returned as the value of the block.
+
+FDEFCFUN
+Macro in LISP package:
+Syntax: (defcfun header n {element}*)
+KCL specific: Defines a C-language function which calls Lisp functions and/or
+handles Lisp objects.  HEADER gives the header of the C function as a string.
+N is the number of the main stack entries used by the C function, primarily
+for protecting Lisp objects from being garbage-collected.  Each ELEMENT may
+give a C code fragment as a string, or it may be a list
+	((symbol {arg}*) {place}*)
+which, when executed, calls the Lisp function named by SYMBOL with the
+specified arguments and saves the value(s) to the specified places.
+The DEFCFUN form has the above meanings only after compiled;  The KCL
+interpreter simply ignores this form.
+
+FBIT-NOR
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical NOR  on the elements of BIT-ARRAY1 and BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FSTRING-UPCASE
+Function in LISP package:
+Args: (string &key (start 0) (end (length string)))
+Returns a copy of STRING with all lower case characters converted to
+uppercase.
+
+FCEILING
+Function in LISP package:
+Args: (number &optional (divisor 1))
+Returns the smallest integer not less than or NUMBER/DIVISOR.  Returns the
+remainder as the second value.
+
+FGETHASH
+Function in LISP package:
+Args: (key hash-table &optional (default nil))
+Finds the entry in HASH-TABLE whose key is KEY and returns the associated
+value and T, as multiple values.  Returns DEFAULT and NIL if there is no
+such entry.
+
+FTYPE-OF
+Function in LISP package:
+Args: (x)
+Returns the type of X.
+
+VLEAST-NEGATIVE-SHORT-FLOAT
+Variable in LISP package:
+The negative short-float closest in value to zero.
+
+V*DEFAULT-PATHNAME-DEFAULTS*
+Variable in LISP package:
+The default pathname-defaults pathname.
+
+FINSPECT
+Function in LISP package:
+Args: (x)
+Shows the information about the object X in an interactive manner
+
+FLONG-SITE-NAME
+Function in LISP package:
+Args: ()
+Returns a string that identifies the physical location of the current KCL.
+
+FBUTLAST
+Function in LISP package:
+Args: (list &optional (n 1))
+Creates and returns a list with the same elements as LIST but without the
+last N elements.
+
+FY-OR-N-P
+Function in LISP package:
+Args: (&optional (format-string nil) &rest args)
+Asks the user a question whose answer is either 'Y' or 'N'.  If FORMAT-STRING
+is non-NIL, then FRESH-LINE operation is performed, a message is printed as
+if FORMAT-STRING and ARGs were given to FORMAT, and then a prompt
+"(Y or N)" is printed.  Otherwise, no prompt will appear.
+
+V//
+Variable in LISP package:
+Gets the previous value of / when KCL evaluates a top-level form.
+
+F1-
+Function in LISP package:
+Args: (number)
+Returns NUMBER - 1.
+
+FMAKE-HASH-TABLE
+Function in LISP package:
+Args: (&key (test 'eql) (size 1024) (rehash-size 1.5) (rehash-threshold 0.7))
+Creates and returns a hash table.
+
+FSTRING/=
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+Returns NIL if STRING1 and STRING2 are character-wise CHAR=.  Otherwise,
+returns the index to the longest common prefix of the strings.
+
+F<=
+Function in LISP package:
+Args: (number &rest more-numbers)
+Returns T if arguments are in strictly non-decreasing order; NIL otherwise.
+
+FMAKE-BROADCAST-STREAM
+Function in LISP package:
+Args: (&rest streams)
+Returns an output stream which sends its output to all of the given streams.
+
+FIMAGPART
+Function in LISP package:
+Args: (number)
+Extracts the imaginary part of NUMBER.
+
+FTYPECASE
+Macro in LISP package:
+Syntax: (typecase keyform {(type {form}*)}*)
+Evaluates KEYFORM and tries to find the TYPE in which the value of KEYFORM
+belongs.  If one is found, then evaluates FORMs that follow the KEY and
+returns the value of the last FORM.  If not, simply returns NIL.
+
+FINTEGERP
+Function in LISP package:
+Args: (x)
+Returns T if X is an integer (fixnum or bignum); NIL otherwise.
+
+FREAD-CHAR
+Function in LISP package:
+Args: (&optional (stream *standard-input*) (eof-error-p t)
+                 (eof-value nil) (recursive-p nil))
+Reads a character from STREAM.
+
+FPEEK-CHAR
+Function in LISP package:
+Args: (&optional (peek-type nil) (stream *standard-input*) (eof-error-p t)
+                 (eof-value nil) (recursive-p nil))
+Peeks at the next character in the input stream STREAM.
+
+FCHAR-FONT
+Function in LISP package:
+Args: (char)
+Returns the font attribute of CHAR.
+
+FSTRING-GREATERP
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+Similar to STRING>, but ignores cases.
+
+FOUTPUT-STREAM-P
+Function in LISP package:
+Args: (stream)
+Returns non-nil if STREAM can handle output operations; NIL otherwise.
+
+FAND
+Special Form in LISP package:
+Syntax: (and {form}*)
+Evaluates FORMs in order from left to right.  If any FORM evaluates to NIL,
+returns immediately with the value NIL.  Else, returns the value(s) of the
+last FORM.
+
+FASH
+Function in LISP package:
+Args: (integer count)
+Shifts INTEGER left by COUNT places.  Shifts right if COUNT is negative.
+
+FLCM
+Function in LISP package:
+Args: (integer &rest more-integers)
+Returns the least common multiple of the arguments.
+
+FLET
+Special Form in LISP package:
+Syntax: (let ({var | (var [value])}*) {decl}* {form}*)
+Initializes VARs, binding them to the values of VALUEs (which defaults to NIL)
+all at once, then evaluates FORMs as a PROGN.
+
+FELT
+Function in LISP package:
+Args: (sequence index)
+Returns the INDEX-th element of SEQUENCE.
+
+FCOS
+Function in LISP package:
+Args: (radians)
+Returns the cosine of RADIANS.
+
+V*QUERY-IO*
+Variable in LISP package:
+The query I/O stream.
+
+V*READ-BASE*
+Variable in LISP package:
+The radix that the KCL reader reads numbers in.
+
+FWITH-OPEN-STREAM
+Macro in LISP package:
+Syntax: (with-open-stream (var stream) {decl}* {form}*)
+Evaluates FORMs as a PROGN with VAR bound to the value of STREAM.  The stream
+is automatically closed on exit.
+
+FWITH-INPUT-FROM-STRING
+Macro in LISP package:
+Syntax: (with-input-from-string (var string {keyword value}*) {decl}* {form}*)
+Binds VAR to an input stream that returns characters from STRING and evaluates
+the FORMs.  The stream is automatically closed on exit.  Allowed keywords are
+:INDEX, :START, and :END.
+
+FMAKE-ARRAY
+Function in LISP package:
+Args: (dimensions
+       &key (element-type t) initial-element (initial-contents nil)
+            (adjustable nil) (fill-pointer nil) (displaced-to nil)
+            (displaced-index-offset 0) static)
+Creates an array of the specified DIMENSIONS.  The default for INITIAL-
+ELEMENT depends on ELEMENT-TYPE.
+MAKE-ARRAY will always try to find the `best' array to
+accommodate the element-type specified.   For example on a SUN element-type
+(mod 1) --> bit
+(integer 0 10) --> unsigned-char
+(integer -3 10) --> signed-char
+si::best-array-element-type is the function doing this.  It
+is also used by the compiler, for coercing array element types.
+If you are going to declare an array you should use the same
+element type as was used in making it.  eg
+(setq my-array (make-array 4 :element-type '(integer 0 10)))
+(the (array (integer 0 10)) my-array)
+    When wanting to optimize references to an array you need to
+declare the array eg: (the (array (integer -3 10)) my-array) if ar
+were constructed using the (integer -3 10) element-type.  You could of
+course have used signed-char, but since the ranges may be
+implementation dependent it is better to use -3 10 range.  MAKE-ARRAY
+needs to do some calculation with the element-type if you don't
+provide a primitive data-type.  One way of doing this in a machine
+independent fashion:
+
+  (defvar *my-elt-type* #.
+      (array-element-type (make-array 1 :element-type '(integer -3 10))))
+
+Then calls to (make-array n :element-type *my-elt-type*) will not have to go
+through a type inclusion computation.  The keyword STATIC (KCL specific) if non
+nil, will cause the array body to be non relocatable.
+
+
+FDECF
+Special Form in LISP package:
+Syntax: (decf place [delta]) Subtracts the number
+produced by DELTA (which defaults to 1) from the number in
+PLACE.
+
+FNSTRING-DOWNCASE
+Function in LISP package:
+Args: (string &key
+(start 0) (end (length string))) Returns STRING with all upper case
+characters converted to lowercase.
+
+FCOPY-ALIST
+Function in LISP
+package: Args: (alist) Returns a new copy of ALIST.
+
+FCOND
+Special Form
+in LISP package: Syntax: (cond {(test {form}*)}*) Evaluates each
+TEST in order until one evaluates to a non-NIL value.  Then evaluates
+the associated FORMs in order and returns the value(s) of the last
+FORM.  If no forms follow the TEST, then returns the value of the
+TEST.  Returns NIL, if all TESTs evaluate to NIL.
+
+FATAN
+Function in LISP package:
+Args: (x &optional (y 1)) Returns the arc tangent of
+X/Y.
+
+VBOOLE-ANDC1
+Variable in LISP package: Makes BOOLE return
+LOGANDC1 of INTEGER1 and INTEGER2.
+
+FCOSH
+Function in LISP package:
+Args: (number) Returns the hyperbolic cosine of
+NUMBER.
+
+FARRAY-IN-BOUNDS-P
+Function in LISP package:
+Args: (array
+&rest subscripts) Returns T if SUBSCRIPTS are valid subscripts for
+ARRAY; NIL otherwise.
+
+FDELETE-FILE
+Function in LISP package:
+Args: (file) Deletes FILE.
+
+FSORT 
+Function in LISP package:
+Args: (sequence predicate &key (key #'identity)) Destructively sorts SEQUENCE.
+PREDICATE should return non-NIL if its first argument is to precede
+its second argument.
+
+FGET-SETF-METHOD-MULTIPLE-VALUE 
+Function in LISP package:
+Args: (form) Returns the five values (or five 'gangs')
+constituting the SETF method for FORM.  See the doc of
+DEFINE-SETF-METHOD for the meanings of the gangs.  The third value
+(i.e., the list of store variables) may consist of any number of
+elements.  See the doc of GET-SETF-METHOD for
+comparison.
+
+FFLOAT-RADIX 
+Function in LISP package: Args: (float)
+Returns the representation radix (or base) of the floating-point
+number.
+
+FSYMBOL-NAME 
+Function in LISP package: Args: (symbol) Returns
+the print name of the symbol SYMBOL.
+
+FCLEAR-INPUT 
+Function in LISP
+package: Args: (&optional (stream *standard-input*)) Clears the input
+stream STREAM.
+
+FFIND-SYMBOL 
+Function in LISP package: Args: (name
+&optional (package *package*)) Returns the symbol named NAME in
+PACKAGE.  If such a symbol is found, then the second value is :INTERN,
+:EXTERNAL, or :INHERITED to indicate how the symbol is accessible.  If
+no symbol is found then both values are NIL.
+
+FCHAR< 
+Function in LISP
+package: Args: (char &rest more-chars) Returns T if the codes of CHARs
+are in strictly increasing order; NIL otherwise.
+
+FCATCH
+Special Form
+in LISP package: Syntax: (catch tag {form}*) Sets up a catcher with
+that value TAG.  Then evaluates FORMs as a PROGN, but may possibly
+abort the evaluation by a THROW form that specifies the value EQ to
+the catcher tag.
+
+FATANH 
+Function in LISP package: Args: (number)
+Returns the hyperbolic arc tangent of NUMBER.
+
+FHASH-TABLE-P 
+Function in LISP package: Args: (x) Returns T if X is a hash table object; NIL
+otherwise.
+
+FEVENP 
+Function in LISP package: Args: (integer) Returns T
+if INTEGER is even.  Returns NIL if INTEGER is odd.
+
+FSIXTH
+Function in LISP package: Args: (x) Equivalent to (CADR (CDDDDR X)).
+
+FZEROP
+Function in LISP package: Args: (number) Returns T if NUMBER = 0; NIL
+otherwise.
+
+FCOUNT-IF-NOT 
+Function in LISP package: Args: (test
+sequence
+       &key (from-end nil) (start 0) (end (length sequence)) (key #'identity))
+Returns the number of elements in SEQUENCE not satisfying TEST.
+
+FCAAAAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CAR (CAR (CAR X)))).
+
+FCHAR>=
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if the codes of CHARs are in strictly non-increasing order; NIL
+otherwise.
+
+FCDDDAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CDR (CDR (CAR X)))).
+
+FCDDADR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CDR (CAR (CDR X)))).
+
+FCDADDR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CAR (CDR (CDR X)))).
+
+FCADDDR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDR (CDR (CDR X)))).
+
+FFILL-POINTER
+Function in LISP package:
+Args: (vector)
+Returns the fill pointer of VECTOR.
+
+FDEFINE-MODIFY-MACRO
+Macro in LISP package:
+Syntax: (define-modify-macro name lambda-list fun [doc])
+Defines a read-modify-write macro, like PUSH and INCF.  The defined macro will
+expand a form (NAME place val1 ... valn) into a form that in effect SETFs the
+value of the call (FUN PLACE arg1 ... argm) into PLACE, where arg1 ... argm
+are parameters in LAMBDA-LIST which are bound to the forms VAL1 ... VALn.
+The doc-string DOC, if supplied, is saved as a FUNCTION doc and can be
+retrieved by (documentation 'NAME 'function).
+
+FMAPCAR
+Function in LISP package:
+Args: (fun list &rest more-lists)
+Applies FUN to successive cars of LISTs and returns the results as a list.
+
+V*TERMINAL-IO*
+Variable in LISP package:
+The terminal I/O stream.
+
+VCHAR-META-BIT
+Variable in LISP package:
+The bit that indicates a meta character.
+
+FFLOATP
+Function in LISP package:
+Args: (x)
+Returns T if X is a floating-point number; NIL otherwise.
+
+FSHADOW
+Function in LISP package:
+Args: (symbols &optional (package *package*))
+Creates an internal symbol in PACKAGE with the same name as each of the
+specified SYMBOLS.  SYMBOLS must be a list of symbols or a symbol.
+
+FDOLIST
+Special Form in LISP package:
+Syntax: (dolist (var listform [result]) {decl}* {tag | statement}*)
+Executes STATEMENTs, with VAR bound to each member of the list value of
+LISTFORM.  Then returns the value(s) of RESULT (which defaults to NIL).
+
+FMACROEXPAND-1
+Function in LISP package:
+Args: (form &optional (env nil))
+If FORM is a macro form, then expands it once.  Returns two values: the
+expanded form and a T-or-NIL flag indicating whether the original form was
+a macro.
+
+FSXHASH
+Function in LISP package:
+Args: (object)
+Computes a hash code for OBJECT and returns it as an integer.
+
+FLISTEN
+Function in LISP package:
+Args: (&optional (stream *standard-input*))
+Returns T if a character is available on STREAM; NIL otherwise.  This function
+does not correctly work in some versions of KCL because of the lack of such
+mechanism in the underlying operating system.
+
+FARRAYP
+Function in LISP package:
+Args: (x)
+Returns T if X is an array; NIL otherwise.
+
+FMAKE-PATHNAME
+Function in LISP package:
+Args: (&key (defaults (parse-namestring ""
+                        (pathname-host *default-pathname-defaults*)))
+            (host (pathname-host defaults))
+            (device (pathname-device defaults))
+            (directory (pathname-directory defaults))
+            (name (pathname-name defaults))
+            (type (pathname-type defaults))
+            (version (pathname-version defaults)))
+Create a pathname from HOST, DEVICE, DIRECTORY, NAME, TYPE and VERSION.
+
+FFOURTH
+Function in LISP package:
+Args: (x)
+Equivalent to (CADDDR X).
+
+VBOOLE-1
+Variable in LISP package:
+Makes BOOLE return INTEGER1.
+
+FALLOCATE-RELOCATABLE-PAGES
+Function in SI package:
+Args: (number)
+KCL specific: Sets the maximum number of pages for relocatable blocks to
+NUMBER.
+
+FPATHNAME-TYPE
+Function in LISP package:
+Args: (pathname)
+Returns the type slot of PATHNAME.
+
+FREPLACE
+Function in LISP package:
+Args: (sequence1 sequence2
+       &key (start1 0) (end1 (length sequence1))
+            (start2 0) (end2 (length sequence2)))
+Destructively modifies SEQUENCE1 by copying successive elements into it from
+SEQUENCE2.
+
+FBIT-XOR
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical XOR on the elements of BIT-ARRAY1 and BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FFUNCALL
+Function in LISP package:
+Args: (function &rest arguments)
+Applies FUNCTION to the ARGUMENTs
+
+FCLRHASH
+Function in LISP package:
+Args: (hash-table)
+Removes all entries of HASH-TABLE and returns the hash table itself.
+
+FGRAPHIC-CHAR-P
+Function in LISP package:
+Args: (char)
+Returns T if CHAR is a printing character, i.e., #\Space through #\~;
+NIL otherwise.
+
+FALLOCATED-CONTIGUOUS-PAGES
+Function in SI package:
+Args: ()
+KCL specific: Returns the number of pages currently allocated for contiguous
+blocks.
+
+FSUBSTITUTE-IF
+Function in LISP package:
+Args: (newitem test sequence
+       &key (from-end nil) (start 0) (end (length sequence))
+            (count most-positive-fixnum) (key #'identity))
+Returns a sequence of the same kind as SEQUENCE with the same elements
+except that all elements satisfying TEST are replaced with NEWITEM.
+
+FFBOUNDP
+Function in LISP package:
+Args: (symbol)
+Returns T if SYMBOL has a global function definition or if SYMBOL names a
+special form or a macro; NIL otherwise.
+
+VCALL-ARGUMENTS-LIMIT
+Variable in LISP package:
+The upper exclusive bound on the number of arguments that may be passed to
+a function.  Actually, however, there is no such upper bound in KCL.
+
+FNSUBLIS
+Function in LISP package:
+Args: (alist tree &key (test #'eql) test-not (key #'identity))
+Substitutes from ALIST for subtrees of TREE.
+
+FCHAR-NOT-EQUAL
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if no two of CHARs are the same character; NIL otherwise.
+Upper case character and its lower case equivalent are regarded the same.
+
+V*PRINT-GENSYM*
+Variable in LISP package:
+Whether the KCL printer should prefix symbols with no home package
+with "#:".
+
+V*TRACE-OUTPUT*
+Variable in LISP package:
+The trace output stream.
+
+VMOST-POSITIVE-SINGLE-FLOAT
+Variable in LISP package:
+Same as MOST-POSITIVE-LONG-FLOAT.
+
+V++
+Variable in LISP package:
+Gets the previous value of + when KCL evaluates a top-level form.
+
+FLOGANDC1
+Function in LISP package:
+Args: (integer1 integer2)
+Returns the logical AND of (LOGNOT INTEGER1) and INTEGER2.
+
+V*ERROR-OUTPUT*
+Variable in LISP package:
+Holds the output stream for error messages.
+
+FMACRO-FUNCTION
+Function in LISP package:
+Args: (symbol)
+If SYMBOL globally names a macro, then returns the expansion function.
+Returns NIL otherwise.
+
+FSUBST-IF
+Function in LISP package:
+Args: (new test tree &key (key #'identity))
+Substitutes NEW for subtrees of TREE that satisfy TEST.
+
+FMISMATCH
+Function in LISP package:
+Args: (sequence1 sequence2
+       &key (from-end nil) (test #'eql) test-not (start1 0) (start2 0)
+            (end1 (length sequence1)) (end2 (length sequence2))
+            (key #'identity))
+The specified subsequences of SEQUENCE1 and SEQUENCE2 are compared
+element-wise.  If they are of equal length and match in every element, the
+result is NIL.  Otherwise, the result is a non-negative integer, the index
+within SEQUENCE1 of the leftmost position at which they fail to match; or, if
+one is shorter than and a matching prefix of the other, the index within
+SEQUENCE1 beyond the last position tested is returned.
+
+VLEAST-POSITIVE-SINGLE-FLOAT
+Variable in LISP package:
+Same as LEAST-POSITIVE-LONG-FLOAT.
+
+FCOMPLEXP
+Function in LISP package:
+Args: (x)
+Returns T if X is a complex number; NIL otherwise.
+
+VCHAR-BITS-LIMIT
+Variable in LISP package:
+The upper exclusive bound on values produced by CHAR-BITS.
+
+FNSET-DIFFERENCE
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns a list of elements of LIST1 that do not appear in LIST2.  LIST1 may
+be destroyed.
+
+FREAD-LINE
+Function in LISP package:
+Args: (&optional (stream *standard-input*) (eof-error-p t)
+                 (eof-value nil) (recursive-p nil))
+Returns a line of text read from STREAM as a string, discarding the newline
+character.
+
+Note that when using line at a time input under unix,
+input forms will always be followed by a #\newline.   Thus if you
+do
+
+>(read-line)
+""
+nil
+
+the empty string will be returned.  After lisp reads the (read-line)
+it then invokes (read-line).  This happens before it does anything
+else and so happens before the newline character immediately following
+(read-line) has been read.  Thus read-line immediately encounters a
+#\newline and so returns the empty string.  If there had been other
+characters before the #\newline it would have been different:
+
+>(read-line) how are you
+" how are you"
+nil
+
+If you want to throw away "" input, you can do that with
+the following:
+
+(sloop::sloop while (equal (setq input (read-line)) ""))
+
+You may also want to use character at a time input, but that
+makes input editing harder.
+nicolas% stty cbreak
+nicolas% akcl
+AKCL (Austin Kyoto Common Lisp)  Version(1.610) Mon Feb 10 18:38:29 CST 1992
+Contains Enhancements by W. Schelter
+
+>(let ((ifilename nil))
+    (format t "~%Input file name: ")
+    (setq ifilename (read-line)))
+Input file name: /tmp/myfile
+"/tmp/myfile"
+
+>(bye)Bye.
+
+
+
+VBOOLE-AND
+Variable in LISP package:
+Makes BOOLE return LOGAND of INTEGER1 and INTEGER2.
+
+FGET-INTERNAL-REAL-TIME
+Function in LISP package:
+Args: ()
+Returns the real time in the internal time format.  This is useful for
+finding elapsed time.
+
+FWRITE-TO-STRING
+Function in LISP package:
+Args: (object &key (escape *print-escape*) (radix *print-radix*)
+                   (base *print-base*) (circle *print-circle*)
+                   (pretty *print-pretty*) (level *print-level*)
+                   (length *print-length*) (case *print-case*)
+                   (array *print-array*) (gensym *print-gensym*))
+Returns as a string the printed representation of OBJECT in the specified
+mode.  See the variable docs of *PRINT-...* for the mode.
+
+FPATHNAMEP
+Function in LISP package:
+Args: (x)
+Returns T if X is a pathname object; NIL otherwise.
+
+FMAX
+Function in LISP package:
+Args: (number &rest more-numbers)
+Returns the greatest of its arguments.
+
+FPOP
+Special Form in LISP package:
+Syntax: (pop place)
+Pops one item off the front of the list in PLACE and returns it.
+
+FIN-PACKAGE
+Function in LISP package:
+Args: (package-name &key (nicknames nil) (use '(lisp)))
+Sets *PACKAGE* to the package with PACKAGE-NAME, creating the package if
+it does not exist.  If the package already exists then it is modified
+to agree with USE and NICKNAMES arguments.  Any new nicknames are added
+without removing any old ones not specified.  If any package in the USE list
+is not currently used, then it is added to the use list.
+
+VARRAY-TOTAL-SIZE-LIMIT
+Variable in LISP package:
+The exclusive upper bound on the total number of elements of an array.
+
+FREADTABLEP
+Function in LISP package:
+Args: (x)
+Returns T if X is a readtable object; NIL otherwise.
+
+FFLOAT-SIGN
+Function in LISP package:
+Args: (float1 &optional (float2 (float 1 float1)))
+Returns a floating-point number with the same sign as FLOAT1 and with the
+same absolute value as FLOAT2.
+
+FCHARACTERP
+Function in LISP package:
+Args: (x)
+Returns T if X is a character; NIL otherwise.
+
+FCASE
+Special Form in LISP package:
+Syntax: (case keyform {({key | ({key}*)} {form}*)}*)
+Evaluates KEYFORM and tries to find the KEY that is EQL to the value of
+KEYFORM.  If one is found, then evaluates FORMs that follow the KEY and
+returns the value(s) of the last FORM.  If not, simply returns NIL.
+
+FREAD
+Function in LISP package:
+Args: (&optional (stream *standard-input*) (eof-error-p t) (eof-value nil)
+                 (recursivep nil))
+Reads in the next object from STREAM.
+
+FVECTOR-POP
+Function in LISP package:
+Args: (vector)
+Attempts to decrease the fill-pointer of VECTOR by 1 and returns the element
+pointed to by the new fill pointer.  Signals an error if the old value of
+the fill pointer is 0.
+
+VBOOLE-ANDC2
+Variable in LISP package:
+Makes BOOLE return LOGANDC2 of INTEGER1 and INTEGER2.
+
+FNAMESTRING
+Function in LISP package:
+Args: (pathname)
+Returns the full form of PATHNAME as a string.
+
+FPUSH
+Special Form in LISP package:
+Syntax: (push item place)
+Conses ITEM onto the list in PLACE, and returns the new list.
+
+FUNREAD-CHAR
+Function in LISP package:
+Args: (character &optional (stream *standard-input*))
+Puts CHARACTER back on the front of the input stream STREAM.
+
+FSUBSTITUTE
+Function in LISP package:
+Args: (newitem olditem sequence
+       &key (from-end nil) (test #'eql) test-not (start 0)
+            (end (length sequence)) (count most-positive-fixnum)
+            (key #'identity))
+Returns a sequence of the same kind as SEQUENCE with the same elements
+except that OLDITEMs are replaced with NEWITEM.
+
+FARRAY-HAS-FILL-POINTER-P
+Function in LISP package:
+Args: (array)
+Returns T if ARRAY has a fill pointer; NIL otherwise.
+
+FCONCATENATE
+Function in LISP package:
+Args: (result-type &rest sequences)
+Returns a new sequence of the specified RESULT-TYPE, consisting of all
+elements in SEQUENCEs.
+
+FCDAAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CAR (CAR X))).
+
+FCADAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDR (CAR X))).
+
+FCAADR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CAR (CDR X))).
+
+FCHAR=
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if all CHARs are the same character; NIL otherwise.
+
+FDEFINE-SETF-METHOD
+Macro in LISP package:
+Syntax: (define-setf-method access-fun defmacro-lambda-list {decl | doc}*
+          {form}*)
+Defines how to SETF a generalized-variable reference of the form
+(ACCESS-FUN ...).  When a form (setf (ACCESS-FUN arg1 ... argn) value) is
+being evaluated, the FORMs are first evaluated as a PROGN with the parameters
+in DEFMACRO-LAMBDA-LIST bound to ARG1 ... ARGn.  Assuming that the last FORM
+returns five values
+	(temp-var-1 ... temp-var-k)
+	(value-from-1 ... value-form-k)
+	(store-var)
+	storing-form
+	access-form
+in order, the whole SETF is then expanded into
+	(let* ((temp-var-1 value-from-1) ... (temp-k value-form-k)
+	       (store-var VALUE))
+	  storing-from)
+Incidentally, the five values are called the five gangs of a SETF method.
+The doc-string DOC, if supplied, is saved as a SETF doc and can be retrieved
+by (documentation 'NAME 'setf).
+
+FALPHA-CHAR-P
+Function in LISP package:
+Args: (char)
+Returns T if CHAR is an alphabetic character, A-Z or a-z; NIL otherwise.
+
+FVECTOR-PUSH
+Function in LISP package:
+Args: (new-element vector)
+Attempts to set the element of ARRAY designated by its fill pointer to
+NEW-ELEMENT and increments the fill pointer by one.  Returns NIL if the fill
+pointer is too large.  Otherwise, returns the new fill pointer value.
+
+FSTRING-TRIM
+Function in LISP package:
+Args: (char-bag string)
+Returns a copy of STRING with the characters in CHAR-BAG removed from both
+ends.
+
+FMAKE-PACKAGE
+Function in LISP package:
+Args: (package-name &key (nicknames nil) (use '(lisp)))
+Makes a new package having the specified PACKAGE-NAME and NICKNAMES.  The
+package will inherit all external symbols from each package in the USE list.
+
+FCLOSE
+Function in LISP package:
+Args: (stream &key (abort nil))
+Closes STREAM.  A non-NIL value of :ABORT indicates an abnormal termination.
+
+FDENOMINATOR
+Function in LISP package:
+Args: (rational)
+Returns the denominator of RATIONAL as an integer.
+
+FFLOAT
+Function in LISP package:
+Args: (number &optional other)
+Converts a non-complex number to a floating-point number.  If NUMBER is
+already a float, FLOAT simply returns NUMBER.  Otherwise, the format of
+the returned float depends on OTHER;  If OTHER is not provided, FLOAT returns
+a SINGLE-FLOAT.  If OTHER is provided, the result is in the same float format
+as OTHER's.
+
+FFIRST
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR X).
+
+FROUND
+Function in LISP package:
+Args: (number &optional (divisor 1))
+Rounds NUMBER/DIVISOR to nearest integer.  The second returned value is the
+remainder.
+
+FSUBST
+Function in LISP package:
+Args: (new old tree &key (test #'eql) test-not (key #'identity))
+Substitutes NEW for subtrees of TREE that match OLD.
+
+FUPPER-CASE-P
+Function in LISP package:
+Args: (char)
+Returns T if CHAR is an upper-case character; NIL otherwise.
+
+FARRAY-ELEMENT-TYPE
+Function in LISP package:
+Args: (array)
+Returns the type of the elements of ARRAY
+
+FMAXIMUM-CONTIGUOUS-PAGES
+Function in SI package:
+Args: ()
+KCL specific: Returns the current maximum number of pages for contiguous
+blocks.
+
+FMACHINE-TYPE
+Function in LISP package:
+Args: ()
+Returns a string that identifies the machine type of the machine
+on which KCL is currently running.
+
+FCOMPILER-LET
+Special Form in LISP package:
+Syntax: (compiler-let ({var | (var [value])}*) {form}*)
+When interpreted, this form works just like a LET form with all VARs declared
+special.  When compiled, FORMs are processed with the VARs bound at compile
+time, but no bindings occur when the compiled code is executed.
+
+FADJOIN
+Function in LISP package:
+Args: (item list &key (test #'eql) test-not (key #'identity))
+Adds ITEM to LIST unless ITEM is already a member of LIST.
+
+FLOGAND
+Function in LISP package:
+Args: (&rest integers)
+Returns the bit-wise AND of its arguments.
+
+FCLINES
+Macro in LISP package:
+Syntax: (clines {string}*)
+KCL specific:  The KCL compiler embeds STRINGs into the intermediate C
+language code.  The interpreter ignores this form.
+
+FMAPCON
+Function in LISP package:
+Args: (fun list &rest more-lists)
+Applies FUN to successive cdrs of LISTs, NCONCs the results, and returns it.
+
+FPACKAGE-SHADOWING-SYMBOLS
+Function in LISP package:
+Args: (package)
+Returns the list of symbols that have been declared as shadowing symbols
+in PACKAGE.
+
+FINTERN
+Function in LISP package:
+Args: (name &optional (package *package*))
+Returns a symbol having the specified name, creating it if necessary.
+Returns as the second value one of the symbols :INTERNAL, :EXTERNAL,
+:INHERITED, and NIL.
+
+FVALUES
+Function in LISP package:
+Args: (&rest args)
+Returns ARGs in order, as values.
+
+FNOTANY
+Function in LISP package:
+Args: (predicate sequence &rest more-sequences)
+Returns T if none of the elements in SEQUENCEs satisfies PREDICATE; NIL
+otherwise.
+
+VBOOLE-2
+Variable in LISP package:
+Makes BOOLE return INTEGER2.
+
+FEXPORT
+Function in LISP package:
+Args: (symbols &optional (package *package*))
+Makes SYMBOLS external symbols of PACKAGE.  SYMBOLS must be a list of symbols
+or a symbol.
+
+FMULTIPLE-VALUE-LIST
+Special Form in LISP package:
+Syntax: (multiple-value-list form)
+Evaluates FORM, and returns a list of multiple values it returned.
+
+FDRIBBLE
+Function in LISP package:
+Args: (&optional pathname)
+If PATHNAME is given, begins to record the interaction to the specified file.
+If PATHNAME is not given, ends the recording.
+
+F*
+Function in LISP package:
+Args: (&rest numbers)
+Returns the product of its arguments.  With no args, returns 1.
+
+V*
+Variable in LISP package:
+Holds the value of the last top-level form.
+
+FBIT-NOT
+Function in LISP package:
+Args: (bit-array &optional (result-bit-array nil))
+Performs a bit-wise logical NOT in the elements of BIT-ARRAY.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+F<
+Function in LISP package:
+Args: (number &rest more-numbers)
+Returns T if its arguments are in strictly increasing order; NIL otherwise.
+
+V*PRINT-LENGTH*
+Variable in LISP package:
+How many elements the KCL printer should print at each level of nested data
+object.  Unlimited if NIL.
+
+FCOMPLEX
+Function in LISP package:
+Args: (realpart &optional (imagpart 0))
+Returns a complex number with the given real and imaginary parts.
+
+FMULTIPLE-VALUE-PROG1
+Special Form in LISP package:
+Syntax: (multiple-value-prog1 form {form}*)
+Evaluates the first FORM, saves all the values produced, then evaluates
+the other FORMs.  Returns the saved values.
+
+FSET-SYNTAX-FROM-CHAR
+Function in LISP package:
+Args: (to-char from-char
+       &optional (to-readtable *readtable*) (from-readtable nil))
+Makes the syntax of TO-CHAR in TO-READTABLE be the same as the syntax of
+FROM-CHAR in FROM-READTABLE.
+
+VSINGLE-FLOAT-EPSILON
+Variable in LISP package:
+Same as LONG-FLOAT-EPSILON.
+
+FPUSHNEW
+Macro in LISP package:
+Syntax: (pushnew item place {keyword value}*)
+If ITEM is already in the list stored in PLACE, does nothing.  Else, conses
+ITEM onto the list.  Returns NIL.  If no KEYWORDs are supplied, each element
+in the list is compared with ITEM by EQL, but the comparison can be controlled
+by supplying keywords :TEST, :TEST-NOT, and/or :KEY.
+
+FBIT-ORC1
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical ORC1 on the elements of BIT-ARRAY1 and BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FLOGANDC2
+Function in LISP package:
+Args: (integer1 integer2)
+Returns the logical AND of INTEGER1 and (LOGNOT INTEGER2).
+
+FCHAR-BIT
+Function in LISP package:
+Args: (char name)
+Returns T if the named bit is on in the character CHAR; NIL otherwise.
+In KCL, this function always returns NIL.
+
+FINTEGER-LENGTH
+Function in LISP package:
+Args: (integer)
+Returns the number of significant bits in the absolute value of INTEGER.
+
+VMOST-NEGATIVE-FIXNUM
+Variable in LISP package:
+The fixnum closest in value to negative infinity.
+
+FPACKAGEP
+Function in LISP package:
+Args: (x)
+Returns T if X is a package; NIL otherwise.
+
+FINPUT-STREAM-P
+Function in LISP package:
+Args: (stream)
+Returns non-NIL if STREAM can handle input operations; NIL otherwise.
+
+FALLOCATE
+Function in LISP package:
+Args: (type number &optional (really-allocate nil))
+KCL specific: Sets the maximum number of pages for the type class of the
+KCL implementation type TYPE to NUMBER.  If REALLY-ALLOCATE is given a
+non-NIL value, then the specified number of pages will be allocated
+immediately.
+
+FCOUNT-IF
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence)) (key #'identity))
+Returns the number of elements in SEQUENCE satisfying TEST.
+
+VLONG-FLOAT-NEGATIVE-EPSILON
+Variable in LISP package:
+The smallest positive long-float that satisfies
+	(not (= (float 1 e) (- (float 1 e) e))).
+
+F>=
+Function in LISP package:
+Args: (number &rest more-numbers)
+Returns T if arguments are in strictly non-increasing order; NIL otherwise.
+
+FPATHNAME
+Function in LISP package:
+Args: (x)
+Turns X into a pathname.  X may be a string, symbol, stream, or pathname.
+
+FPROCLAIM
+Function in LISP package:
+Args: (decl-spec)
+Puts the declaration given by DECL-SPEC into effect globally.  See the doc of
+DECLARE for possible DECL-SPECs.
+
+FMACROLET
+Special Form in LISP package:
+Syntax: (macrolet ({(name defmacro-lambda-list {decl | doc}* . body)}*)
+          {form}*)
+Evaluates FORMs as a PROGN, with the local macro definitions in effect.
+See the doc of DEFMACRO for the complete syntax of a defmacro-lambda-list.
+Doc-strings for local macros are simply ignored.
+
+V///
+Variable in LISP package:
+Gets the previous value of // when KCL evaluates a top-level form.
+
+FGO
+Special Form in LISP package:
+Syntax: (go tag)
+Jumps to the specified TAG established by a lexically surrounding TAGBODY.
+
+FEQ
+Function in LISP package:
+Args: (x y)
+Returns T if X and Y are the same identical object; NIL otherwise.
+
+FMAKE-CHAR
+Function in LISP package:
+Args: (char &optional (bits 0) (font 0))
+Returns a character object with the same code attribute as CHAR and with
+the specified BITS and FONT attributes.
+
+FFILE-NAMESTRING
+Function in LISP package:
+Args: (pathname)
+Returns the written representation of PATHNAME as a string.
+
+VBOOLE-NOR
+Variable in LISP package:
+Makes BOOLE return LOGNOR of INTEGER1 and INTEGER2.
+
+FCHARACTER
+Function in LISP package:
+Args: (x)
+Coerces X into a character object if possible.
+
+FGBC
+Function in LISP package:
+Args: (x)
+KCL specific: Invokes the garbage collector (GC) with the collection level
+specified by X.  NIL as the argument causes GC to collect cells only.  T as
+the argument causes GC to collect everything.
+
+FSYMBOL-FUNCTION
+Function in LISP package:
+Args: (symbol)
+Returns the current global function definition named by SYMBOL.
+
+FMAP
+Function in LISP package:
+Args: (result-type function sequence &rest more-sequences)
+FUNCTION must take as many arguments as there are sequences provided.  The 
+result is a sequence such that the i-th element is the result of applying
+FUNCTION to the i-th elements of the SEQUENCEs.
+
+FMAKE-DISPATCH-MACRO-CHARACTER
+Function in LISP package:
+Args: (char &optional (non-terminating-p nil) (readtable *readtable*))
+Causes the character CHAR to be a dispatching macro character in READTABLE.
+
+FCONSTANTP
+Function in LISP package:
+Args: (symbol)
+Returns T if the variable named by SYMBOL is a constant; NIL otherwise.
+
+VARRAY-RANK-LIMIT
+Variable in LISP package:
+The exclusive upper bound on the rank of an array.
+
+FCHAR-EQUAL
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if all of its arguments are the same character; NIL otherwise.
+Upper case character and its lower case equivalent are regarded the same.
+
+FSET-EXCLUSIVE-OR
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns a list of elements appearing exactly once in LIST1 and LIST2.
+
+FTREE-EQUAL
+Function in LISP package:
+Args: (x y &key (test #'eql) test-not)
+Returns T if X and Y are isomorphic trees with identical leaves.
+
+FCDDR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CDR X)).
+
+FACOS
+Function in LISP package:
+Args: (number)
+Returns the arc cosine of NUMBER.
+
+FGETF
+Function in LISP package:
+Args: (place indicator &optional (default nil))
+Searches the property list stored in Place for an indicator EQ to Indicator.
+If one is found, the corresponding value is returned, else the Default is
+returned.
+
+FTIME
+Macro in LISP package:
+Syntax: (time form)
+Evaluates FORM and outputs timing statistics on *TRACE-OUTPUT*.
+
+FSAVE
+Function in LISP package:
+Args: (pathname)
+KCL specific: Saves the current KCL core image into a program file specified
+by PATHNAME.  This function depends on the version of KCL.  See KCL Report for
+the details.
+
+FMAKE-RANDOM-STATE
+Function in LISP package:
+Args: (&optional (state *random-state*))
+Creates and returns a copy of the specified random state.  If STATE is NIL,
+then the value of *RANDOM-STATE* is used.  If STATE is T, then returns a
+random state object generated from the universal time.
+
+FWARN
+Function in LISP package:
+Args: (format-string &rest args)
+Formats FORMAT-STRING and ARGs to *ERROR-OUTPUT* as a warning message.
+
+FPROG
+Special Form in LISP package:
+Syntax: (prog ({var | (var [init])}*) {decl}* {tag | statement}*)
+Creates a NIL block, binds VARs in parallel, and then executes STATEMENTs.
+
+FCHAR-NOT-GREATERP
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if the codes of CHARs are in strictly non-decreasing order; NIL
+otherwise.  For a lower-case character, the code of its upper-case equivalent
+is used.
+
+V*STANDARD-OUTPUT*
+Variable in LISP package:
+The default output stream used by the KCL printer.
+
+FEXPT
+Function in LISP package:
+Args: (base-number power-number)
+Returns BASE-NUMBER raised to the power POWER-NUMBER.
+
+V*APPLYHOOK*
+Variable in LISP package:
+Used to substitute another function for the implicit APPLY normally done
+within EVAL.  If *APPLYHOOK* is not NIL, its value must be a function 
+which takes three arguments: a function to be applied, a list of arguments,
+and an environment.  This function does the application instead of APPLY.
+
+FSQRT
+Function in LISP package:
+Args: (number)
+Returns the principal square root of NUMBER.
+
+FSCALE-FLOAT
+Function in LISP package:
+Args: (float integer)
+Returns (* FLOAT (expt (float-radix FLOAT) INTEGER)).
+
+FHELP*
+Function in LISP package:
+Args: (string &optional (package 'lisp))
+KCL specific: Prints the documentation associated with those symbols in the
+specified package whose print names contain STRING as substring.  STRING may
+be a symbol, in which case the print-name of that symbol is used.  If PACKAGE
+is NIL, then all packages are searched.
+
+FDEFLA
+Macro in LISP package:
+Syntax: (defla name lambda-list {decl | doc}* {form}*)
+KCL specific: Used to DEFine Lisp Alternative.  For the interpreter, DEFLA is
+equivalent to DEFUN, but the compiler ignores this form.
+
+FCHAR>
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if the codes of CHARs are in strictly decreasing order; NIL
+otherwise.
+
+FBREAK
+Function in LISP package:
+Args: (&optional (format-string nil) &rest args)
+Enters a break loop.  If FORMAT-STRING is non-NIL, formats FORMAT-STRING
+and ARGS to *ERROR-OUTPUT* before entering a break loop.
+Typing :HELP at the break loop will list the break-loop commands.
+
+FLDIFF
+Function in LISP package:
+Args: (list sublist)
+Returns a new list, whose elements are those of LIST that appear before
+SUBLIST.  If SUBLIST is not a tail of LIST, a copy of LIST is returned.
+
+FACOSH
+Function in LISP package:
+Args: (number)
+Returns the hyperbolic arc cosine of NUMBER.
+
+VMOST-NEGATIVE-LONG-FLOAT
+Variable in LISP package:
+The long-float closest in value to negative infinity.
+
+FRETURN-FROM
+Special Form in LISP package:
+Syntax: (return-from name [result])
+Returns from the lexically surrounding block whose name is NAME.  The value
+of RESULT, which defaults to NIL, is returned as the value of the block.
+
+FUNION
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns the union of LIST1 and LIST2.
+
+FCOUNT
+Function in LISP package:
+Args: (item sequence
+       &key (from-end nil) (test #'eql) test-not (start 0)
+            (end (length sequence)) (key #'identity))
+Returns the number of elements in SEQUENCE satisfying TEST with ITEM.
+
+FTYPEP
+Function in LISP package:
+Args: (x type)
+Returns T if X is of the type TYPE; NIL otherwise.
+
+FASSOC-IF-NOT
+Function in LISP package:
+Args: (test alist)
+Returns the first pair in ALIST whose car does not satisfy TEST.
+
+FBIT-VECTOR-P
+Function in LISP package:
+Args: (x)
+Returns T if X is a bit vector; NIL otherwise.
+
+FNSTRING-CAPITALIZE
+Function in LISP package:
+Args: (string &key (start 0) (end (length string)))
+Returns STRING with the first character of each word converted to upper-case,
+and remaining characters in the word converted to lower case.
+
+VLEAST-NEGATIVE-LONG-FLOAT
+Variable in LISP package:
+The negative long-float closest in value to zero.
+
+FADJUST-ARRAY
+Function in LISP package:
+Args: (array dimensions
+       &key (element-type (array-element-type array))
+            initial-element (initial-contents nil) (fill-pointer nil)
+            (displaced-to nil) (displaced-index-offset 0))
+Adjusts the dimensions of ARRAY to the given DIMENSIONS.  The default value
+of INITIAL-ELEMENT depends on ELEMENT-TYPE.
+
+FSEARCH
+Function in LISP package:
+Args: (sequence1 sequence2
+       &key (from-end nil) (test #'eql) test-not (start1 0) (start2 0)
+            (end1 (length sequence1)) (end2 (length sequence2))
+            (key #'identity))
+A search is conducted for the first subsequence of SEQUENCE2 which
+element-wise matches SEQUENCE1.  If there is such a subsequence in SEQUENCE2,
+the index of the its leftmost element is returned; otherwise, NIL is
+returned.
+
+FSYMBOL-VALUE
+Function in LISP package:
+Args: (symbol)
+Returns the current value of the dynamic (special) variable named by SYMBOL.
+
+FRPLACD
+Function in LISP package:
+Args: (x y)
+Replaces the cdr of X with Y, and returns the modified X.
+
+FPROCLAMATION
+Function in LISP package:
+Args: (decl-spec)
+KCL specific: Returns T if the specified declaration is globally in effect;
+NIL otherwise.  See the doc of DECLARE for possible DECL-SPECs.
+
+FFFLOOR
+Function in LISP package:
+Args: (number &optional (divisor 1))
+Same as FLOOR, but returns a float as the first value.
+
+FBOUNDP
+Function in LISP package:
+Args: (symbol)
+Returns T if the global variable named by SYMBOL has a value; NIL otherwise.
+
+FEQUALP
+Function in LISP package:
+Args: (x y)
+Returns T if X and Y are EQUAL, if they are characters and satisfy CHAR-EQUAL,
+if they are numbers and have the same numerical value, or if they have
+components that are all EQUALP.  Returns NIL otherwise.
+
+FSIMPLE-BIT-VECTOR-P
+Function in LISP package:
+Args: (x)
+Returns T if X is a simple bit-vector; NIL otherwise.
+
+FLOGNOR
+Function in LISP package:
+Args: (integer1 integer2)
+Returns the complement of the logical OR of INTEGER1 and INTEGER2.
+
+FMEMBER-IF-NOT
+Function in LISP package:
+Args: (test list &key (key #'identity))
+Returns the tail of LIST beginning with the first element not satisfying
+TEST.
+
+FMAKE-TWO-WAY-STREAM
+Function in LISP package:
+Args: (input-stream output-stream)
+Returns a bidirectional stream which gets its input from INPUT-STREAM and
+sends its output to OUTPUT-STREAM.
+
+FUNLESS
+Special Form in LISP package:
+Syntax: (unless test {form}*)
+If TEST evaluates to NIL, then evaluates FORMs as a PROGN.  If not,
+simply returns NIL.
+
+FMAKE-SEQUENCE
+Function in LISP package:
+Args: (type length &key initial-element)
+Returns a sequence of the given TYPE and LENGTH, with elements initialized
+to INITIAL-ELEMENT.  The default value of INITIAL-ELEMENT depends on TYPE.
+
+FMULTIPLE-VALUE-SETQ
+Special Form in LISP package:
+Syntax: (multiple-value-setq variables form)
+Sets each variable in the list VARIABLES to the corresponding value of FORM.
+Returns the value assigned to the first variable.
+
+FPARSE-INTEGER
+Function in LISP package:
+Args: (string
+       &key (start 0) (end (length string)) (radix 10) (junk-allowed nil))
+Parses STRING for an integer and returns it.
+
+F+
+Function in LISP package:
+Args: (&rest numbers)
+Returns the sum of its arguments.  With no args, returns 0.
+
+V+
+Variable in LISP package:
+Holds the last top-level form.
+
+V*PRINT-ESCAPE*
+Variable in LISP package:
+Whether the KCL printer should put escape characters whenever appropriate.
+
+F=
+Function in LISP package:
+Args: (number &rest more-numbers)
+Returns T if all of its arguments are numerically equal; NIL otherwise.
+
+FSOFTWARE-TYPE
+Function in LISP package:
+Args: ()
+Returns a string that identifies the software type of the software
+under which KCL is currently running.
+
+FDOCUMENTATION
+Function in LISP package:
+Args: (symbol doc-type)
+Returns the doc-string of DOC-TYPE for SYMBOL; NIL if none exists.
+Possible doc-types are:
+	FUNCTION  (special forms, macros, and functions)
+	VARIABLE  (dynamic variables, including constants)
+	TYPE      (types defined by DEFTYPE)
+	STRUCTURE (structures defined by DEFSTRUCT)
+	SETF      (SETF methods defined by DEFSETF, DEFINE-SETF-METHOD, and
+	           DEFINE-MODIFY-MACRO)
+All built-in special forms, macros, functions, and variables have their
+doc-strings.
+
+FLOCALLY
+Special Form in LISP package:
+Syntax: (locally {decl}* {form}*)
+Gives local pervasive declarations.
+
+FGENTEMP
+Function in LISP package:
+Args: (&optional (prefix "t") (package *package*))
+Creates a new symbol interned in the package PACKAGE with the given PREFIX.
+
+FRENAME-PACKAGE
+Function in LISP package:
+Args: (package new-name &optional (new-nicknames nil))
+Replaces the old name and nicknames of PACKAGE with NEW-NAME and
+NEW-NICKNAMES.
+
+FPROVIDE
+Function in LISP package:
+Args: (module-name)
+Adds the specified module to the list of modules maintained in *MODULES*.
+
+FCOMMONP
+Function in LISP package:
+Args: (x)
+Returns T if X is a Common Lisp object; NIL otherwise.
+
+FNUMBERP
+Function in LISP package:
+Args: (x)
+Returns T if X is any kind of number; NIL otherwise.
+
+VMOST-POSITIVE-DOUBLE-FLOAT
+Variable in LISP package:
+Same as MOST-POSITIVE-LONG-FLOAT.
+
+FLOGTEST
+Function in LISP package:
+Args: (integer1 integer2)
+Returns T if LOGAND of INTEGER1 and INTEGER2 is not zero; NIL otherwise.
+
+FBIT-ORC2
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical ORC2 on the elements of BIT-ARRAY1 and BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+FCOPY-READTABLE
+Function in LISP package:
+Args: (&optional (from-readtable *readtable*) (to-readtable nil))
+Returns a copy of the readtable FROM-READTABLE.  If TO-READTABLE is non-NIL,
+then copies into TO-READTABLE.  Otherwise, creates a new readtable.
+
+FRANDOM-STATE-P
+Function in LISP package:
+Args: (x)
+Returns T if X is a random-state object; NIL otherwise.
+
+FDIRECTORY-NAMESTRING
+Function in LISP package:
+Args: (pathname)
+Returns the directory part of PATHNAME as a string.
+
+VLEAST-POSITIVE-DOUBLE-FLOAT
+Variable in LISP package:
+Same as LEAST-POSITIVE-LONG-FLOAT.
+
+FSTANDARD-CHAR-P
+Function in LISP package:
+Args: (char)
+Returns T if CHAR is a standard character, i.e., one of the 95 ASCII printing
+characters #\Space to #\~ and #Newline; NIL otherwise.
+
+FDEFENTRY
+Macro in LISP package:
+Syntax: (defentry name arg-types c-function)
+
+KCL specific: The compiler defines a Lisp function whose body consists of a
+calling sequence to the C language function specified by C-FUNCTION.  The
+interpreter ignores this form.  The ARG-TYPES specifies the C types of the
+arguments which C-FUNCTION requires.  The list of allowed types is (object
+char int float double string).  Code will be produced to coerce from a lisp
+object to the appropriate type before passing the argument to the C-FUNCTION.
+The c-function should be of the form (c-result-type c-fname) where
+c-result-type is a member of (void object char int float double string).
+c-fname may be a symbol (in which case it will be downcased) or a string.  If
+c-function is not a list, then (object c-function) is assumed.
+
+  Sample usage:
+--File begin-----
+;; JOE takes X a lisp string and Y a fixnum and returns a character.
+(clines "#include \"foo.ch\"")
+(defentry joe (string int) (char "our_c_fun"))
+---File end------
+---File foo.ch---
+/* C function for extracting the i'th element of a string */
+static char our_c_fun(p,i)
+char *p;
+int i;
+   {
+	return p[i];
+   }
+-----File end---
+
+FTRUENAME
+Function in LISP package:
+Ar
+gs: (pathname)
+Returns the pathname for the actual file described by PATHNAME.
+
+V*READ-SUPPRESS*
+Variable in LISP package:
+When the value of this variable is NIL, the KCL reader operates normally.
+When it is non-NIL, then the reader parses input characters but much of what
+is read is not interpreted.
+
+FIDENTITY
+Function in LISP package:
+Args: (x)
+Simply returns X.
+
+FNREVERSE
+Function in LISP package:
+Args: (sequence)
+Returns a sequence of the same elements as SEQUENCE but in reverse order.
+SEQUENCE may be destroyed.
+
+FGET-DISPATCH-MACRO-CHARACTER
+Function in LISP package:
+Args: (disp-char sub-char &optional (readtable *readtable*))
+Returns the macro-character function for SUB-CHAR under DISP-CHAR.
+
+FPATHNAME-DEVICE
+Function in LISP package:
+Args: (pathname)
+Returns the device slot of PATHNAME.
+
+FUNINTERN
+Function in LISP package:
+Args: (symbol &optional (package *package*))
+Makes SYMBOL no longer present in PACKAGE.  Returns T if SYMBOL was present;
+NIL otherwise.  If PACKAGE is the home package of SYMBOL, then makes SYMBOL
+uninterned.
+
+VARRAY-DIMENSION-LIMIT
+Variable in LISP package:
+The exclusive upper bound of the array dimension.
+
+FSUBTYPEP
+Function in LISP package:
+Args: (type1 type2)
+Returns T if TYPE1 is a subtype of TYPE2; NIL otherwise.  If it could not
+determine, then returns NIL as the second value.  Otherwise, the second value
+is T.
+
+FNOTEVERY
+Function in LISP package:
+Args: (predicate sequence &rest more-sequences)
+Returns T if at least one of the elements in SEQUENCEs does not satisfy
+PREDICATE; NIL otherwise.
+
+FUNEXPORT
+Function in LISP package:
+Args: (symbols &optional (package *package*))
+Makes SYMBOLS no longer accessible as external symbols in PACKAGE.  SYMBOLS
+must be a list of symbols or a symbol.
+
+FPOSITION-IF-NOT
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence)) (key #'identity))
+Returns the index of the first element in SEQUENCE that does not satisfy TEST;
+NIL if no such element exists.
+
+FFLOAT-PRECISION
+Function in LISP package:
+Args: (float)
+Returns the number of significant radix-B digits used to represent the
+significand F of the floating-point number, where B = (FLOAT-RADIX FLOAT).
+
+FSTRING-DOWNCASE
+Function in LISP package:
+Args: (string &key (start 0) (end (length string)))
+Returns a copy of STRING with all upper case characters converted to
+lowercase.
+
+VBOOLE-XOR
+Variable in LISP package:
+Makes BOOLE return LOGXOR of INTEGER1 and INTEGER2.
+
+FDPB
+Function in LISP package:
+Args: (newbyte bytespec integer)
+Returns an integer computed by replacing the specified byte of INTEGER with
+NEWBYTE.
+
+FABS
+Function in LISP package:
+Args: (number)
+Returns the absolute value of NUMBER.
+
+FCAR
+Function in LISP package:
+Args: (list)
+Returns the car of LIST.  Returns NIL if LIST is NIL.
+
+FCONJUGATE
+Function in LISP package:
+Args: (number)
+Returns the complex conjugate of NUMBER.
+
+FCIS
+Function in LISP package:
+Args: (radians)
+Returns e raised to i*RADIANS.
+
+FBIT
+Function in LISP package:
+Args: (bit-array &rest subscripts)
+Returns the bit from BIT-ARRAY at SUBSCRIPTS.
+
+FNOT
+Function in LISP package:
+Args: (x)
+Returns T if X is NIL; NIL otherwise.
+
+FREAD-CHAR-NO-HANG
+Function in LISP package:
+Args: (&optional (stream *standard-input*) (eof-error-p t)
+                 (eof-value nil) (recursive-p nil))
+Returns the next character from STREAM if one is available; NIL otherwise.
+
+FCHECK-TYPE
+Macro in LISP package:
+Syntax: (check-type place typespec [string])
+Signals an error, if the contents of PLACE are not of the specified type.
+
+FFRESH-LINE
+Function in LISP package:
+Args: (&optional (stream *standard-output*))
+Outputs a newline if it is not positioned at the beginning of a line.  Returns
+T if it output a newline; NIL otherwise.
+
+FWRITE-CHAR
+Function in LISP package:
+Args: (char &optional (stream *standard-output*))
+Outputs CHAR and returns it.
+
+FPARSE-NAMESTRING
+Function in LISP package:
+Args: (thing &optional host (defaults *default-pathname-defaults*)
+             &key (start 0) (end (length thing)) (junk-allowed nil))
+Parses a string representation of a pathname into a pathname.  HOST
+is ignored.
+
+FSTRING-NOT-LESSP
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+Similar to STRING>=, but ignores cases.
+
+FCHAR
+Function in LISP package:
+Args: (string index)
+Returns the INDEX-th character in STRING.
+
+FAREF
+Function in LISP package:
+Args: (array &rest subscripts)
+Returns the element of ARRAY specified by SUBSCRIPTS.
+
+FFILL
+Function in LISP package:
+Args: (sequence item &key (start 0) (end (length sequence)))
+Replaces the specified elements of SEQUENCE all with ITEM.
+
+FPACKAGE-NICKNAMES
+Function in LISP package:
+Args: (package)
+Returns as a list the nickname strings for the specified PACKAGE.
+
+FENDP
+Function in LISP package:
+Args: (x)
+Returns T if X is NIL.  Returns NIL if X is a cons.  Otherwise, signals an
+error.
+
+FODDP
+Function in LISP package:
+Args: (integer)
+Returns T if INTEGER is odd; NIL otherwise.
+
+FCHAR-UPCASE
+Function in LISP package:
+Args: (char)
+Returns the upper-case equivalent of CHAR, if any.
+If not, simply returns CHAR.
+
+FSTABLE-SORT
+Function in LISP package:
+Args: (sequence predicate &key (key #'identity))
+Destructively sorts SEQUENCE.  PREDICATE should return non-NIL if its first
+argument is to precede its second argument.
+
+FLIST*
+Function in LISP package:
+Args: (arg &rest others)
+Returns a list of its arguments with the last cons being a dotted pair of
+the next to the last argument and the last argument.
+
+FTRACE
+Macro in LISP package:
+Syntax: (trace {function-name}*)
+Traces the specified functions.  With no FUNCTION-NAMEs, returns a list of
+functions currently being traced.
+
+Additional Keywords are allowed in GCL with the
+syntax (trace {fn | (fn {:kw form}*)}*)
+
+For each FN naming a function, traces that function.  Each :KW should
+be one of the ones listed below, and FORM should have the
+corresponding form.  No :KW may be given more than once for the same
+FN.  Returns a list of all FNs now traced which weren't already
+traced.
+
+
+EXAMPLE (Try this with your favorite factorial function FACT):
+
+;; print entry args and exit values
+
+(trace FACT)
+
+;; Break coming out of FACT if the value is bigger than 1000.
+
+(trace (fact :exit
+	     (progn
+	       (if (> (car values) 1000)(break "big result"))
+	       (car values))))
+
+;; Hairy example:
+
+;;make arglist available without the si:: prefix
+(import 'si::arglist)
+
+(trace (fact
+        :DECLARATIONS
+        ((in-string "Here comes input: ")
+         (out-string "Here comes output: ")
+         all-values
+         (silly (+ 3 4)))
+        :COND
+        (equal (rem (car arglist) 2) 0)
+        :ENTRY
+        (progn
+          (cond
+           ((equal (car arglist) 8)
+            (princ "Entering FACT on input 8!! ")
+            (setq out-string "Here comes output from inside (FACT 8): "))
+           (t
+            (princ in-string)))
+          (car arglist))
+        :EXIT
+        (progn
+          (setq all-values (cons (car values) all-values))
+          (princ out-string)
+          (when (equal (car arglist) 8)
+                ;; reset out-string
+                (setq out-string "Here comes output: "))
+          (cons 'fact values))
+        :ENTRYCOND
+        (not (= (car arglist) 6))
+        :EXITCOND
+        (not (= (car values) (* 6 (car arglist))))
+        :DEPTH
+        5))
+
+:KW          FORM
+
+:DECLARATIONS    DEFAULT: NIL
+               FORM is ((var  form ) ... (var  form )), where
+                            1     1          n     n
+             the var  are symbols distinct from each other and from
+                    i
+             all symbols which are similarly declared for currently
+             traced functions.  Each form  is evaluated immediately.
+                                         i
+             Upon any invocation of a traced function when not already
+             inside a traced function call, each var  is bound to
+                                                    i
+             that value of form .
+                               i
+:COND            DEFAULT: T
+               Here, FORM is any Lisp form to be evaluated (by EVAL)
+             upon entering a call of FN, in the environment where si::ARGLIST
+             is bound to the current list of arguments of FN.  Note that
+             even if the evaluation of FORM changes the value of SI::ARGLIST
+             (e.g. by evaluation of (SETQ si::ARGLIST ...)), the list of
+             arguments passed to FN is unchanged.  Users may alter args passed
+	     by destructively modifying the list structure of SI::ARGLIST
+	     however. The call is traced 
+             (thus invoking the :ENTRYCOND and :EXITCOND forms, at least)
+             if and only if FORM does not evaluate to NIL.
+
+:ENTRYCOND       DEFAULT: T
+               This is evaluated (by EVAL) if the :COND form evaluates to
+             non-NIL, both in an environment where SI::ARGLIST is bound to the
+             current list of arguments of FN.  If non-NIL, the :ENTRY form
+             is then evaluated and printed with the trace "prompt".
+
+:ENTRY           DEFAULT: (CONS (QUOTE x) SI::ARGLIST),
+                           where x is the symbol we call FN
+               If the :COND and :ENTRYCOND forms evaluate to non-NIL,
+             then the trace "prompt" is printed and then this FORM is
+             evaluated (by EVAL) in an environment where SI::ARGLIST is bound
+             to the current list of arguments of FN.  The result is then
+             printed.
+
+:EXITCOND        DEFAULT: T
+               This is evaluated (by EVAL) in the environment described
+             below for the :EXIT form.  The :EXIT form is then evaluated
+             and printed with the "prompt" if and only if the result here
+             is non-NIL.
+
+:EXIT            DEFAULT: (CONS (QUOTE x) VALUES),
+                          where x is the symbol we call FN
+               Upon exit from tracing a given call, this FORM is
+             evaluated (after the appropriate trace "prompt" is printed),
+             using EVAL in an environment where SI::ARGLIST is bound to the
+             current list of arguments of FN and VALUES is bound to the
+             list of values returned by FN (recalling that Common Lisp
+             functions may return multiple values).
+
+:DEPTH           DEFAULT:  No depth limit
+               FORM is simply a positive integer specifying the maximum
+             nesting of traced calls of FN, i.e. of calls of FN in which
+             the :COND form evaluated to non-NIL.  For calls of FN in
+             which this limit is exceeded, even the :COND form is not
+             evaluated, and the call is not traced.
+FDEFCONSTANT
+Macro in LISP package:
+Syntax: (defconstant name initial-value [doc])
+Declares that the variable NAME is a constant whose value is the value of
+INITIAL-VALUE.  The doc-string DOC, if supplied, is saved as a VARIABLE doc
+and can be retrieved by (documentation 'NAME 'variable).
+
+FVALUES-LIST
+Function in LISP package:
+Args: (list)
+Returns all of the elements of LIST in order, as values.
+
+FRATIONALIZE
+Function in LISP package:
+Args: (number)
+Converts NUMBER into rational approximately and returns it.
+
+FEQUAL
+Function in LISP package:
+Args: (x y)
+Returns T if X and Y are EQL or if they are of the same type and corresponding
+components are EQUAL.  Returns NIL otherwise.  Strings and bit-vectors are
+EQUAL if they are the same length and have identical components.  Other
+arrays must be EQ to be EQUAL.
+
+FDIGIT-CHAR-P
+Function in LISP package:
+Args: (char &optional (radix 10))
+If CHAR represents a digit in RADIX, then returns the weight as an integer.
+Otherwise, returns nil.
+
+FNINTH
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDDDDR (CDDDDR X))).
+
+FERROR
+Function in LISP package:
+Args: (control-string &rest args)
+Signals a fatal error.
+
+FISQRT
+Function in LISP package:
+Args: (integer)
+Returns the greatest integer less than or equal to the square root of the
+given non-negative integer.
+
+FCHAR/=
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if no two of CHARs are the same character; NIL otherwise.
+
+FLISP-IMPLEMENTATION-TYPE
+Function in LISP package:
+Args: ()
+Returns a string that tells you that you are using a version of KCL.
+
+FPATHNAME-DIRECTORY
+Function in LISP package:
+Args: (pathname)
+Returns the directory slot of PATHNAME.
+
+FCDAAAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CAR (CAR (CAR X)))).
+
+FCADAAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDR (CAR (CAR X)))).
+
+FCAADAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CAR (CDR (CAR X)))).
+
+FCAAADR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CAR (CAR (CDR X)))).
+
+FCDDDDR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CDR (CDR (CDR X)))).
+
+FGET-MACRO-CHARACTER
+Function in LISP package:
+Args: (char &optional (readtable *readtable*))
+Returns the function associated with CHAR and, as a second value, returns
+the non-terminating-p flag.
+
+FFORMAT
+Function in LISP package:
+Args: (destination control-string &rest arguments)
+Provides various facilities for formatting output.
+DESTINATION controls where the result will go.  If DESTINATION is T, then
+the output is sent to the standard output stream.  If it is NIL, then the
+output is returned in a string as the value of the call.  Otherwise,
+DESTINATION must be a stream to which the output will be sent.
+
+CONTROL-STRING is a string to be output, possibly with embedded
+formatting directives, which are flagged with the escape character
+"~".  Directives generally expand into additional text to be output,
+usually consuming one or more of ARGUMENTs in the process.
+
+
+
+A few useful directives are:
+
+~A, ~nA, ~n@A	Prints one argument as if by PRINC
+~S, ~nS, ~n@S	Prints one argument as if by PRIN1
+~D, ~B, ~O, ~X	Prints one integer in decimal, binary, octal, and hexa
+~%		Does TERPRI
+~&		Does FRESH-LINE
+
+where n is the minimal width of the field in which the object is printed.
+~nA and ~nS put padding spaces on the right; ~n@A and ~n@S put on the left.
+
+~R  is for printing numbers in various formats.
+
+  ~nR   prints arg in radix n.
+  ~R    prints arg as a cardinal english number: two
+  ~:R   prints arg as an ordinal english number: third
+  ~@R   prints arg as an a Roman Numeral: VII
+  ~:@R   prints arg as an old Roman Numeral: IIII
+
+~C prints a character.
+  ~:C represents non printing characters by their pretty names,eg Space
+  ~@C uses the #\ syntax to allow the reader to read it.
+
+~F prints a floating point number arg.
+  The full form is ~w,d,k,overflowchar,padcharF
+  w represents the total width of the printed representation (variable if
+    not present)
+  d the number of fractional digits to display
+    (format nil "~,2f" 10010.0314) --> "10010.03"
+  k arg is multiplied by 10^k before printing it as a decimal number.
+  overflowchar width w characters copies of the overflow character will
+    be printed.   eg(format t "X>~5,2,,'?F<X" 100.034) --> X>?????<X
+  padchar is the character to pad with
+    (format t "X>~10,2,1,'?,'bF<X" 100.03417) -->X>bbb1000.34<X
+  @ makes + sign print if the arg is positive
+
+~@[print-if-true~]
+   if arg is not nil, then it is retained as an arg for further printing,
+   otherwise it is used up 
+   (format nil "~@[x = ~d~]~a" nil 'bil) --> "BIL"
+   (format nil "~@[x = ~d ~]~a" 8) --> "x = 8 BIL"
+
+
+FASSERT
+Macro in LISP package:
+Syntax: (assert test-form [({place}*) [string {arg}*]])
+Signals an error if the value of TEST-FORM is NIL.  STRING is an format string
+used as the error message.  ARGs are arguments to the format string.
+
+FCOMPILED-FUNCTION-P
+Function in LISP package:
+Args: (x)
+Returns T if X is a compiled function; NIL otherwise.
+
+FSUBLIS
+Function in LISP package:
+Args: (alist tree &key (test #'eql) test-not (key #'identity))
+Substitutes from ALIST for subtrees of TREE nondestructively.
+
+FPATHNAME-NAME
+Function in LISP package:
+Args: (pathname)
+Returns the name slot of PATHNAME.
+
+FIMPORT
+Function in LISP package:
+Args: (symbols &optional (package *package*))
+Makes SYMBOLS internal symbols of PACKAGE.  SYMBOLS must be a list of symbols
+or a symbol.
+
+FLOGXOR
+Function in LISP package:
+Args: (&rest integers)
+Returns the bit-wise EXCLUSIVE OR of its arguments.
+
+FRASSOC-IF-NOT
+Function in LISP package:
+Args: (predicate alist)
+Returns the first cons in ALIST whose cdr does not satisfy PREDICATE.
+
+FMAKE-STRING-OUTPUT-STREAM
+Function in LISP package:
+Args: ()
+Returns an output stream which will accumulate all output given it for
+the benefit of the function GET-OUTPUT-STREAM-STRING.
+
+FCHAR-GREATERP
+Function in LISP package:
+Args: (char &rest more-chars)
+Returns T if the codes of CHARs are in strictly decreasing order; NIL
+otherwise.  For a lower-case character, the code of its upper-case equivalent
+is used.
+
+FMAKE-SYNONYM-STREAM
+Function in LISP package:
+Args: (symbol)
+Returns a stream which performs its operations on the stream which is the
+value of the dynamic variable named by SYMBOL.
+
+FBIT-IOR
+Function in LISP package:
+Args: (bit-array1 bit-array2 &optional (result-bit-array nil))
+Performs a bit-wise logical IOR on the elements of BIT-ARRAY1 and BIT-ARRAY2.
+Puts the results into a new bit array if RESULT-BIT-ARRAY is NIL, into
+BIT-ARRAY1 if RESULT-BIT-ARRAY is T, or into RESULT-BIT-ARRAY otherwise.
+
+V*LOAD-VERBOSE*
+Variable in LISP package:
+The default for the VERBOSE argument to LOAD.
+
+FALPHANUMERICP
+Function in LISP package:
+Args: (char)
+Returns T if CHAR is either numeric or alphabetic; NIL otherwise.
+
+V*PRINT-CIRCLE*
+Variable in LISP package:
+Whether the KCL printer should take care of circular lists.
+
+FREMHASH
+Function in LISP package:
+Args: (key hash-table)
+Removes any entry for KEY in HASH-TABLE.  Returns T if such an entry
+existed; NIL otherwise.
+
+FNRECONC
+Function in LISP package:
+Args: (x y)
+Equivalent to (NCONC (NREVERSE X) Y).
+
+F>
+Function in LISP package:
+Args: (number &rest more-numbers)
+Returns T if its arguments are in strictly decreasing order; NIL otherwise.
+
+FDEFTYPE
+Macro in LISP package:
+Syntax: (deftype name lambda-list {decl | doc}* {form}*)
+Defines a new type-specifier abbreviation in terms of an 'expansion' function
+	(lambda lambda-list1 {decl}* {form}*)
+where lambda-list1 is identical to LAMBDA-LIST except that all optional
+parameters with no default value specified in LAMBDA-LIST defaults to the
+symbol '*', but not to NIL.  When the type system of KCL encounters a
+type specifier (NAME arg1 ... argn), it calls the expansion function with
+the arguments arg1 ... argn, and uses the returned value instead of the
+original type specifier.  When the symbol NAME is used as a type specifier,
+the expansion function is called with no argument.  The doc-string DOC, if
+supplied, is saved as the TYPE doc of NAME, and is retrieved by
+(documentation 'NAME 'type).
+
+FLOGBITP
+Function in LISP package:
+Args: (index integer)
+Returns T if the INDEX-th bit of INTEGER is 1.
+
+FMAPLIST
+Function in LISP package:
+Args: (fun list &rest more-lists)
+Applies FUN to successive cdrs of LISTs and returns the results as a list.
+
+VDOUBLE-FLOAT-EPSILON
+Variable in LISP package:
+Same as LONG-FLOAT-EPSILON.
+
+FSET-DIFFERENCE
+Function in LISP package:
+Args: (list1 list2 &key (test #'eql) test-not (key #'identity))
+Returns a list of elements of LIST1 that do not appear in LIST2.
+
+FVECTORP
+Function in LISP package:
+Args: (x)
+Returns T if X is a vector; NIL otherwise.
+
+V*PRINT-PRETTY*
+Variable in LISP package:
+Whether the KCL printer should pretty-print.  See the function doc of PPRINT
+for more information about pretty-printing.
+
+FASSOC-IF
+Function in LISP package:
+Args: (test alist)
+Returns the first pair in ALIST whose car satisfies TEST.
+
+FGET-PROPERTIES
+Function in LISP package:
+Args: (place indicator-list)
+Looks for the elements of INDICATOR-LIST in the property list stored in PLACE.
+If found, returns the indicator, the value, and T as multiple-values.  If not,
+returns NILs as its three values.
+
+FSTRING<=
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+If STRING1 is lexicographically less than or equal to STRING2, then returns
+the longest common prefix of the two strings.  Otherwise, returns NIL.
+
+FIF
+Special Form in LISP package:
+Syntax: (if test then [else])
+If TEST evaluates to non-NIL, then evaluates THEN and returns the result.
+If not, evaluates ELSE (which defaults to NIL) and returns the result.
+
+FUNWIND-PROTECT
+Special Form in LISP package:
+Syntax: (unwind-protect protected-form {cleanup-form}*)
+Evaluates PROTECTED-FORM and returns whatever it returned.  Guarantees that
+CLEANUP-FORMs be always evaluated before exiting from the UNWIND-PROTECT
+form.
+
+FEVALHOOK
+Function in LISP package:
+Args: (form evalhookfn applyhookfn &optional (env nil))
+Evaluates FORM with *EVALHOOK* bound to EVALHOOKFN and *APPLYHOOK* bound
+to APPLYHOOKFN.  Ignores these hooks once, for the top-level evaluation
+of FORM.
+
+FFILE-WRITE-DATE
+Function in LISP package:
+Args: (file)
+Returns the time at which the specified file is written, as an integer in
+universal time format.  FILE may be a string or a stream.
+
+FLOGCOUNT
+Function in LISP package:
+Args: (integer)
+If INTEGER is negative, returns the number of 0 bits.  Otherwise, returns
+the number of 1 bits.
+
+FOR
+Special Form in LISP package:
+Syntax: (or {form}*)
+Evaluates FORMs in order from left to right.  If any FORM evaluates to
+non-NIL, quits and returns that (single) value.  If the last FORM is reached,
+returns whatever values it returns.
+
+FPRIN1-TO-STRING
+Function in LISP package:
+Args: (object)
+Returns as a string the printed representation of OBJECT in the mostly
+readable representation.
+Equivalent to (WRITE-TO-STRING OBJECT :ESCAPE T).
+
+FMERGE-PATHNAMES
+Function in LISP package:
+Args: (pathname
+       &optional (defaults *default-pathname-defaults*) default-version)
+Fills in unspecified slots of PATHNAME from DEFAULTS.  DEFAULT-VERSION
+is ignored in KCL.
+
+FMEMBER-IF
+Function in LISP package:
+Args: (test list &key (key #'identity))
+Returns the tail of LIST beginning with the first element satisfying TEST.
+
+FREAD-BYTE
+Function in LISP package:
+Args: (stream &optional (eof-error-p t) (eof-value nil))
+Reads the next byte from STREAM.
+
+FSIMPLE-VECTOR-P
+Function in LISP package:
+Args: (x)
+Returns T if X is a simple vector; NIL otherwise.
+
+FCHAR-BITS
+Function in LISP package:
+Args: (char)
+Returns the bits attribute (which is always 0 in KCL) of CHAR.
+
+FPRINC-TO-STRING
+Function in LISP package:
+Args: (object)
+Returns as a string the printed representation of OBJECT without escape
+characters.  Equivalent to
+	(WRITE-TO-STRING OBJECT :ESCAPE NIL).
+
+FCOPY-TREE
+Function in LISP package:
+Args: (object)
+Recursively copies conses in OBJECT and returns the result.
+
+FGCD
+Function in LISP package:
+Args: (&rest integers)
+Returns the greatest common divisor of INTEGERs.
+
+FCTYPECASE
+Macro in LISP package:
+Syntax: (ctypecase keyplace {(type {form}*)}*)
+Evaluates KEYPLACE and tries to find the TYPE in which the value of KEYPLACE
+belongs.  If one is found, then evaluates FORMs that follow the KEY and
+returns the value(s) of the last FORM.  If not, signals a correctable error.
+
+V*STANDARD-INPUT*
+Variable in LISP package:
+The default input stream used by the KCL reader.
+
+FBYE
+Function in LISP package:
+Args: ()
+KCL specific: Exits from KCL.
+
+FGET
+Function in LISP package:
+Args: (symbol indicator &optional (default nil))
+Looks on the property list of SYMBOL for the specified INDICATOR.  If this
+is found, returns the associated value.  Otherwise, returns DEFAULT.
+
+FRATIONALP
+Function in LISP package:
+Args: (x)
+Returns T if X is an integer or a ratio; NIL otherwise.
+
+FMOD
+Function in LISP package:
+Args: (number divisor)
+Returns the second result of (FLOOR NUMBER DIVISOR).
+
+FFIND-ALL-SYMBOLS
+Function in LISP package:
+Args: (string-or-symbol)
+Returns a list of all symbols that have the specified name.
+
+V*FEATURES*
+Variable in LISP package:
+List of symbols that name features of the current version of KCL.
+These features are used to decide the read-time conditionalization facility
+provided by '#+' and '#-' read macros.  When the KCL reader encounters
+	#+ feature-description form
+it reads FORM in the usual manner if FEATURE-DESCRIPTION is true.  Otherwise,
+the reader just skips FORM.
+	#- feature-description form
+is equivalent to
+	#- (not feature-description) form
+A feature-description may be a symbol, which is true only when it is an
+element of *FEATURES*.  Or else, it must be one of the following:
+	(and feature-desciption-1 ... feature-desciption-n)
+	(or  feature-desciption-1 ... feature-desciption-n)
+	(not feature-desciption)
+The AND description is true only when all of its sub-descriptions are true.
+The OR description is true only when at least one of its sub-descriptions is
+true.  The NOT description is true only when its sub-description is false.
+
+VBOOLE-ORC1
+Variable in LISP package:
+Makes BOOLE return LOGORC1 of INTEGER1 and INTEGER2.
+
+FDIGIT-CHAR
+Function in LISP package:
+Args: (digit &optional (radix 10) (font 0))
+Returns a character object that represents the DIGIT in the specified RADIX.
+Returns NIL if no such character exists.
+
+FPROBE-FILE
+Function in LISP package:
+Args: (file)
+Returns the truename of file if the file exists.
+Returns NIL otherwise.
+
+FSTRING-LEFT-TRIM
+Function in LISP package:
+Args: (char-bag string)
+Returns a copy of STRING with the characters in CHAR-BAG removed from the
+left end.
+
+FARRAY-TOTAL-SIZE
+Function in LISP package:
+Args: (array)
+Returns the total number of elements of ARRAY.
+
+FPATHNAME-VERSION
+Function in LISP package:
+Args: (pathname)
+Returns the version slot of PATHNAME.
+
+VSINGLE-FLOAT-NEGATIVE-EPSILON
+Variable in LISP package:
+Same as LONG-FLOAT-NEGATIVE-EPSILON.
+
+FWRITE-LINE
+Function in LISP package:
+Args: (string &optional (stream *standard-output*)
+              &key (start 0) (end (length string)))
+Outputs STRING and then outputs a newline character.  Returns STRING.
+
+FDO-SYMBOLS
+Macro in LISP package:
+Syntax: (do-symbols (var [package [result-form]]) {decl}* {tag | statement}*)
+Executes STATEMENTs once for each symbol in the PACKAGE (which defaults to
+the current package), with VAR bound to the current symbol.  Then evaluates
+RESULT-FORM (which defaults to NIL) and returns the value(s).
+
+FEVAL
+Function in LISP package:
+Args: (exp)
+Evaluates EXP and returns the result(s).
+
+FATOM
+Function in LISP package:
+Args: (x)
+Returns T if X is not a cons; NIL otherwise.
+
+FFIND-IF-NOT
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence)) (key #'identity))
+Returns the index of the first element in SEQUENCE that does not satisfy
+TEST; NIL if no such element exists.
+
+FLOOP
+Special Form in LISP package:
+Syntax: (loop {form}*)
+Executes FORMs repeatedly until exited by a THROW or RETURN.  The FORMs are
+surrounded by an implicit NIL block.
+
+FDELETE-DUPLICATES
+Function in LISP package:
+Args: (sequence &key (from-end nil) (test #'eql) test-not (start 0)
+                     (end (length sequence)) (key #'identity))
+Returns a sequence formed by removing duplicated elements destructively from
+SEQUENCE.
+
+FREMOVE-DUPLICATES
+Function in LISP package:
+Args: (sequence
+       &key (from-end nil) (test #'eql) test-not (start 0)
+            (end (length sequence)) (key #'identity))
+The elements of SEQUENCE are examined, and if any two match, one is discarded.
+Returns the resulting sequence.
+
+FCDDAR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CDR (CAR X))).
+
+FCDADR
+Function in LISP package:
+Args: (x)
+Equivalent to (CDR (CAR (CDR X))).
+
+FCADDR
+Function in LISP package:
+Args: (x)
+Equivalent to (CAR (CDR (CDR X))).
+
+FPOSITION-IF
+Function in LISP package:
+Args: (test sequence
+       &key (from-end nil) (start 0) (end (length sequence)) (key #'identity))
+Returns the index of the first element in SEQUENCE that satisfies TEST; NIL
+if no such element exists.
+
+FMERGE
+Function in LISP package:
+Args: (result-type sequence1 sequence2 predicate &key (key #'identity))
+SEQUENCE1 and SEQUENCE2 are destructively merged into a sequence of type
+RESULT-TYPE using PREDICATE to order the elements.
+
+FFMAKUNBOUND
+Function in LISP package:
+Args: (symbol)
+Discards the global function definition named by SYMBOL.  Returns SYMBOL.
+
+FSLEEP
+Function in LISP package:
+Args: (n)
+This function causes execution to be suspended for N seconds.  N may
+be any non-negative, non-complex number.
+
+FPACKAGE-NAME
+Function in LISP package:
+Args: (package)
+Returns the string that names the specified PACKAGE.
+
+FFIND-PACKAGE
+Function in LISP package:
+Args: (name)
+Returns the specified package if it already exists; NIL otherwise.  NAME may
+be a string that is the name or nickname of the package.  NAME may also be
+a symbol, in which case the symbol's print name is used.
+
+FASSOC
+Function in LISP package:
+Args: (item alist &key (test #'eql) test-not)
+Returns the first pair in ALIST whose car is equal (in the sense of TEST) to
+ITEM.
+
+FPSETF
+Macro in LISP package:
+Syntax: (psetf {place newvalue}*)
+Similar to SETF, but evaluates all NEWVALUEs first, and then replaces the
+value in each PLACE with the value of the corresponding NEWVALUE.  Returns
+NIL always.
+
+FSET-CHAR-BIT
+Function in LISP package:
+Args: (char name newvalue)
+Returns a character just like CHAR except that the named bit is set or
+cleared, according to whether NEWVALUE is non-NIL or NIL.  This function
+is useless in KCL.
+
+FFLOOR
+Function in LISP package:
+Args: (number &optional (divisor 1))
+Returns the largest integer not larger than the NUMBER divided by DIVISOR.
+The second returned value is (- NUMBER (* first-value DIVISOR)).
+
+FEVERY
+Function in LISP package:
+Args: (predicate sequence &rest more-sequences)
+Returns T if every elements of SEQUENCEs satisfy PREDICATE; NIL otherwise.
+
+FWRITE
+Function in LISP package:
+Args: (object &key (stream *standard-output*) (escape *print-escape*)
+                   (radix *print-radix*) (base *print-base*)
+                   (circle *print-circle*) (pretty *print-pretty*)
+                   (level *print-level*) (length *print-length*)
+                   (case *print-case*) (array *print-array*)
+                   (gensym *print-gensym*))
+Prints OBJECT in the specified mode.  See the variable docs of *PRINT-...*
+for the mode.
+
+FTHROW
+Special Form in LISP package:
+Syntax: (throw tag result)
+Evaluates TAG and aborts the execution of the most recent CATCH form that sets
+up a catcher with the same tag value.  The CATCH form returns whatever RESULT
+returned.
+
+FPLUSP
+Function in LISP package:
+Args: (number)
+Returns T if NUMBER > 0; NIL otherwise.
+
+FGET-OUTPUT-STREAM-STRING
+Function in LISP package:
+Args: (stream)
+Returns a string of all the characters sent to STREAM made by
+MAKE-STRING-OUTPUT-STREAM since the last call to this function.
+
+FFLOAT-DIGITS
+Function in LISP package:
+Args: (float)
+Returns the number of radix-B digits used to represent the significand F of
+the floating-point number, where B = (FLOAT-RADIX FLOAT).
+
+FDEFPARAMETER
+Macro in LISP package:
+Syntax: (defparameter name initial-value [doc])
+Declares the variable NAME as a special variable and initializes the value.
+The doc-string DOC, if supplied, is saved as a VARIABLE doc and can be
+retrieved by (documentation 'NAME 'variable).
+
+FREDUCE
+Function in LISP package:
+Args: (function sequence
+       &key (from-end nil) (start 0) (end (length sequence)) initial-value)
+Combines all the elements of SEQUENCE using a binary operation FUNCTION.
+If INITIAL-VALUE is supplied, it is logically placed before the SEQUENCE.
+
+FDEFVAR
+Macro in LISP package:
+Syntax: (defvar name [initial-value [doc]])
+Declares the variable NAME as a special variable and, optionally, initializes
+it.  The doc-string DOC, if supplied, is saved as a VARIABLE doc and can be
+retrieved by (documentation 'NAME 'variable).
+
+FREAD-DELIMITED-LIST
+Function in LISP package:
+Args: (char &optional (stream *standard-input*) (recursive-p nil))
+Reads objects from STREAM until the next character after an object's
+representation is CHAR.  Returns a list of the objects read.
+
+FAPPEND
+Function in LISP package:
+Args: (&rest lists)
+Constructs a new list by concatenating its arguments.
+
+FMEMBER
+Function in LISP package:
+Args: (item list &key (test #'eql) test-not (key #'identity))
+Returns the tail of LIST beginning with the first ITEM.
+
+FSTRING-LESSP
+Function in LISP package:
+Args: (string1 string2
+       &key (start1 0) (end1 (length string1))
+            (start2 0) (end2 (length string2)))
+Similar to STRING<, but ignores cases.
+
+FRANDOM
+Function in LISP package:
+Args: (number &optional (state *random-state*))
+Generates a uniformly distributed pseudo-random number between zero
+(inclusive) and NUMBER (exclusive), by using the random state object STATE.
+
+FGET-HOLE-SIZE
+Function in SI package:
+Args: ()
+KCL specific: Returns as a fixnum the size of the memory hole (in pages).
+
+FSPECIALP
+Function in SI package:
+Args: (symbol)
+KCL specific: Returns T if the SYMBOL is a globally special variable; NIL
+otherwise.
+
+FOUTPUT-STREAM-STRING
+Function in SI package:
+Args: (string-output-stream)
+KCL specific: Returns the string corresponding to the STRING-OUTPUT-STREAM.
+
+FGET-STRING-INPUT-STREAM-INDEX
+Function in SI package:
+Args: (string-input-stream)
+KCL specific: Returns the current index of the STRING-INPUT-STREAM.
+
+FSTRING-CONCATENATE
+Function in SI package:
+Args: (&rest strings)
+KCL specific: Returns the result of concatenating the given STRINGS.
+
+FBDS-VAR
+Function in SI package:
+Args: (i)
+KCL specific: Returns the symbol of the i-th entity in the bind stack.
+
+FERROR-SET
+Function in SI package:
+Args: (form)
+KCL specific: Evaluates the FORM in the null environment.  If the evaluation
+of the FORM has successfully completed, SI:ERROR-SET returns NIL as the first
+value and the result of the evaluation as the rest of the values.  If, in the
+course of the evaluation, a non-local jump from the FORM is atempted,
+SI:ERROR-SET traps the jump and returns the corresponding jump tag as its
+value.
+
+FCOMPILED-FUNCTION-NAME
+Function in SI package:
+Args: (compiled-function-object)
+KCL specific: Returns the name of the COMPILED-FUNCTION-OBJECT.
+
+FSTRUCTUREP
+Function in SI package:
+Args: (object)
+KCL specific: Returns T if the OBJECT is a structure; NIL otherwise.
+
+FIHS-VS
+Function in SI package:
+Args: (i)
+KCL specific: Returns the value stack index of the i-th entity in the
+invocation history stack.
+
+FUNIVERSAL-ERROR-HANDLER
+Function in SI package:
+Args: (error-name correctable function-name
+       continue-format-string error-format-string
+       &rest args)
+KCL specific: Starts the error handler of KCL.  When an error is detected,
+KCL calls SI:UNIVERSAL-ERROR-HANDLER with the specified arguments.
+ERROR-NAME is the name of the error.  CORRECTABLE is T for a correctable
+error and NIL for a fatal error.  FUNCTION-NAME is the name of the function
+that caused the error.  CONTINUE-FORMAT-STRING and ERROR-FORMAT-STRING are
+the format strings of the error message.  ARGS are the arguments to the
+format strings.
+     To change the error handler of KCL, redefine SI:UNIVERSAL-ERROR-
+HANDLER.
+
+V*INTERRUPT-ENABLE*
+Variable in SI package:
+KCL specific: If the value of SI:*INTERRUPT-ENABLE* is non-NIL, KCL signals
+an error on the terminal interrupt (this is the default case).  If it is NIL,
+KCL ignores the interrupt and assigns T to SI:*INTERRUPT-ENABLE*.
+
+FCHDIR
+Function in SI package:
+Args: (pathname)
+KCL/UNIX specific: Changes the current working directory to the specified
+pathname.
+
+FCOPY-STREAM
+Function in SI package:
+Args: (in-stream out-stream)
+KCL specific: Copies IN-STREAM to OUT-STREAM until the end-of-file on IN-
+STREAM.
+
+FINIT-SYSTEM
+Function in SI package:
+Args: ()
+KCL specific: Initializes the library and the compiler of KCL.  Since they
+have already been initialized in the standard image of KCL, calling SI:INIT-
+SYSTEM will cause an error.
+
+V*INDENT-FORMATTED-OUTPUT*
+Variable in SI package:
+KCL specific: The FORMAT directive ~% indents the next line if the value of
+this variable is non-NIL.  If NIL, ~% simply does Newline.
+
+FSET-HOLE-SIZE
+Function in SI package:
+Args: (fixnum)
+KCL specific: Sets the size of the memory hole (in pages).
+
+FFRS-BDS
+Function in SI package:
+Args: (i)
+KCL specific: Returns the bind stack index of the i-th entity in the frame
+stack.
+
+FIHS-FUN
+Function in SI package:
+Args: (i)
+KCL specific: Returns the function value of the i-th entity in the invocation
+history stack.
+
+F*MAKE-CONSTANT
+Function in SI package:
+Args: (symbol value)
+KCL specific: Makes the SYMBOL a constant with the specified VALUE.
+
+FFIXNUMP
+Function in SI package:
+Args: (object)
+KCL specific: Returns T if the OBJECT is a fixnum; NIL otherwise.
+
+FBDS-VAL
+Function in SI package:
+Args: (i)
+KCL specific: Returns the value of the i-th entity in the bind stack.
+
+FSTRING-TO-OBJECT
+Function in SI package:
+Args: (string)
+KCL specific: (SI:STRING-TO-OBJECT STRING) is equivalent to
+(READ-FROM-STRING STRING), but much faster.
+
+V*SYSTEM-DIRECTORY*
+Variable in SI package:
+KCL specific: Holds the name of the system directory of KCL.
+
+FFRS-IHS
+Function in SI package:
+Args: (i)
+KCL specific: Returns the invocation history stack index of the i-th entity
+in the frame stack.
+
+FRESET-GBC-COUNT
+Function in SI package:
+Args: ()
+KCL specific: Resets the counter of the garbage collector that records how
+many times the garbage collector has been called for each implementation
+type.
+
+FCATCH-BAD-SIGNALS
+Function in SI package:
+Args: ()
+KCL/BSD specific: Installs a signal catcher for bad signals:
+	SIGILL, SIGIOT, SIGEMT, SIGBUS, SIGSEGV, SIGSYS.
+The signal catcher, upon catching the signal, signals an error (and enter
+the break-level).  Since the internal memory of KCL may be broken, the user
+should check the signal and exit from KCL if necessary.  When the signal
+is caught during garbage collection, KCL terminates immediately.
+
+FRESET-STACK-LIMITS
+Function in SI package:
+Args: ()
+KCL specific: Resets the stack limits to the normal state.  When a stack has
+overflowed, KCL extends the limit for the stack in order to execute the error
+handler.  After processing the error, KCL resets the stack limit by calling
+SI:RESET-STACK-LIMITS.
+
+V*GBC-MESSAGE*
+Variable in SI package:
+KCL specific: If the value of SI:*GBC-MESSAGE* is non-NIL, the garbage
+collector prints some information on the terminal.  Usually SI:*GBC-MESSAGE*
+should be set NIL.
+
+F*MAKE-SPECIAL
+Function in SI package:
+Args: (symbol)
+KCL specific: Makes the SYMBOL globally special.
+
+FMAKE-STRING-OUTPUT-STREAM-FROM-STRING
+Function in SI package:
+Args: (string)
+KCL specific: Creates a string-output-stream corresponding to the STRING and
+returns it.  The STRING should have a fill-pointer.
+
+V*IGNORE-EOF-ON-TERMINAL-IO*
+Variable in SI package:
+KCL specific: If the value of SI:*IGNORE-EOF-ON-TERMINAL-IO* is non-NIL, KCL
+ignores the eof-character (usually ^D) on the terminal and the terminal never
+becomes end-of-file.  The default value of SI:*IGNORE-EOF-ON-TERMINAL-IO* is
+NIL.
+
+FADDRESS
+Function in SI package:
+Args: (object)
+KCL specific: Returns the address of the OBJECT as a fixnum.  The address of
+an object depends on the version of KCL.  E.g. (SI:ADDRESS NIL) returns
+1879062044 on KCL/AOSVS dated March 14, 1986.
+
+V*LISP-MAXPAGES*
+Variable in SI package:
+KCL specific: Holds the maximum number of pages (1 page = 2048 bytes) for the
+KCL process.  The result of changing the value of SI:*LISP-MAXPAGES* is
+unpredictable.
+
+FARGC
+Function in SI package:
+Args: ()
+KCL specific: Returns the number of arguments on the command line that invoked
+the KCL process.
+
+FNANI
+Function in SI package:
+Args: (fixnum)
+KCL specific: Returns the object in the address FIXNUM.  This function is
+the inverse of SI:ADDRESS.  Although SI:ADDRESS is a harmless operation,
+SI:NANI is quite dangerous and should be used with care.
+
+V*NOTIFY-GBC*
+Variable in SI package:
+KCL specific: If the value of this variable is non-NIL, then the garbage
+collector notifies that it begins to run whenever it is invoked.  Otherwise,
+garbage collection begins silently.
+
+FSAVE-SYSTEM
+Function in SI package:
+Args: (pathname)
+KCL specific: Saves the current KCL core imange into a program file specified
+by PATHNAME.  This function differs from SAVE in that the contiguous and
+relocatable areas are made permanent in the saved image.  Usually the
+standard image of KCL interpreter/compiler is saved by SI:SAVE-SYSTEM.
+This function causes an exit from lisp.  Various changes are made
+to the memory of the running system, such as closing files and
+resetting io streams.   It would not be possible to continue normally.   
+
+FUNCATCH-BAD-SIGNALS
+Function in SI package:
+Args: ()
+KCL/BSD specific: Undoes the effect of SI:CATCH-BAD-SIGNALS.
+
+FVS
+Function in SI package:
+Args: (i)
+KCL specific: Returns the i-th entity in the value stack.
+
+FDISPLACED-ARRAY-P
+Function in SI package:
+Args: (array)
+KCL specific: Returns T if the ARRAY is a displaced array; NIL otherwise.
+
+FARGV
+Function in SI package:
+Args: (fixnum)
+KCL specific: Returns the FIXNUM-th argument on the command line that invoked
+the KCL process.
+
+V*DEFAULT-TIME-ZONE*
+Variable in SI package:
+KCL specific: Holds the default time zone.  The initial value of SI:*DEFAULT-
+TIME-ZONE* is -9 (the time zone of Japan).
+
+FGETENV
+Function in SI package:
+Args: (string)
+KCL/UNIX specific: Returns the environment with the name STRING as a string;
+if the environment specified by STRING is not found, returns NIL.
+
+FFASLINK
+Function in SI package:
+Args: (file string)
+KCL/BSD specific: Loads the FASL file FILE while linking the object files and
+libraries specified by STRING.  For example,
+	(faslink "foo.o" "bar.o boo.o -lpixrect")
+loads foo.o while linking two object files (bar.o and boo.o) and the library
+pixrect.  Usually, foo.o consists of the C language interface for the
+functions defined in the object files or the libraries.
+
+A more portable way of making references to C code, is to build it
+in at the time of the original make.   If foo.c references things
+in -lpixrect, and foo.o is its compilation in the gcl/unixport directory
+
+(cd gcl/unixport ; make "EXTRAS= foo.o -lpixrect ")
+
+should add them.   If EXTRAS was already joe.o in the unixport/makefile
+you should of course add joe.o to the above "EXTRAS= joe.o foo.o.."
+
+Faslink does not work on most UNIX systems which are derived from SYS V or AIX.
+
+
+
+FTOP-LEVEL
+Function in SI package:
+Args: ()
+KCL specific: Starts the standard top-level listner of KCL.  When the KCL
+process is invoked, it calls SI:TOP-LEVEL by (FUNCALL 'SI:TOP-LEVEL).
+     To change the top-level of KCL, redefine SI:TOP-LEVEL and save the core
+imange in a file.  When the saved imange is invoked, it will start the
+redefined top-level.
+
+FFRS-VS
+Function in SI package:
+Args: (i)
+KCL specific: Returns the value stack index of the i-th entity in the frame
+stack.
+
+FUSE-FAST-LINKS
+Function in LISP package:
+Args: (turn-on)
+GCL specific: If TURN-ON is not nil, the fast link mechanism is enabled,
+so that ordinary function calls will not appear in the invocation stack,
+and calls will be much faster.  This is the default.   If you anticipate
+needing to see a stack trace in the debugger, then you should turn this
+off.
+
+FWRITE-DEBUG-SYMBOLS
+Function in the SI package:
+Args: (start file
+  &key (main-file "/usr/local/schelter/xkcl/unixport/raw_kcl")
+  (output-file "debug-symbols.o" ))
+Write out a file of debug-symbols using address START as the place
+where FILE will be loaded into the running executable MAIN-FILE.  The
+last is a keyword argument.
+
+
+
+FPROF
+Function in the SI package:
+Args: (x y)
+These functions in the SI package are GCL specific, and allow monitoring
+the run time of functions loaded into GCL, as well as the basic functions.
+ Sample Usage:
+    (si::set-up-profile 1000000) (si::prof 0 90)
+     run program
+    (si::prof 0 0)   ;; turn off profile
+    (si::display-prof)
+    (si::clear)
+    (si::prof 0 90)  ;; start profile again
+    run program
+   ..
+  Profile can be stopped with (si::prof 0 0) and restarted with (si::prof 0 90)
+The START-ADDRESS will correspond to the beginning of the profile array, and
+the SCALE will mean that 256 bytes of code correspond to SCALE bytes in the
+profile array.
+
+Thus if the profile array is 1,000,000  bytes long and the code segment is 
+5 megabytes long you can profile the whole thing using a scale of 50
+Note that long runs may result in overflow, and so an understating of the
+time in a function.
+
+You must run intensively however since, with a scale of 128 it takes
+6,000,000 times through a loop to overflow the sampling in one part of
+the code.
+
+FCATCH-FATAL
+Function in the SI package:
+Args: (i)
+
+Sets the value of the C variable catch_fatal to I which should be an integer.
+If catch_fatal is 1, then most unrecoverable fatal errors will be caught.
+Upon catching such an error catch_fatal becomes -1, to avoid recursive errors.
+The top level loop automatically sets catch_fatal to 1, if the value is less
+than zero.  Catching can be turned off by making catch_fatal = 0.
+
+
+
+V*MULTIPLY-STACKS*
+Variable in SI package:
+
+If this variable is set to a positive fixnum, then the next time through the
+TOP-LEVEL loop, the loop will be exited.  The size of the stacks will be
+multiplied by the value of *multiply-stacks*, and the TOP-LEVEL will be called
+again.  Thus to double the size of the stacks:
+
+>(setq si::*multiply-stacks* 2)
+[exits top level and reinvokes it, with the new stacks in place]
+>
+
+We must exit TOP-LEVEL, because it and any other lisp functions
+maintain many pointers into the stacks, which would be incorrect when the
+stacks have been moved.    Interrupting the process of growing the stacks,
+can leave you in an inconsistent state.
+
+FEMIT-FN
+Function in the COMPILER package:
+Args: (turn-on)
+If TURN-ON is t, the subsequent calls to  COMPILE-FILE will
+cause compilation of foo.lisp to emit a foo.fn as well as foo.o.
+The .fn file contains cross referencing information as well as
+information useful to the collection utilities in cmpnew/collectfn
+This latter file must be manually loaded to call emit-fn.
+
+VDYNAMIC-EXTENT
+Variable in the KEYWORD package:
+Declaration to allow locals to be cons'd on the C stack.
+For example
+(defun foo (&rest l) (declare (:dynamic-extent l)) ...)
+will cause l to be a list formed on the C stack of the foo function
+frame.
+Of course passing L out as a value of foo will cause havoc.
+(setq x (make-list n))
+(setq x (cons a b))
+(setq x (list a  b c ..))
+also are handled on the stack, for dynamic-extent x.
+
+
+FGBC-TIME
+Function in the SI package:
+Args: (&optional x)
+Sets the internal C variable gc_time to X if X is supplied and then
+returns gc_time.  If gc_time is greater or equal to 0, then gc_time is
+incremented by the garbage collector, according to the number of
+internal time units spent there.   The initial value of gc_time is -1.
+
+
+FFWRITE
+Function in the SI package:
+Args: (string start count stream)
+Write from STRING starting at char START (or 0 if it is nil) COUNT characters
+(or to end if COUNT is nil) to STREAM.  STREAM must be a stream such as
+returned by FP-OUTPUT-STREAM.  Returns nil if it fails.
+
+
+FFREAD
+Function in the SI package:
+Args: (string start count stream)
+Read characters into STRING starting at char START (or 0 if it is nil) COUNT
+characters (or from start to length of STRING if COUNT is nil).  Characters
+are read from STREAM.  STREAM must be a stream such as returned by
+FP-INPUT-STREAM.  Returns nil if it fails.  Return number of characters read
+if it succeeds.
+
+V*CMPINCLUDE-STRING*
+Variable in the COMPILER package:
+If it is a string it holds the text of the cmpinclude.h file appropriate for
+this version.  Otherwise the usual #include of *cmpinclude* will be used.  To
+disable this feature set *cmpinclude-string* to NIL in the init-form.
+
+FEMIT-FN
+Function in the COMPILER package:
+Args: (turn-on)
+
+If TURN-ON is t, then subsequent calls to compile-file on a file foo.lisp
+cause output of a file foo.fn.  This .fn file contains lisp structures
+describing the functions in foo.lisp.  Some tools for analyzing this data base
+are WHO-CALLS, LIST-UNDEFINED-FUNCTIONS, LIST-UNCALLED-FUNCTIONS, and
+MAKE-PROCLAIMS.
+
+Usage:
+(compiler::emit-fn t)
+(compile-file "foo1.lisp")
+(compile-file "foo2.lisp")
+
+This would create foo1.fn and foo2.fn.  These may be loaded using LOAD.  Each
+time compile-file is called the data base is cleared.  Immediately after the
+compilation, the data base consists of data from the compilation.  Thus if you
+wished to find functions called but not defined in the current file, you could
+do (list-undefined-functions), immediately following the compilation.  If you
+have a large system, you would load all the .fn files before using the above
+tools.
+
+FMAKE-ALL-PROCLAIMS
+Function in the COMPILER package:
+Args: (&rest directories)
+
+For each D in DIRECTORIES all files in (directory D) are loaded.
+
+For example 
+(make-all-proclaims "lsp/*.fn" "cmpnew/*.fn")
+would load any files in lsp/*.fn and cmpnew/*.fn.
+
+[See EMIT-FN for details on creation of .fn files] 
+
+Then calculations on the newly loaded .fn files are made, to determine
+function proclamations.  If number of values of a function cannot be
+determined [for example because of a final funcall, or call of a function
+totally unknown at this time] then return type * is assigned.
+
+Finally a file sys-proclaim.lisp is written out.  This file contains function
+proclamations.
+
+(load "sys-proclaim.lisp")
+(compile-file "foo1.lisp")
+(compile-file "foo2.lisp")
+
+
+
+FMAKE-PROCLAIMS
+Function in the COMPILER package:
+Args: (&optional (stream *standard-output*))
+
+Write to STREAM the function proclaims from the current data base.  Usually a
+number of .fn files are loaded prior to running this.  See EMIT-FN for details
+on how to collect this.  Simply use LOAD to load in .fn files.
+
+FLIST-UNDEFINED-FUNCTIONS
+Function in the COMPILER package:
+Args: ()
+
+Return a list of all functions called but not defined, in the current data
+base (see EMIT-FN).
+
+Sample:
+(compiler::emit-fn t)
+(compile-file "foo1.lisp")
+(compiler::list-undefined-functions)
+or
+(mapcar 'load (directory "*.fn")) (compiler::list-undefined-functions)
+
+FWHO-CALLS 
+Function in the COMPILER package:
+Args: (function-name)
+
+List all functions in the data base [see emit-fn] which call FUNCTION-NAME.
+
+FLIST-UNCALLED-FUNCTIONS
+Function in the COMPILER package:
+Args: ()
+
+Examine the current data base [see emit-fn] for any functions or macros which
+are called but are not: fboundp, OR defined in the data base, OR having
+special compiler optimizer properties which would eliminate an actual call.
+
+
+
+FSGC-ON
+Function in the SI package:
+Args: (&optional ON)
+If ON is not nil then SGC (stratified garbage collection) is turned
+on.   If ON is supplied and is nil, then SGC is turned off.
+If ON is not supplied, then it returns T if SGC is on, and NIL if
+SGC is off.
+
+The purpose of SGC is to prevent paging activity during garbage
+collection.  It is efficient if the actual number of pages being
+written to form a small percentage of the total image size.  The image
+should be built as compactly as possible.  This can be accomplished by
+using a settings such as (si::allocate-growth 'cons 1 10 50) to limit
+the growth in the cons maxpage to 10 pages per time.    Then
+just before calling si::save-system to save your image you can
+do something like:
+
+(si::set-hole-size 500)(gbc nil) (si::sgc-on t) (si::save-system ..)
+
+This makes the saved image come up with SGC on.  We have set a
+reasonably large hole size.  This is so that allocation of pages
+either because they fill up, or through specific calls to
+si::allocate, will not need to move all the relocatable data.  Moving
+relocatable data requires turning SGC off, performing a full gc, and
+then turning it back on.  New relocatable data is collected by SGC,
+but moving the old requires going through all pages of memory to
+change pointers into it.
+
+Using si::*notify-gbc* gives information about the number of pages
+used by SGC.   
+
+Note that SGC is only available on operating systems which provide
+the mprotect system call, to write protect pages.   Otherwise we
+cannot tell which pages have been written too.
+
+
+FALLOCATE-SGC
+Function in the SI package:
+Args: (type min-pages max-pages percent-free)
+If MIN-PAGES is 0, then this type will not be swept by SGC.    Otherwise
+this is the minimum number of pages to make available to SGC.   MAX-PAGES
+is the upper limit of such pages.   Only pages with PERCENT-FREE objects
+on them, will be assigned to SGC.
+A list of the previous values for min, max and percent are returned.
+
+FALLOCATE-GROWTH
+Function in the SI package:
+Args: (type min max percent)
+The next time after a GC for TYPE, if there are not sufficient objects
+free, as a percent of all such objects, and if the maximum number of
+pages for this type has already been allocated, then the maximum
+number will be increased by PERCENT of the old maximum,
+subject to the condition that this is at least MIN and at most MAX.
+A list of the previous values for min, max and percent are returned.
+
+Using (si::allocate-growth 'cons 1 10 50) would cause growth to be reasonably
+slow.   This would be a reasonable setting during building of a large system
+in order to pack the data together.   When running, a higher max and
+percent might be useful.
+FOPEN-FASD
+Function in the SI package:
+Args: (stream direction eof-value table)
+Given file STREAM open for input or output in DIRECTION,
+set it up to start writing or reading in fasd format.   When
+reading from this stream the EOF-VALUE will be returned when
+the end a fasd end of dump marker is encountered.   TABLE should
+be an eq hashtable on output, a vector on input, or nil.   In this
+last case a default one will be constructed.
+
+We shall refer to the result as a `fasd stream'.   It is
+suitable as the arg to CLOSE-FASD, READ-FASD-TOP, and as the second
+second arg to WRITE-FASD.   As a lisp object it is actually a vector,
+whose body coincides with:
+
+struct fasd {
+  object stream;   /* lisp object of type stream */
+  object table;  /* hash table used in dumping or vector on input*/
+  object eof;      /* lisp object to be returned on coming to eof mark */
+  object direction;    /* holds Cnil or Kinput or Koutput */
+  object package;  /* the package symbols are in by default */
+  object index;     /* integer.  The current_dump index on write  */
+  object filepos;   /* nil or the position of the start */ 
+  object table_length; /*    On read it is set to the size dump array needed
+		     or 0
+		     */
+  object macro ; }
+
+We did not use a defstruct for this, because we want the compiler to use this
+and it makes bootstrapping more difficult.   It is in "cmpnew/fasdmacros.lsp"
+
+
+FWRITE-FASD-TOP
+Function in the SI package:
+Args: (X FASD-STREAM)
+Write X to FASD-STREAM.
+
+FREAD-FASD-TOP
+Function in the SI package:
+Args: (FASD-STREAM)
+Read the next object from FASD-STREAM.   Return the eof-value of FASD-STREAM if we
+encounter an eof marker put out by CLOSE-FASD.   Encountering end of actual file
+stream causes an error.
+
+FCLOSE-FASD
+Function in the SI package:
+Args: (FASD-STREAM)
+On output write an eof marker to the associated file stream, and then
+make FASD-STREAM invalid for further output.   It also attempts to write
+information to the stream on the size of the index table needed to read from the
+stream from the last open.    This is useful in growing the array.
+It does not alter the file stream, other than for writing this information to it.
+The file stream may be reopened for further use.   It is an error
+to OPEN-FASD the same file or file stream again with out first calling CLOSE-FASD.
+
+
+
+
+FFIND-SHARING-TOP
+Function in the SI package:
+Args: (x table)
+X is any lisp object and TABLE is an eq hash table.  This walks through X
+making entries to indicate the frequency of symbols,lists, and arrays.
+Initially items get -1 when they are first met, and this is decremented by 1
+each time the object occurs.  Call this function on all the objects in a fasd
+file, which you wish to share structure.
+
+V*CC*
+Variable in the COMPILER package:
+Has value a string which controls which C compiler is used by GCL.
+Usually this string is obtained from the machine.defs file, but
+may be reset by the user, to change compilers or add an include path.
+
+V*SPLIT-FILES*
+Variable in the COMPILER package:
+This affects the behaviour of compile-file, and is useful for cases where
+the C compiler cannot handle large C files resulting from lisp compilation.
+This scheme should allow arbitrarily long lisp files to be compiled.
+
+If the  value [default NIL] is a positive integer, then the source file will
+be compiled into several object files whose names have 0,1,2,.. prepended,
+and which will be loaded by the main object file.     File 0 will
+contain compilation of top level forms thru position *split-files* in the
+lisp source file, and file 1 the next forms, etc.   Thus a 180k file
+would probably result in three object files (plus the master object file
+of the same name) if *split-files* was set to 60000.
+The package information will be inserted in each file.
+
+V*LOAD-PATHNAME*
+Variable in the SI package:
+Load binds this to the pathname of the file being loaded.
+
+V*COMPILE-ORDINARIES*
+Variable in the COMPILER package:
+If this has a non nil value [default = nil], then all top level
+forms will be compiled into machine instructions.    Otherwise
+only defun's, defmacro's, and top level forms beginning
+with (progn 'compile ...) will do so.
+
+FDEFINE-INLINE-FUNCTION
+Macro in the SI package:
+Args: (fname vars &body body)
+This is equivalent to defun except that VARS may not contain
+&optional, &rest, &key or &aux.   Also a compiler property is
+added, which essentially saves the body and turns this into
+a let of the VARS and then execution of the body.   This
+last is done using si::DEFINE-COMPILER-MACRO
+Example:
+(si::define-inline-function myplus (a b c) (+ a b c))
+
+FDEFINE-COMPILER-MACRO
+Macro in the SI package:
+Args:(fname vars &body body)
+FNAME may be the name of a function, but at compile time the macro
+expansion given by this is used.
+
+(si::define-compiler-macro mycar (a) `(car ,a))
+
+TDBL
+Function in the SI package:
+Args:()
+Invoke a top level loop, in which debug commands may be entered.
+These commands may also be entered at breaks, or in the error
+handler.
+See SOURCE-LEVEL-DEBUG
+
+TNLOAD
+Function in the SI package:
+Args:(file)
+Load a file with the readtable bound to a special readtable, which
+permits tracking of source line information as the file is loaded.
+see SOURCE-LEVEL-DEBUG
+
+TSOURCE-LEVEL-DEBUG
+
+PRELIMINARY:
+
+In emacs load (load "dbl.el") from the gcl/doc directory.
+[ It also requires gcl.el from that directory.    Your system
+administrator should do make in the doc directory, so that
+these files are copied to the standard location.]
+
+OVERVIEW:
+
+   Lisp files loaded with si::nload will have source line information about
+them recorded.  Break points may be set, and functions stepped.  Source code
+will be automatically displayed in the other window, with a little arrow beside
+the current line.  The backtrace (command :bt) will show line information and
+you will get automatic display of the source as you move up and down the stack.
+
+FUNCTIONS:
+break points which have been set.
+   si::nload (file)
+      load a lisp file collecting source line information.
+    
+   si::break-function (function &optional line absolute)
+     set up a breakpoint for FUNCTION at LINE relative to start or ABSOLUTE
+
+EMACS COMMANDS:
+M-x dbl makes a dbl buffer, suitable for running an inferior gcl.
+It has special keybindings for stepping and viewing sources.
+
+Inferior Dbl Mode:
+Major mode for interacting with an inferior Dbl process.
+The following commands are available:
+
+C-c l           dbl-find-line
+
+ESC d           dbl-:down
+ESC u           dbl-:up
+ESC c           dbl-:r
+ESC n           dbl-:next
+ESC i           dbl-:step
+ESC s           dbl-:step
+
+
+M-x dbl-display-frame displays in the other window
+the last line referred to in the dbl buffer.
+
+ESC i and ESC n in the dbl window,
+call dbl to step and next and then update the other window
+with the current file and position.
+
+If you are in a source file, you may select a point to break
+at, by doing C-x SPC.
+
+Commands:
+Many commands are inherited from shell mode. 
+Additionally we have:
+
+M-x dbl-display-frame display frames file in other window
+ESC i advance one line in program
+ESC n advance one line in program (skip over calls).
+M-x send-dbl-command used for special printing of an arg at the current point.
+C-x SPACE sets break point at current line.
+
+----------------------------
+
+   When visiting a lisp buffer (if gcl.el is loaded in your emacs) the command
+c-m-x evaluates the current defun into the process running in the other window.
+Line information will be kept.  This line information allows you to set break
+points at a given line (by typing C-x \space on the line in the source file
+where you want the break to occur.  Once stopped within a function you may
+single step with M-s.  This moves one line at a time in the source code,
+displaying a little arrow beside your current position.  M-c is like M-s,
+except that function invocations are skipped over, rather than entered into.
+M-c continues execution.
+
+   Keywords typed at top level, in the debug loop have
+a special meaning:
+
+  :delete  [n1] [n2] .. -- delete all break points or just n1,n2
+  :disable [n1] [n2] .. -- disable all break points or just n1,n2
+  :enable  [n1] [n2] .. -- enable all break points or just n1,n2
+  :info  [:bkpt]      --print information about 
+  :break [fun] [line] -- break at the current location, or if
+     fun is supplied in fun.   Break  at the beginning unless a
+     line offset from the beginning of fun is supplied.
+  :fr [n] go to frame n   When in frame n, if the frame is interpreted,
+    typing the name of locals, will print their values.   If it is compiled
+    you must use (si::loc j) to print `locj'.   Autodisplay of the source
+    will take place if it is interpreted and the line can be determined.
+  :up [n] go up n frames from the current frame.
+  :down [n] go down n frames
+  :bt [n] back trace starting at the current frame and going to top level
+     If n is specified show only n frames.
+  :r  If stopped in a function resume.   If at top level in the dbl
+   loop, exit and resume an outer loop.
+  :q  quit the computation back to top level dbl loop.
+  :step step to the next line with line information
+  :next  step to the next line with line information skipping over function
+    invocations.
+
+Files:  debug.lsp
+        dbl.el
+        gcl.el
+
+
+
+
+TLOW-LEVEL-DEBUG
+
+Use the following functions to directly access KCL stacks.
+
+(SI:VS i)	Returns the i-th entity in VS.
+(SI:IHS-VS i)	Returns the VS index of the i-th entity in IHS.
+(SI:IHS-FUN i)	Returns the function of the i-th entity in IHS.
+(SI:FRS-VS i)	Returns the VS index of the i-th entity in FRS.
+(SI:FRS-BDS i)	Returns the BDS index of the i-th entity in FRS.
+(SI:FRS-IHS i)	Returns the IHS index of the i-th entity in FRS.
+(SI:BDS-VAR i)	Returns the symbol of the i-th entity in BDS.
+(SI:BDS-VAL i)	Returns the value of the i-th entity in BDS.
+
+(SI:SUPER-GO i tag)
+	Jumps to the specified tag established by the TAGBODY frame at
+	FRS[i].  Both arguments are evaluated.  If FRS[i] happens to be
+	a non-TAGBODY frame, then (THROW (SI:IHS-TAG i) (VALUES)) is
+	performed.
+
+For the KCL stacks, refer to Appendix B of the KCL Report.
+
+TENVIRONMENT
+The environment in GCL which is passed to macroexpand and
+other functions requesting an environment, should be a
+list of 3 lists.    The first list looks like ((v1 val1) (v2 val2) ..)
+where vi are variables and vali are their values.    
+The second is a list of ((fname1 . fbody1) (fname2 . fbody2) ...)
+where fbody1 is either (macro lambda-list lambda-body) or
+(lambda-list lambda-body) depending on whether this is a macro
+or a function.   The third list contains tags and blocks.
+
+
+FBREAK-FUNCTION
+Function in the SI package:
+Args: (function &optional line absolute)
+Set a breakpoint for a FUNCTION at LINE if the function has source
+information loaded.  If ABSOLUTE is not nil, then the line is understood to be
+relative to the beginning of the buffer.  See also dbl-break-function, the
+emacs command.
+
+FXDR-OPEN
+Function in the SI package:
+Args: (stream)
+Returns an object suitable for passing to XDR-READ if the stream
+is an input stream, and XDR-WRITE if it was an output stream.
+Note the stream must be a unix stream, on which  si::fp-input-stream
+or si::fp-output-stream would act as the identity.
+
+
+FFP-INPUT-STREAM
+Function in the SI package:
+Args: (stream)
+Return a unix stream for input associated to STREAM if possible,
+otherwise return nil.
+
+FFP-OUTPUT-STREAM
+Function in the SI package:
+Args: (stream)
+Return a unix stream for output associated to STREAM if possible,
+otherwise return nil.
+
+
+FXDR-READ
+Function in the SI package:
+Args: (stream element)
+Read one item from STREAM of type the type of ELEMENT.    The representation
+of the elements is machine independent.    The xdr routines are what is
+used by the basic unix rpc calls.    
+
+FXDR-WRITE
+Function in the SI package:
+Args: (stream element)
+Write to STREAM the given ELEMENT.
+
+
+
+FCOND-ERROR
+Macro in the SERROR package: Args: (variables body-form &body clauses) If a
+condition is signalled during evaluation of body-form, The first of VARIABLES
+is bound to the condition, and the clauses are evaluated like cond clauses, If
+the cond falls off the end, then the error is signaled at this point in the
+stack.  For the moment the rest of the VARIABLES are ignored.  This form is in
+the lsp/serror.lsp file, which is not automatically loaded.
+
+>(import 'serror::cond-error)
+>(defun joe(x) (+ 1 x))
+JOE
+>(defun te (n)
+  (cond-error (er) (progn (1+ n))
+     ((null n) (print n) (print er) n)
+     ((symbolp n) (print n))))
+TE
+>(te 2)
+3
+>(te 'a)
+A 
+>(te "a")
+
+Error: "a" is not of type NUMBER.
+Error signalled by +.
+Broken at APPLY.  Type :H for Help.
+>>:bt
+#0   APPLY {loc0=#<compiled-function system:universal-error-handler>} [ihs=19]
+#1   + {loc0=1,loc1="a",loc2=:wrong-type-argument,loc3=nil,loc4=+,loc5="",loc6="~S is n...} [ihs=15]
+#2   JOE {} [ihs=14]
+#3   TE {} [ihs=6]
+#4   EVAL {loc0=nil,loc1=nil,loc2=nil,loc3=(lambda-block te (n) ...),loc4="a"} [ihs=5]
+
+
+FCOND-ANY-ERROR
+Macro in the SERROR package: Args: (variables body-form &body clauses) If a
+This is similar to COND-ERROR but is faster.  It uses catch and throw rather
+than closures.  The main difference is where the error handler (if the error
+is not handled automatically)
+
+V*TOP-LEVEL-HOOK*
+Variable in the SI package:
+If this variable is has a function as its value at start up time, then
+it is run immediately after the init.lsp file is loaded.    This is useful
+for starting up an alternate top level loop.
+
+TINIT
+If the file init.lsp exists in the current directory, it is
+loaded at startup.  The first argument passed to the executable image
+should be the system directory.  Normally this would be gcl/unixport.
+This directory is stored in the si::*system-directory* variable.  If
+the file sys-init.lsp exists in the system directory, it is loaded
+before init.lsp.  See also si::*TOP-LEVEL-HOOK*.
+
+FMULTIPLY-BIGNUM-STACK
+Function in the SI package:
+Args: (n)
+Increase the internal bignum stack by a factor of N.  Normally space on this
+stack is recovered after each complete lisp expression is evaluated.  However
+if you are dealing with large integers, you may need to use this function 
+to increase the stack.
+
+
+TWINDOW
+A sample program for drawing things on X windows from lisp
+is included in the file gcl/lsp/littleXlsp.lsp
+
+That routine invokes the corresponding C routines in XLIB.
+So in order to use it you must `faslink' in the X routines.
+Directions are given at the beginning of the lisp file,
+for either building them into the image or using faslink.
+
+This program is also a good tutorial on invoking C from lisp.
+
+FRUN-PROCESS
+Function in the SI package:
+Args: (string arglist)
+
+Execute the command STRING in a subshell passing the strings in the
+list ARGLIST as arguments to the command.  Return a two way stream
+associated to this.  Use si::fp-output-stream to get an associated
+output stream or si::fp-input-stream.
+
+Bugs: It does not properly deallocate everything, so that it will fail
+if you call it too many times.
+
+TFOREIGN-FUNCTIONS
+
+See documentation on defentry and faslink.
+The documentWindow discusses some examples.
+The file lsp/littleXlsp.lsp provides a good example.
+
+
+
+
+
+
+

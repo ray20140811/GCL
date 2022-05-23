@@ -1,0 +1,47 @@
+
+# Machine dependent makefile definitions for intel 386,486 running linux
+# If using gnu libc, use version >= 4.21
+
+LBINDIR=/usr/local/bin
+
+OFLAG	=  -O 
+LIBS	= -lm 
+ODIR_DEBUG= -O4
+
+# This CC string will be used for compilation of the system,
+# and also in the compiler::*cc* variable for later compilation of
+# lisp files.
+
+CC = gcc -fwritable-strings  -DVOL=volatile -I$(GCLDIR)/o 
+
+
+# Enable the fastloading mechanism which does not use ld -A
+# requires c/rel_.. machine dependent code.
+
+RSYM	= rsym
+SFASL	= $(ODIR)/sfasl.o
+
+#  Use the mp.s file on 68k machine 
+
+# new gcc doesn't make a good .s file using optimisations.
+# so either use $(MPDIR)/mpi.o   $(MPDIR)/libmport.a
+#MPFILES= $(MPDIR)/mpi-386.o   $(MPDIR)/libmport.a
+
+MPFILES= $(MPDIR)/mpi-386d.o   $(MPDIR)/libmport.a
+
+
+# When using SFASL it is good to have (si::build-symbol-table)
+INITFORM=(si::build-symbol-table)
+
+# Use symbolic links
+SYMB=-s
+
+LIBFILES=bsearch.o
+
+# the  make to use for saved_kcp the profiler.
+KCP=kcp-bsd
+
+# dont add the .data 
+CAT=true
+
+

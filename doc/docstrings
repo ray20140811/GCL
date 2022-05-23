@@ -1,0 +1,29 @@
+A facility for completion and on line help in emacs, for common lisp
+documentation is provided.
+To use this facility you must have gnu emacs, and you must copy the
+lsp/*.el files into the emacs/lisp directory.
+
+cp lsp/*.el /usr/local/src/emacs/lisp
+(or onto a path in the emacs load-path)
+
+You must also
+make -f Smakefile doc
+
+Also install print_doc onto your search path
+mv xbin/print_doc /usr/local/bin
+
+Load library find-doc
+Now the keystroke
+C-h d
+will then obtain documentation on any common lisp symbol, in the other
+window, just as emacs does.
+
+To build documentation on a collection of lisp files:
+
+xbin/edoc *.lisp
+
+
+
+
+
+

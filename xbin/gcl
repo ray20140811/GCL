@@ -1,0 +1,2 @@
+#!/bin/sh
+/d11/wfs/newakcl/unixport/saved_gcl -dir /d11/wfs/newakcl/unixport/ $@ 

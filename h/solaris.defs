@@ -1,0 +1,47 @@
+
+LBINDIR=/usr/local/bin
+OFLAG	=  -O
+LIBS	= -lm -lsocket -lnsl 
+
+
+CC = cc  -DVOL=  -I$(GCLDIR)/o -Bstatic -temp=. -pipe
+ODIR_DEBUG=-O4
+
+#gcc 2.1 and 2.2 compile akcl correctly as far as I have been able to determine.
+#gcc 2.3.3 does not compile akcl correctly
+#gcc 2.4.5 does compile akcl, but does fail on some subsequent tests.
+#gcc 2.5.3 does compile gcl correctly and runs all the tests we have.
+
+CC = gcc -I${GCLDIR}/o -static -DVOL=volatile 
+ODIR_DEBUG= -O -g
+
+#The new optional for money compiler has not been tested recently.
+# it used to fail to compile o/format.o correctly.
+#CC =  /usr/local/lang/cc  -DVOL=  -I$(GCLDIR)/o -Bstatic -temp=. -pipe
+ODIR_DEBUG= -O4
+
+AS=as -P -D__svr4__
+
+CFLAGS	= -c $(DEFS)  -I../h
+
+MAIN    = ../o/main.o
+
+MPFILES=$(MPDIR)/mpi-sol-sparc.o $(MPDIR)/sparcdivul3.o $(MPDIR)/libmport.a
+#MPFILES=${MPDIR}/mpi.o ${MPDIR}/libmport.a
+
+RSYM	= rsym
+SFASL	= $(ODIR)/sfasl.o
+
+# This function will be run before dumping.
+# When using SFASL it is good to have (si::build-symbol-table)
+INITFORM=(si::build-symbol-table)
+
+GNULIB1=
+
+# Use symbolic links
+SYMB=-s
+# the  make to use for saved_kcp the profiler.
+KCP=kcp-sun
+
+NULLFILE = ../h/secondary_sun_magic
+

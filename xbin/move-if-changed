@@ -1,0 +1,15 @@
+#!/bin/sh
+
+F1=$1
+F2=$2
+
+if
+cmp $1 $2 > /dev/null
+then  echo $1 and $2  are identical ;
+else
+echo $1 and $2 were not the same.
+rm -f $2
+ln $1 $2
+echo ln $1 $2
+fi
+

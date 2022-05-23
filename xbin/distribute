@@ -1,0 +1,55 @@
+#!/bin/sh
+GCL=`pwd`
+FTPDIR=rascal.ics.utexas.edu:/usr2/ftp/pub/gcl
+
+
+
+# done moving aside the .c files we don't want to ship.
+
+OPT=-9
+
+DNAME="gcl-`cat ${GCL}/majvers`.`cat ${GCL}/minvers`"
+NAME="${NAME}.tgz"
+if [ $# -eq 1 ] ; then FILE=$1 ;
+OPT=
+else
+FILE=/tmp/${NAME}
+rcp ${GCL}/c/ChangeLog ${FTPDIR}/gcl-ChangeLog
+rcp ${GCL}/README ${FTPDIR}/GCL.README
+fi
+cd ${GCL}/..
+rm -f ${DNAME}
+if ln -s ${GCL} ${DNAME} ; then echo made link ;
+else echo cant link ; exit 1 ;
+fi
+cd ${GCL}
+(cd .. ; tar cvf - `${GCL}/xbin/new-files ${GCL} ${DNAME}`)  | gzip -c ${OPT} > ${FILE}
+rm -f ../${DNAME}
+if  [ $# -eq 0 ] ; then
+rcp ${FILE} ${FTPDIR}/${NAME}
+fi
+
+
+if [ $# -eq 0 ] ; then
+   echo wfs > tmpx
+   echo binary >> tmpx
+   echo send ${FILE} pub/gcl/${NAME} >> tmpx
+   echo send README pub/gcl/GCL.README >> tmpx
+   echo send c/ChangeLog  pub/gcl/ChangeLog >> tmpx	
+   cat tmpx | ftp ftp.cli.com
+   rm -f tmpx 	
+
+echo binary >tmpx
+echo cd kcl/akcl >> tmpx
+echo prompt >> tmpx
+echo 'mdel akcl-1*.Z gcl-1*' >> tmpx
+echo send ${FILE} ${NAME} >> tmpx
+echo send README GCL.README >> tmpx
+echo send c/ChangeLog ChangeLog >> tmpx
+echo quit >> tmpx
+cat tmpx | ftp 133.11.11.11
+fi
+
+rm -f tmpx
+
+

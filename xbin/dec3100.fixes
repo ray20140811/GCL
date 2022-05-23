@@ -1,0 +1,18 @@
+#!/bin/sh
+
+FILE=V/h/cmpinclude.h
+
+if  fgrep Z100 ${FILE} > /dev/null  ; then true; exit 0  ;
+else
+
+cat ${FILE} | sed -e "1,/object symbol_name();/!d" > tmpx
+BIL=100
+while [ ${BIL} -le 700 ]; do
+BIL=`echo 1 + ${BIL} | bc`
+echo '#define' T${BIL} Z${BIL} >> tmpx
+done
+
+cat ${FILE} | sed -e "1,/object symbol_name();/d" >> tmpx
+mv tmpx V/h/cmpinclude.h
+fi
+
